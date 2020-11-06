@@ -21,7 +21,7 @@ if sys.argv[3] == "DNA":
     for line in file:
       if not (line.startswith('>')):
         if no_seq == 0:
-          count_matrix = np.zeros((7, math.ceil(len(line)/window)+1))
+          count_matrix = np.zeros((7, math.ceil(len(line)/window)))
         no_seq += 1
         for j in range(0, len(line)):
           i = math.floor(j/window)
