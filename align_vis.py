@@ -1,7 +1,6 @@
 # Tool to visualise the base frequency from a MSA
 # input like this: python 3 align_nis.py MSA.fasta grouping_size DNA_or_AA
 
-
 import sys
 import math
 import numpy as np
