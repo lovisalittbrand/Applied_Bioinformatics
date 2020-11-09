@@ -1,5 +1,5 @@
 # Tool to visualise the base frequency from a MSA
-# input like this: python 3 align_nis.py MSA.fasta grouping_size DNA_or_AA
+# input like this: python3 align_nis.py MSA.fasta grouping_size DNA_or_AA
 
 import sys
 import math
@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 filename = sys.argv[1]
 window = int(sys.argv[2])
@@ -15,12 +16,14 @@ window = int(sys.argv[2])
 if sys.argv[3] == "DNA":
   # Count number of sequences
   no_seq = 0
+  seq_length = 0
   # Reads alignment file and counts bases in for each posisiton and creates a matrix containing the data
   with open(filename, 'r') as file:
     for line in file:
       if not (line.startswith('>')):
         if no_seq == 0:
-          count_matrix = np.zeros((7, math.ceil(len(line)/window)))
+          seq_length = len(line)
+          count_matrix = np.zeros((7, math.ceil(seq_length/window)))
         no_seq += 1
         for j in range(0, len(line)):
           i = math.floor(j/window)
@@ -50,17 +53,46 @@ if sys.argv[3] == "DNA":
   combined_data = {'A_T': df['A']+df['T'], 'C_G': df['C']+df['G'], 'u_n': df['n']+df['unknown'], 'gap': df['-']}
   df_combined = pd.DataFrame(combined_data)
 
+  gene_data = {'Gene 1': [seq_length*0.4], 'Gene 2': [seq_length*0.3], 'Gene 3': [seq_length*0.2], 'Gene 4': [seq_length*0.1]}
+  df_gene_info = pd.DataFrame(gene_data)
+
   # Visualise the data using plotly 
   fig = go.Figure()
 
+  fig = make_subplots(
+    rows=2, cols=1,
+    shared_xaxes=True,
+    vertical_spacing=0.03,
+    specs=[[{"type": "bar"}],
+           [{"type": "bar"}]]
+
+  )
+
+  base_colors = ['red', 'blue', 'green', 'gray']
+  l = 0
   for column in df_combined.columns.to_list():
       fig.add_trace(
           go.Bar(
               x = df_combined.index*window,
               y = df_combined[column],
-              name = column
-          )
+              name = column,
+              marker_color = base_colors[l]
+          ),
+          row=1, col=1
       )
+      l += 1
+
+  for column in df_gene_info.columns.to_list():
+      fig.add_trace(
+          go.Bar(
+              x = df_gene_info[column],
+              y = [0, 0],
+              name = column,
+              orientation='h'
+          ),
+          row=2, col=1
+      )
+
 
   fig.update_layout(barmode='stack')
   fig.update_layout(
@@ -69,34 +101,46 @@ if sys.argv[3] == "DNA":
           buttons=list(
               [dict(label = 'All',
                     method = 'update',
-                    args = [{'visible': [True, True, True, True]},
+                    args = [{'visible': [True, True, True, True, True, True, True, True]},
                             {'barmode':'stack', 'title': 'All',
                             'showlegend':True,}
                             ]),
               dict(label = 'A and T',
                     method = 'update',
-                    args = [{'visible': [True, False, False, False]},
-                            {'barmode':'group', 'title': 'A_T',
+                    args = [{'visible': [True, False, False, False, True, True, True, True]},
+                            {'barmode':'stack', 'title': 'A_T',
                             'showlegend':True, 'marker_color': 'rgb(26, 118, 255)'}]),
               dict(label = 'C and G',
                     method = 'update',
-                    args = [{'visible': [False, True, False, False]},
-                            {'barmode':'group', 'title': 'C_G',
+                    args = [{'visible': [False, True, False, False, True, True, True, True]},
+                            {'barmode':'stack', 'title': 'C_G',
                             'showlegend':True}]),
               dict(label = 'N and Unknown',
                     method = 'update',
-                    args = [{'visible': [False, False, True, False]},
-                            {'barmode':'group', 'title': 'u_n',
+                    args = [{'visible': [False, False, True, False, True, True, True, True]},
+                            {'barmode':'stack', 'title': 'u_n',
                             'showlegend':True}]),
               dict(label = 'Gap',
                     method = 'update',
-                    args = [{'visible': [False, False, False, True]},
-                            {'barmode':'group', 'title': '-',
+                    args = [{'visible': [False, False, False, True, True, True, True, True]},
+                            {'barmode':'stack', 'title': '-',
                             'showlegend':True}])
               ])
           )
       ])
-  fig.update_yaxes(range=[0, 1])
+  fig.update_yaxes(range=[0, 1], row=1, col=1)
+  fig.update_yaxes(range=[0, 0.4], row=2, col=1)
+  fig.update_yaxes(fixedrange=True)
+  fig.update_xaxes(range=[0, seq_length])
+  fig.update_xaxes(showticklabels=True, row=2, col=1)
+
+  fig.update_layout(
+    xaxis2=dict(
+        rangeslider=dict( 
+            visible=True 
+        )
+    )
+) 
 
   fig.show()
 
