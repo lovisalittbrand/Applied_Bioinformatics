@@ -1,6 +1,11 @@
 # Tool to visualise the base frequency from a MSA
-# input like this: python3 align_nis.py MSA.fasta grouping_size DNA_or_AA
+# input like this: python3 align_nis.py MSA.fasta window DNA_or_AA -pf partition_file
+# MSA.fasta: The alignment file
+# window: Size of window that calculates the frequency
+# DNA_or_AA: Is the seaquence DNA or amin acid. DNA for DNA and AA for amino acid
+# partition_file: The partition file in nexus format. Optional
 
+import argparse
 import sys
 import math
 import numpy as np
@@ -8,12 +13,31 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import re
 
-filename = sys.argv[1]
-window = int(sys.argv[2])
+
+def parseArguments():
+    parser = argparse.ArgumentParser()
+    # Mandatory arguments
+    parser.add_argument("alignemnt_file", help="Alignment file", type=str)
+    parser.add_argument("window", help="Window size", type=int)
+    parser.add_argument("data", help="DNA or AA", type=str)
+    # Optional arguments
+    parser.add_argument("-pf", "--partfile", help="Partitionfile in nexus format", type=str, default=None)
+    # Version
+    parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
+    args = parser.parse_args()
+
+    return args
+args = parseArguments()
+
+filename = args.alignemnt_file
+window = args.window
+partition_file = args.partfile
+data_type = args.data
 
 # Check if data is DNA 
-if sys.argv[3] == "DNA":
+if data_type == "DNA":
   # Count number of sequences
   no_seq = 0
   seq_length = 0
@@ -53,19 +77,32 @@ if sys.argv[3] == "DNA":
   combined_data = {'A_T': df['A']+df['T'], 'C_G': df['C']+df['G'], 'u_n': df['n']+df['unknown'], 'gap': df['-']}
   df_combined = pd.DataFrame(combined_data)
 
-  gene_data = {'Gene 1': [seq_length*0.4], 'Gene 2': [seq_length*0.3], 'Gene 3': [seq_length*0.2], 'Gene 4': [seq_length*0.1]}
+  gene_data = dict()
+  if (partition_file != None):
+    with open(partition_file, 'r') as file:
+      for line in file:
+        if (line.startswith('charset')):
+          m = re.match(r"charset (.+) = (\d+)-(\d+);", line)
+          gene_data[m[1]] = [int(m[3])-int(m[2])+1]
+  else:
+    gene_data = {'No genes specified': [seq_length]}
+  
   df_gene_info = pd.DataFrame(gene_data)
+
 
   # Visualise the data using plotly 
   fig = go.Figure()
 
   fig = make_subplots(
-    rows=2, cols=1,
+    rows=6, cols=1,
     shared_xaxes=True,
     vertical_spacing=0.03,
-    specs=[[{"type": "bar"}],
-           [{"type": "bar"}]]
-
+    specs=[[{"rowspan": 5}],
+          [None],
+          [None],
+          [None],
+          [None],
+           [{}]]
   )
 
   base_colors = ['red', 'blue', 'green', 'gray']
@@ -73,7 +110,7 @@ if sys.argv[3] == "DNA":
   for column in df_combined.columns.to_list():
       fig.add_trace(
           go.Bar(
-              x = df_combined.index*window,
+              x = df_combined.index*window +1,
               y = df_combined[column],
               name = column,
               marker_color = base_colors[l]
@@ -86,14 +123,18 @@ if sys.argv[3] == "DNA":
       fig.add_trace(
           go.Bar(
               x = df_gene_info[column],
-              y = [0, 0],
+              y = [0 for i in range(len(gene_data))] ,
               name = column,
+              text=column,
+              textposition='auto',
+              textfont_color="white",
+              showlegend=False,
               orientation='h'
           ),
-          row=2, col=1
+          row=6, col=1
       )
 
-
+  gene_plot = [True for i in range(len(gene_data))] 
   fig.update_layout(barmode='stack')
   fig.update_layout(
       updatemenus=[go.layout.Updatemenu(
@@ -101,28 +142,28 @@ if sys.argv[3] == "DNA":
           buttons=list(
               [dict(label = 'All',
                     method = 'update',
-                    args = [{'visible': [True, True, True, True, True, True, True, True]},
+                    args = [{'visible': [True, True, True, True] + gene_plot},
                             {'barmode':'stack', 'title': 'All',
                             'showlegend':True,}
                             ]),
               dict(label = 'A and T',
                     method = 'update',
-                    args = [{'visible': [True, False, False, False, True, True, True, True]},
+                    args = [{'visible': [True, False, False, False] + gene_plot},
                             {'barmode':'stack', 'title': 'A_T',
                             'showlegend':True, 'marker_color': 'rgb(26, 118, 255)'}]),
               dict(label = 'C and G',
                     method = 'update',
-                    args = [{'visible': [False, True, False, False, True, True, True, True]},
+                    args = [{'visible': [False, True, False, False] + gene_plot},
                             {'barmode':'stack', 'title': 'C_G',
                             'showlegend':True}]),
               dict(label = 'N and Unknown',
                     method = 'update',
-                    args = [{'visible': [False, False, True, False, True, True, True, True]},
+                    args = [{'visible': [False, False, True, False] + gene_plot},
                             {'barmode':'stack', 'title': 'u_n',
                             'showlegend':True}]),
               dict(label = 'Gap',
                     method = 'update',
-                    args = [{'visible': [False, False, False, True, True, True, True, True]},
+                    args = [{'visible': [False, False, False, True] + gene_plot},
                             {'barmode':'stack', 'title': '-',
                             'showlegend':True}])
               ])
@@ -145,15 +186,17 @@ if sys.argv[3] == "DNA":
   fig.show()
 
 # Check if AA
-elif sys.argv[3] == "AA":
+elif data_type == "AA":
   no_seq = 0
+  seq_length = 0
   # Reads alignment file and counts aa in for each posisiton and creates a matrix containing the data
   aa_list = ["a", "r", "n", "d", "c", "q", "e", "g", "h", "i", "l", "k", "m", "f", "p", "s", "t", "w", "y", "v", "-"]
   with open(filename, 'r') as file:
     for line in file:
       if not (line.startswith('>')):
         if no_seq == 0:
-          count_matrix = np.zeros((21, math.ceil(len(line)/window)))
+          seq_length = len(line)
+          count_matrix = np.zeros((21, math.ceil((seq_length/window))))
         no_seq += 1
         for j in range(0, len(line)):
           i = math.floor(j/window)
@@ -171,8 +214,32 @@ elif sys.argv[3] == "AA":
 
   df = pd.DataFrame(aa_dict)
 
+  gene_data = dict()
+  if (partition_file != None):
+    with open(partition_file, 'r') as file:
+      for line in file:
+        if (line.startswith('charset')):
+          m = re.match(r"charset (.+) = (\d+)-(\d+);", line)
+          gene_data[m[1]] = [int(m[3])-int(m[2])+1]
+  else:
+    gene_data = {'No genes specified': [seq_length]}
+  
+  df_gene_info = pd.DataFrame(gene_data)
+
   # Visualise the data.
   fig = go.Figure()
+
+  fig = make_subplots(
+    rows=6, cols=1,
+    shared_xaxes=True,
+    vertical_spacing=0.03,
+    specs=[[{"rowspan": 5}],
+          [None],
+          [None],
+          [None],
+          [None],
+           [{}]]
+  )
 
   fig.update_layout(barmode='stack')
 
@@ -182,23 +249,41 @@ elif sys.argv[3] == "AA":
               x = df.index*window,
               y = df[column],
               name = column
-          )
+          ),
+          row=1, col=1
       )
-  
+
+  for column in df_gene_info.columns.to_list():
+      fig.add_trace(
+          go.Bar(
+              x = df_gene_info[column],
+              y = [0 for i in range(len(gene_data))] ,
+              name = column,
+              text=column,
+              textposition='auto',
+              textfont_color="white",
+              showlegend=False,
+              orientation='h'
+          ),
+          row=6, col=1
+      )
+
+  gene_plot = [True for i in range(len(gene_data))] 
   buttons = [dict(label = 'All',
                     method = 'update',
-                    args = [{'visible': [True for i in range(len(aa_list))]},
+                    args = [{'visible': [True for i in range(len(aa_list))] + gene_plot},
                             {'barmode':'stack', 'title': 'All',
                             'showlegend':True,}
                             ])]
+
 
   for aa in aa_list:
     false_list =  [False for i in range(len(aa_list))] 
     false_list[aa_list.index(aa)] = True
     button = [dict(label = aa.upper(),
                     method = 'update',
-                    args = [{'visible': false_list},
-                            {'barmode':'group', 'title': aa.upper(),
+                    args = [{'visible': false_list + gene_plot},
+                            {'barmode':'stack', 'title': aa.upper(),
                             'showlegend':True}])]
     buttons = buttons + button
 
@@ -211,7 +296,20 @@ elif sys.argv[3] == "AA":
               )
           )
       ])
-  fig.update_yaxes(range=[0, 1])
+
+  fig.update_yaxes(range=[0, 1], row=1, col=1)
+  fig.update_yaxes(range=[0, 0.4], row=2, col=1)
+  fig.update_yaxes(fixedrange=True)
+  fig.update_xaxes(range=[0, seq_length])
+  fig.update_xaxes(showticklabels=True, row=2, col=1)
+
+  fig.update_layout(
+    xaxis2=dict(
+        rangeslider=dict( 
+            visible=True 
+        )
+    )
+) 
 
   fig.show()
 
