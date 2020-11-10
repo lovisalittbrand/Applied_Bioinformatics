@@ -24,6 +24,7 @@ def parseArguments():
     parser.add_argument("data", help="DNA or AA", type=str)
     # Optional arguments
     parser.add_argument("-pf", "--partfile", help="Partitionfile in nexus format", type=str, default=None)
+    parser.add_argument("-g", "--gapexclude", help="Calculate frequency excluding gaps", type=bool, default=False)
     # Version
     parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
     args = parser.parse_args()
@@ -35,6 +36,7 @@ filename = args.alignemnt_file
 window = args.window
 partition_file = args.partfile
 data_type = args.data
+gapexclude = args.gapexclude
 
 # Check if data is DNA 
 if data_type == "DNA":
@@ -42,41 +44,45 @@ if data_type == "DNA":
   no_seq = 0
   seq_length = 0
   # Reads alignment file and counts bases in for each posisiton and creates a matrix containing the data
+  base_list = ["a", "t", "c", "g", "-", "n"]
   with open(filename, 'r') as file:
     for line in file:
       if not (line.startswith('>')):
         if no_seq == 0:
           seq_length = len(line)
-          count_matrix = np.zeros((7, math.ceil(seq_length/window)))
+          count_matrix = np.zeros((len(base_list)+1, math.ceil(seq_length/window)))
         no_seq += 1
         for j in range(0, len(line)):
           i = math.floor(j/window)
-          base = line[j]
-          if (base.lower() == "a"):
-            count_matrix[0, i] += 1
-          elif (base.lower() == "t"):
-            count_matrix[1, i] += 1
-          elif (base.lower() == "c"):
-            count_matrix[2, i] += 1
-          elif (base.lower() == "g"):
-            count_matrix[3, i] += 1
-          elif (base.lower() == "-"):
-            count_matrix[4, i] += 1
-          elif (base.lower() == "n"):
-            count_matrix[5, i] += 1
-          else:
-            count_matrix[6, i] += 1
-  
+          obs_base = line[j]
+          found = False
+          for base in base_list:
+            if obs_base.lower() == base:
+              count_matrix[base_list.index(base), i] += 1
+              found = True
+              break
+          if found == False:
+            count_matrix[len(base_list), i] += 1
+ 
+ ##################
   # Normalizes the data and creates dataframe of the data.
   freq_matrix = count_matrix/(no_seq*window)
 
-  raw_data = {'A': freq_matrix[0,:], 'T': freq_matrix[1,:],'C': freq_matrix[2,:],'G': freq_matrix[3,:],'-': freq_matrix[4,:]
-              ,'n': freq_matrix[5,:],'unknown': freq_matrix[6,:]}
-  df = pd.DataFrame(raw_data)
+  base_list = base_list + ["u"]
+  base_dict = dict()
+  for i in range(0, len(base_list)):
+    base_dict[base_list[i].lower()] = freq_matrix[i,:]
 
-  combined_data = {'A_T': df['A']+df['T'], 'C_G': df['C']+df['G'], 'u_n': df['n']+df['unknown'], 'gap': df['-']}
+  #raw_data = {'A': freq_matrix[0,:], 'T': freq_matrix[1,:],'C': freq_matrix[2,:],'G': freq_matrix[3,:],'-': freq_matrix[4,:]
+  #            ,'n': freq_matrix[5,:],'unknown': freq_matrix[6,:]}
+  df = pd.DataFrame(base_dict)
+
+  combined_data = {'A_T': df['a']+df['t'], 'C_G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u'], 'gap': df['-']}
+  combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown', 'Gap']
   df_combined = pd.DataFrame(combined_data)
+########################
 
+# Generate the gene visualisation
   gene_data = dict()
   if (partition_file != None):
     with open(partition_file, 'r') as file:
@@ -105,7 +111,7 @@ if data_type == "DNA":
            [{}]]
   )
 
-  base_colors = ['red', 'blue', 'green', 'gray']
+  base_colors = ['red', 'blue', 'green', 'purple', 'gray']
   l = 0
   for column in df_combined.columns.to_list():
       fig.add_trace(
@@ -135,40 +141,34 @@ if data_type == "DNA":
       )
 
   gene_plot = [True for i in range(len(gene_data))] 
+  buttons = [dict(label = 'All',
+                    method = 'update',
+                    args = [{'visible': [True for i in range(len(base_list))] + gene_plot},
+                            {'barmode':'stack', 'title': 'All',
+                            'showlegend':True,}
+                            ])]
+
+
+  for base in combined_bases_list:
+    false_list =  [False for i in range(len(combined_bases_list))] 
+    false_list[combined_bases_list.index(base)] = True
+    button = [dict(label = base,
+                    method = 'update',
+                    args = [{'visible': false_list + gene_plot},
+                            {'barmode':'stack', 'title': base,
+                            'showlegend':True}])]
+    buttons = buttons + button
+
   fig.update_layout(barmode='stack')
   fig.update_layout(
       updatemenus=[go.layout.Updatemenu(
           active=0,
           buttons=list(
-              [dict(label = 'All',
-                    method = 'update',
-                    args = [{'visible': [True, True, True, True] + gene_plot},
-                            {'barmode':'stack', 'title': 'All',
-                            'showlegend':True,}
-                            ]),
-              dict(label = 'A and T',
-                    method = 'update',
-                    args = [{'visible': [True, False, False, False] + gene_plot},
-                            {'barmode':'stack', 'title': 'A_T',
-                            'showlegend':True, 'marker_color': 'rgb(26, 118, 255)'}]),
-              dict(label = 'C and G',
-                    method = 'update',
-                    args = [{'visible': [False, True, False, False] + gene_plot},
-                            {'barmode':'stack', 'title': 'C_G',
-                            'showlegend':True}]),
-              dict(label = 'N and Unknown',
-                    method = 'update',
-                    args = [{'visible': [False, False, True, False] + gene_plot},
-                            {'barmode':'stack', 'title': 'u_n',
-                            'showlegend':True}]),
-              dict(label = 'Gap',
-                    method = 'update',
-                    args = [{'visible': [False, False, False, True] + gene_plot},
-                            {'barmode':'stack', 'title': '-',
-                            'showlegend':True}])
-              ])
+              buttons
+              )
           )
       ])
+
   fig.update_yaxes(range=[0, 1], row=1, col=1)
   fig.update_yaxes(range=[0, 0.4], row=2, col=1)
   fig.update_yaxes(fixedrange=True)
