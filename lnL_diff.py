@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.graph_objects as go
 
 with open('turtle_site_lk.sitelh') as f:
     df = pd.read_table(f, delim_whitespace=True, header=None, skiprows=1, index_col=0, lineterminator='\n')
@@ -14,9 +15,14 @@ print(f'The types are: {df.dtypes}')
 print(f'Information about the df: {df.info}')
 df.loc['Diff'].describe()
 '''
-print(df.index)
+# no binning - display each number per position
+df2=df.loc['Diff'][0:50]        # I took out 50 positions for displaying; did not work for me with all 187026 positions
 
-import plotly.express as px
+# set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
+clrs  = ['green' if i >= 0 else 'red' for i in df2]     
 
-fig = px.bar(x=df.loc['Diff'].index, y=df.loc['Diff'])
+fig = go.Figure(data=[go.Bar(
+            x=df2.index, y=df2,
+            marker=dict(color=clrs)
+        )])
 fig.show()
