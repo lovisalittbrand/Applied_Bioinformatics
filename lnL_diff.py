@@ -21,6 +21,7 @@ fig = go.Figure(data=[go.Bar(
         )])
 fig.show()
 #####################################################
+
 # keep this section
 # for all 187026 positions - you can tell it worked if you change the background from gray to white:
 clrs2  = ['green' if i >= 0 else 'red' for i in df.iloc[2]] # set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
