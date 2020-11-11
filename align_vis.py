@@ -70,11 +70,11 @@ def count_chars(filename, char_list):
       if not (line.startswith('>')):
         # Declarate length and create a zero matrix with correct size in the first loop.
         if no_seq == 0:
-          seq_length = len(line)
+          seq_length = len(line)-1
           count_matrix = np.zeros((len(char_list)+1, math.ceil(seq_length/window)))
         no_seq += 1
         # Loop through each position in the sequence
-        for j in range(0, len(line)):
+        for j in range(0, len(line)-1):
           # Calculate to what index the count should be grouped to based on the window value. 
           i = math.floor(j/window)
           obs_char = line[j]
@@ -114,13 +114,13 @@ if data_type == "DNA":
   base_list = ["a", "t", "c", "g", "-", "n"]
   count_matrix, seq_length, no_seq = count_chars(filename, base_list)
 
+  base_list = base_list + ["u"]
+  # Handles the gapexclude option.
   if gapexclude == False:
-  ##################
-    # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
-    freq_matrix = count_matrix/(no_seq*window)
+    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+    freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
 
     # Transforms the frequency matrix to a dictionary and then a dataframe, allso adds "u" to the base list so that the loop will parse through every column
-    base_list = base_list + ["u"]
     base_dict = dict()
     for i in range(0, len(base_list)):
       base_dict[base_list[i].lower()] = freq_matrix[i,:]
@@ -131,9 +131,25 @@ if data_type == "DNA":
     # Creates a list with names for the different combinations
     combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown', 'Gap']
     df_combined = pd.DataFrame(combined_data)
-  ########################
+
   else:
-    pass
+    # Removes counts for gaps.
+    count_matrix_del = np.delete(count_matrix, base_list.index('-'), 0)
+    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+    # Removes "-" and adds "u" to the base list.
+    base_list.remove("-") 
+
+    base_dict = dict()
+    for i in range(0, len(base_list)):
+      base_dict[base_list[i].lower()] = freq_matrix[i,:]
+    df = pd.DataFrame(base_dict)
+
+    combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u']}
+    # Creates a list with names for the different combinations
+    combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown']
+    df_combined = pd.DataFrame(combined_data)
+
 
 
   # Generate dataframe of gene data that willwe used in the visualisation
@@ -166,6 +182,7 @@ if data_type == "DNA":
   file.close()
   # Loop through the columns and create a barplot for each column and put them in the same position in the grid
   for column in df_combined.columns.to_list():
+    if column in color_dict:
       fig.add_trace(
           # Define that it's a bar graph
           go.Bar(
@@ -177,6 +194,15 @@ if data_type == "DNA":
               name = column,
               # Decide the color of bargraph 
               marker_color = color_dict[column]
+          ),
+          row=1, col=1
+      )
+    else:
+      fig.add_trace(
+          go.Bar(
+              x = df.index*window+1,
+              y = df[column],
+              name = column,        
           ),
           row=1, col=1
       )
@@ -271,25 +297,40 @@ if data_type == "DNA":
 
 # Check if AA
 elif data_type == "AA":
-  #aa_list = ["a", "r", "n", "d", "c", "q", "e", "g", "h", "i", "l", "k", "m", "f", "p", "s", "t", "w", "y", "v", "-"]
-  aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-"]
+  aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-", "\n"]
   count_matrix, seq_length, no_seq = count_chars(filename, aa_list)
-
-  # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
-  freq_matrix = count_matrix/(no_seq*window)
-
-  # Transforms the frequency matrix to a dictionary and then a dataframe
   aa_list = aa_list +["u"]
-  aa_dict = dict()
-  for i in range(0, len(aa_list)):
-    aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
 
-  df = pd.DataFrame(aa_dict)
+  if gapexclude == False:
+  # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
+    freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
+
+    # Transforms the frequency matrix to a dictionary and then a dataframe
+    
+    aa_dict = dict()
+    for i in range(0, len(aa_list)):
+      aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
+
+    df = pd.DataFrame(aa_dict)
+   
+  else:
+    # Removes counts for gaps.
+    count_matrix_del = np.delete(count_matrix, aa_list.index('-'), 0)
+    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+    # Removes "-" and adds "u" to the base list.
+    aa_list.remove("-") 
+
+    aa_dict = dict()
+    for i in range(0, len(aa_list)):
+      aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
+    df = pd.DataFrame(aa_dict)
+
+    df_combined = pd.DataFrame(aa_dict)
 
   # Generate dataframe of gene data that willwe used in the visualisation
   gene_data = gene_info_to_dict(partition_file, seq_length)
   df_gene_info = pd.DataFrame(gene_data)
-  
 
   # Visualise the data.
   fig = go.Figure()
@@ -316,14 +357,25 @@ elif data_type == "AA":
   color_dict = ast.literal_eval(contents)
   file.close()
 
-
+  # Loop through the columns and create a barplot for each column and put them in the same position in the grid
   for column in df.columns.to_list():
+    # If statement to handle aa that are inputed in the aa_list but arent in the aa_color.txt
+    if column in color_dict:
       fig.add_trace(
           go.Bar(
               x = df.index*window+1,
               y = df[column],
               name = column,
               marker_color = color_dict[column],        
+          ),
+          row=1, col=1
+      )
+    else:
+      fig.add_trace(
+          go.Bar(
+              x = df.index*window+1,
+              y = df[column],
+              name = column,        
           ),
           row=1, col=1
       )
