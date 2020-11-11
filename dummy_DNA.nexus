@@ -5,5 +5,5 @@ charset ND5 = 380-500;
 charset Erik = 501-1100;
 charset Lovisa = 1101-1900;
 charset Mirela = 1901-2800;
-charset Flying gene = 2801-8775;
+charset Flying gene = 2801-8774;
 end;
