@@ -9,10 +9,11 @@ df.loc['Diff']=df.loc['Tree1'].values - df.loc['Tree2'].values
 
 # no binning - display each number per position
 ####################################################
-df2=df.loc['Diff'][0:1000]        # I took out 1000 positions for displaying
 
-# set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
-clrs  = ['green' if i >= 0 else 'red' for i in df2]     
+# remove this whole section after checking that it works
+df2=df.loc['Diff'][0:1000]        # I took out 1000 positions to see if the script works 
+
+clrs  = ['green' if i >= 0 else 'red' for i in df2]     # set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
 
 fig = go.Figure(data=[go.Bar(
             x=df2.index, y=df2,
@@ -20,12 +21,13 @@ fig = go.Figure(data=[go.Bar(
         )])
 fig.show()
 #####################################################
+# keep this section
 # for all 187026 positions - you can tell it worked if you change the background from gray to white:
-clrs2  = ['green' if i >= 0 else 'red' for i in df.iloc[2]]
+clrs2  = ['green' if i >= 0 else 'red' for i in df.iloc[2]] # set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
 
 fig = go.Figure(data=[go.Bar(
             x=df.iloc[2].index, y=df.iloc[2],
             marker=dict(color=clrs2)
         )])
-fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
+fig.update_layout(plot_bgcolor='rgba(0,0,0,0)') # remove this line if you want your background to be gray
 fig.show()
