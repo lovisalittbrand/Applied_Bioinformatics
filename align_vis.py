@@ -12,10 +12,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.graph_objects as go
+import plotly.express as px
 from plotly.subplots import make_subplots
 import re
+import ast
 
-
+# Parser function that allows to have optional commands
 def parseArguments():
     parser = argparse.ArgumentParser()
     # Mandatory arguments
@@ -30,77 +32,120 @@ def parseArguments():
     args = parser.parse_args()
 
     return args
+# Parse teh input arguments
 args = parseArguments()
 
+# Read the iput agruments to varables
 filename = args.alignemnt_file
 window = args.window
 partition_file = args.partfile
 data_type = args.data
 gapexclude = args.gapexclude
 
-# Check if data is DNA 
-if data_type == "DNA":
-  # Count number of sequences
+# Function to calculate entropy from a frequency martix
+def calc_entropy(freq_mat):
+    aln_len = len(freq_matrix[0,:])
+    no_features = len(freq_matrix[:,0])
+    entropy_per_site = np.zeros(aln_len)
+
+    for i in range(0,aln_len):
+        s = 0
+        for j in range(0,no_features):
+            s = s + freq_mat[j,i]*math.log(freq_mat[j,i]+1E-20)
+        entropy = s * -1 / math.log(no_features)
+        entropy_per_site[i] = entropy
+
+    entropy_mod_vector = {'Entropy': entropy_per_site, 'Site':range(0, aln_len)}
+    entropy_df = pd.DataFrame(entropy_mod_vector)
+    return entropy_df
+  
+def count_chars(filename, char_list):
   no_seq = 0
   seq_length = 0
   # Reads alignment file and counts bases in for each posisiton and creates a matrix containing the data
-  base_list = ["a", "t", "c", "g", "-", "n"]
+  # Read alignemnt file
   with open(filename, 'r') as file:
     for line in file:
+      # Read only lines with sequence data
       if not (line.startswith('>')):
+        # Declarate length and create a zero matrix with correct size in the first loop.
         if no_seq == 0:
           seq_length = len(line)
-          count_matrix = np.zeros((len(base_list)+1, math.ceil(seq_length/window)))
+          count_matrix = np.zeros((len(char_list)+1, math.ceil(seq_length/window)))
         no_seq += 1
+        # Loop through each position in the sequence
         for j in range(0, len(line)):
+          # Calculate to what index the count should be grouped to based on the window value. 
           i = math.floor(j/window)
-          obs_base = line[j]
+          obs_char = line[j]
           found = False
-          for base in base_list:
-            if obs_base.lower() == base:
-              count_matrix[base_list.index(base), i] += 1
+          # Loop over each possible state in the base_list, if a match is foud add 1 to the correct position in the matrix
+          # If no match is found add to the unknown column in the matrix.
+          for char in char_list:
+            if obs_char.lower() == char:
+              count_matrix[char_list.index(char), i] += 1
               found = True
               break
           if found == False:
-            count_matrix[len(base_list), i] += 1
- 
- ##################
-  # Normalizes the data and creates dataframe of the data.
-  freq_matrix = count_matrix/(no_seq*window)
+            count_matrix[len(char_list), i] += 1
+  return [count_matrix, seq_length, no_seq]
 
-  base_list = base_list + ["u"]
-  base_dict = dict()
-  for i in range(0, len(base_list)):
-    base_dict[base_list[i].lower()] = freq_matrix[i,:]
-
-  #raw_data = {'A': freq_matrix[0,:], 'T': freq_matrix[1,:],'C': freq_matrix[2,:],'G': freq_matrix[3,:],'-': freq_matrix[4,:]
-  #            ,'n': freq_matrix[5,:],'unknown': freq_matrix[6,:]}
-  df = pd.DataFrame(base_dict)
-
-  combined_data = {'A_T': df['a']+df['t'], 'C_G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u'], 'gap': df['-']}
-  combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown', 'Gap']
-  df_combined = pd.DataFrame(combined_data)
-########################
-
-# Generate the gene visualisation
+def gene_info_to_dict(partition_file, seq_length):
   gene_data = dict()
+  # Check if partition file is awailable 
   if (partition_file != None):
+    # Open file and read each line in search for lines that starts with charstet 
     with open(partition_file, 'r') as file:
       for line in file:
         if (line.startswith('charset')):
+          # Regex that fetch the name of teh gene and start and stop position and then puts the length and name in a dict
           m = re.match(r"charset (.+) = (\d+)-(\d+);", line)
           gene_data[m[1]] = [int(m[3])-int(m[2])+1]
+  # If no partition file is specified, create a gene as long as the sequence 
   else:
     gene_data = {'No genes specified': [seq_length]}
   
-  df_gene_info = pd.DataFrame(gene_data)
+  return gene_data
 
+
+
+# Check if data is DNA 
+if data_type == "DNA":
+  base_list = ["a", "t", "c", "g", "-", "n"]
+  count_matrix, seq_length, no_seq = count_chars(filename, base_list)
+
+  if gapexclude == False:
+  ##################
+    # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
+    freq_matrix = count_matrix/(no_seq*window)
+
+    # Transforms the frequency matrix to a dictionary and then a dataframe, allso adds "u" to the base list so that the loop will parse through every column
+    base_list = base_list + ["u"]
+    base_dict = dict()
+    for i in range(0, len(base_list)):
+      base_dict[base_list[i].lower()] = freq_matrix[i,:]
+    df = pd.DataFrame(base_dict)
+
+    # Combines the base data in a meaningfull way.
+    combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u'], 'Gap': df['-']}
+    # Creates a list with names for the different combinations
+    combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown', 'Gap']
+    df_combined = pd.DataFrame(combined_data)
+  ########################
+  else:
+    pass
+
+
+  # Generate dataframe of gene data that willwe used in the visualisation
+  gene_data = gene_info_to_dict(partition_file, seq_length)
+  df_gene_info = pd.DataFrame(gene_data)
 
   # Visualise the data using plotly 
   fig = go.Figure()
 
+  # Create the grid in which the plots will be put.
   fig = make_subplots(
-    rows=6, cols=1,
+    rows=9, cols=1,
     shared_xaxes=True,
     vertical_spacing=0.03,
     specs=[[{"rowspan": 5}],
@@ -108,23 +153,47 @@ if data_type == "DNA":
           [None],
           [None],
           [None],
+          [{"rowspan": 3}],
+          [None],
+          [None],
            [{}]]
   )
 
-  base_colors = ['red', 'blue', 'green', 'purple', 'gray']
-  l = 0
+  # Define the colors of the bases
+  file = open("dna_color.txt", "r")
+  contents = file.read()
+  color_dict = ast.literal_eval(contents)
+  file.close()
+  # Loop through the columns and create a barplot for each column and put them in the same position in the grid
   for column in df_combined.columns.to_list():
       fig.add_trace(
+          # Define that it's a bar graph
           go.Bar(
+              # position data
               x = df_combined.index*window +1,
+              # Base freq data
               y = df_combined[column],
+              # Define the name of the data based on the column name
               name = column,
-              marker_color = base_colors[l]
+              # Decide the color of bargraph 
+              marker_color = color_dict[column]
           ),
           row=1, col=1
       )
-      l += 1
 
+  #  Calculate entropy of the freq matrix
+  df_entropy = calc_entropy(freq_matrix)
+
+  # Plot the lineplot of the Entropy 
+  fig = fig.add_trace(
+          # Define that it's a line graph
+          go.Scatter(
+            y=df_entropy['Entropy'], 
+            x=df_entropy.index*window+1, 
+            name = 'Entropy'),
+          row=6, col=1)
+
+  # Same principle as above 
   for column in df_gene_info.columns.to_list():
       fig.add_trace(
           go.Bar(
@@ -137,29 +206,36 @@ if data_type == "DNA":
               showlegend=False,
               orientation='h'
           ),
-          row=6, col=1
+          row=9, col=1
       )
 
+  # Define list with true to use later to decide on their related graphs visibility 
+  entropy_plot = [True]
   gene_plot = [True for i in range(len(gene_data))] 
+  # Create the first option in the dropdown menu and the features that comes whith that option.
   buttons = [dict(label = 'All',
                     method = 'update',
-                    args = [{'visible': [True for i in range(len(base_list))] + gene_plot},
+                    args = [{'visible': [True for i in range(len(base_list))] + entropy_plot + gene_plot},
                             {'barmode':'stack', 'title': 'All',
                             'showlegend':True,}
                             ])]
 
-
+  # Loop over the positions in the combined base list to decide on which bar plot that shuld be visible.
   for base in combined_bases_list:
     false_list =  [False for i in range(len(combined_bases_list))] 
     false_list[combined_bases_list.index(base)] = True
+    # Create a button much like above
     button = [dict(label = base,
                     method = 'update',
-                    args = [{'visible': false_list + gene_plot},
+                    args = [{'visible': false_list + entropy_plot + gene_plot},
                             {'barmode':'stack', 'title': base,
                             'showlegend':True}])]
     buttons = buttons + button
 
+  # Stack the bar plots on each other in the initial visualisation
   fig.update_layout(barmode='stack')
+
+  # Show the dropdown menu.
   fig.update_layout(
       updatemenus=[go.layout.Updatemenu(
           active=0,
@@ -169,14 +245,22 @@ if data_type == "DNA":
           )
       ])
 
-  fig.update_yaxes(range=[0, 1], row=1, col=1)
-  fig.update_yaxes(range=[0, 0.4], row=2, col=1)
+  # Settings for the axis in the visualisation
+  # General settings
   fig.update_yaxes(fixedrange=True)
   fig.update_xaxes(range=[0, seq_length])
-  fig.update_xaxes(showticklabels=True, row=2, col=1)
+  # Frequency graph 
+  fig.update_yaxes(range=[0, 1], row=1, col=1)
+  # Entropy graph
+  fig.update_yaxes(range=[0, 1], row=6, col=1)
+  # Gene graph
+  fig.update_yaxes(range=[-0.4, 0.4], row=9, col=1)  
+  fig.update_yaxes(showticklabels=False, row=9, col=1)
+  fig.update_xaxes(showticklabels=True, row=9, col=1)
 
+  # Create the rangeslider based on the gene graph.
   fig.update_layout(
-    xaxis2=dict(
+    xaxis3=dict(
         rangeslider=dict( 
             visible=True 
         )
@@ -187,50 +271,31 @@ if data_type == "DNA":
 
 # Check if AA
 elif data_type == "AA":
-  no_seq = 0
-  seq_length = 0
-  # Reads alignment file and counts aa in for each posisiton and creates a matrix containing the data
-  aa_list = ["a", "r", "n", "d", "c", "q", "e", "g", "h", "i", "l", "k", "m", "f", "p", "s", "t", "w", "y", "v", "-"]
-  with open(filename, 'r') as file:
-    for line in file:
-      if not (line.startswith('>')):
-        if no_seq == 0:
-          seq_length = len(line)
-          count_matrix = np.zeros((21, math.ceil((seq_length/window))))
-        no_seq += 1
-        for j in range(0, len(line)):
-          i = math.floor(j/window)
-          obs_aa = line[j]
-          for aa in aa_list:
-            if obs_aa.lower() == aa:
-              count_matrix[aa_list.index(aa), i] += 1
-              break
-  
-  # Normalizes the data and creates a dataframe of it
+  #aa_list = ["a", "r", "n", "d", "c", "q", "e", "g", "h", "i", "l", "k", "m", "f", "p", "s", "t", "w", "y", "v", "-"]
+  aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-"]
+  count_matrix, seq_length, no_seq = count_chars(filename, aa_list)
+
+  # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
   freq_matrix = count_matrix/(no_seq*window)
+
+  # Transforms the frequency matrix to a dictionary and then a dataframe
+  aa_list = aa_list +["u"]
   aa_dict = dict()
   for i in range(0, len(aa_list)):
     aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
 
   df = pd.DataFrame(aa_dict)
 
-  gene_data = dict()
-  if (partition_file != None):
-    with open(partition_file, 'r') as file:
-      for line in file:
-        if (line.startswith('charset')):
-          m = re.match(r"charset (.+) = (\d+)-(\d+);", line)
-          gene_data[m[1]] = [int(m[3])-int(m[2])+1]
-  else:
-    gene_data = {'No genes specified': [seq_length]}
-  
+  # Generate dataframe of gene data that willwe used in the visualisation
+  gene_data = gene_info_to_dict(partition_file, seq_length)
   df_gene_info = pd.DataFrame(gene_data)
+  
 
   # Visualise the data.
   fig = go.Figure()
 
   fig = make_subplots(
-    rows=6, cols=1,
+    rows=9, cols=1,
     shared_xaxes=True,
     vertical_spacing=0.03,
     specs=[[{"rowspan": 5}],
@@ -238,20 +303,40 @@ elif data_type == "AA":
           [None],
           [None],
           [None],
+          [{"rowspan": 3}],
+          [None],
+          [None],
            [{}]]
   )
 
   fig.update_layout(barmode='stack')
 
+  file = open("aa_color.txt", "r")
+  contents = file.read()
+  color_dict = ast.literal_eval(contents)
+  file.close()
+
+
   for column in df.columns.to_list():
       fig.add_trace(
           go.Bar(
-              x = df.index*window,
+              x = df.index*window+1,
               y = df[column],
-              name = column
+              name = column,
+              marker_color = color_dict[column],        
           ),
           row=1, col=1
       )
+
+
+  df_entropy = calc_entropy(freq_matrix)
+
+  fig = fig.add_trace(
+          go.Scatter(
+            y=df_entropy['Entropy'], 
+            x=df_entropy.index*window+1, 
+            name = 'Entropy'),
+          row=6, col=1)
 
   for column in df_gene_info.columns.to_list():
       fig.add_trace(
@@ -265,10 +350,10 @@ elif data_type == "AA":
               showlegend=False,
               orientation='h'
           ),
-          row=6, col=1
+          row=9, col=1
       )
 
-  gene_plot = [True for i in range(len(gene_data))] 
+  gene_plot = [True for i in range(len(gene_data)+1)] 
   buttons = [dict(label = 'All',
                     method = 'update',
                     args = [{'visible': [True for i in range(len(aa_list))] + gene_plot},
@@ -304,7 +389,7 @@ elif data_type == "AA":
   fig.update_xaxes(showticklabels=True, row=2, col=1)
 
   fig.update_layout(
-    xaxis2=dict(
+    xaxis3=dict(
         rangeslider=dict( 
             visible=True 
         )
