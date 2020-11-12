@@ -32,7 +32,7 @@ def parseArguments():
     args = parser.parse_args()
 
     return args
-# Parse teh input arguments
+# Parse the input arguments
 args = parseArguments()
 
 # Read the iput agruments to varables
@@ -58,7 +58,8 @@ def calc_entropy(freq_mat):
     entropy_mod_vector = {'Entropy': entropy_per_site, 'Site':range(0, aln_len)}
     entropy_df = pd.DataFrame(entropy_mod_vector)
     return entropy_df
-  
+
+# Founction to count no of uccurences in a sequence.
 def count_chars(filename, char_list):
   no_seq = 0
   seq_length = 0
@@ -90,6 +91,8 @@ def count_chars(filename, char_list):
             count_matrix[len(char_list), i] += 1
   return [count_matrix, seq_length, no_seq]
 
+
+# Reads a partitionfile ant transform the data to a dataframe for visualisation.
 def gene_info_to_dict(partition_file, seq_length):
   gene_data = dict()
   # Check if partition file is awailable 
@@ -106,8 +109,6 @@ def gene_info_to_dict(partition_file, seq_length):
     gene_data = {'No genes specified': [seq_length]}
   
   return gene_data
-
-
 
 # Check if data is DNA 
 if data_type == "DNA":
@@ -135,22 +136,26 @@ if data_type == "DNA":
   else:
     # Removes counts for gaps.
     count_matrix_del = np.delete(count_matrix, base_list.index('-'), 0)
-    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
-    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
     # Removes "-" and adds "u" to the base list.
     base_list.remove("-") 
+    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+    
 
     base_dict = dict()
     for i in range(0, len(base_list)):
       base_dict[base_list[i].lower()] = freq_matrix[i,:]
     df = pd.DataFrame(base_dict)
 
+    
+
     combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u']}
     # Creates a list with names for the different combinations
     combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown']
     df_combined = pd.DataFrame(combined_data)
 
-
+  # Replace zeros to nan so that the wont show up in the plot 
+  df_combined = df_combined.replace(0, np.nan)
 
   # Generate dataframe of gene data that willwe used in the visualisation
   gene_data = gene_info_to_dict(partition_file, seq_length)
@@ -193,7 +198,9 @@ if data_type == "DNA":
               # Define the name of the data based on the column name
               name = column,
               # Decide the color of bargraph 
-              marker_color = color_dict[column]
+              marker_color = color_dict[column],
+              # Styling of hover info
+              hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',
           ),
           row=1, col=1
       )
@@ -202,7 +209,8 @@ if data_type == "DNA":
           go.Bar(
               x = df.index*window+1,
               y = df[column],
-              name = column,        
+              name = column,
+              hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',        
           ),
           row=1, col=1
       )
@@ -216,7 +224,8 @@ if data_type == "DNA":
           go.Scatter(
             y=df_entropy['Entropy'], 
             x=df_entropy.index*window+1, 
-            name = 'Entropy'),
+            name = 'Entropy',
+            hovertemplate='Entropy: %{y:.3f} <br> Position: %{x:.3f}'),
           row=6, col=1)
 
   # Same principle as above 
@@ -230,10 +239,13 @@ if data_type == "DNA":
               textposition='auto',
               textfont_color="white",
               showlegend=False,
-              orientation='h'
+              orientation='h',
+              hoverinfo='skip',
           ),
           row=9, col=1
       )
+
+######### Optional? ##########
 
   # Define list with true to use later to decide on their related graphs visibility 
   entropy_plot = [True]
@@ -258,9 +270,7 @@ if data_type == "DNA":
                             'showlegend':True}])]
     buttons = buttons + button
 
-  # Stack the bar plots on each other in the initial visualisation
-  fig.update_layout(barmode='stack')
-
+  
   # Show the dropdown menu.
   fig.update_layout(
       updatemenus=[go.layout.Updatemenu(
@@ -270,11 +280,14 @@ if data_type == "DNA":
               )
           )
       ])
+######### ######### ######### ######### ######### ######### 
 
   # Settings for the axis in the visualisation
   # General settings
   fig.update_yaxes(fixedrange=True)
   fig.update_xaxes(range=[0, seq_length])
+  # Stack the bar plots on each other in the initial visualisation
+  fig.update_layout(barmode='stack', hovermode='x')
   # Frequency graph 
   fig.update_yaxes(range=[0, 1], row=1, col=1)
   # Entropy graph
@@ -291,13 +304,13 @@ if data_type == "DNA":
             visible=True 
         )
     )
-) 
+  ) 
 
   fig.show()
 
 # Check if AA
 elif data_type == "AA":
-  aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-", "\n"]
+  aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-"]
   count_matrix, seq_length, no_seq = count_chars(filename, aa_list)
   aa_list = aa_list +["u"]
 
@@ -328,6 +341,9 @@ elif data_type == "AA":
 
     df_combined = pd.DataFrame(aa_dict)
 
+  # Replace zeros to nan so that the wont show up in the plot 
+  df = df.replace(0, np.nan)
+
   # Generate dataframe of gene data that willwe used in the visualisation
   gene_data = gene_info_to_dict(partition_file, seq_length)
   df_gene_info = pd.DataFrame(gene_data)
@@ -350,8 +366,6 @@ elif data_type == "AA":
            [{}]]
   )
 
-  fig.update_layout(barmode='stack')
-
   file = open("aa_color.txt", "r")
   contents = file.read()
   color_dict = ast.literal_eval(contents)
@@ -366,7 +380,8 @@ elif data_type == "AA":
               x = df.index*window+1,
               y = df[column],
               name = column,
-              marker_color = color_dict[column],        
+              marker_color = color_dict[column],   
+              hovertemplate='Amino acid:' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',     
           ),
           row=1, col=1
       )
@@ -375,7 +390,8 @@ elif data_type == "AA":
           go.Bar(
               x = df.index*window+1,
               y = df[column],
-              name = column,        
+              name = column,
+              hovertemplate='Amino acid:' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',        
           ),
           row=1, col=1
       )
@@ -387,7 +403,8 @@ elif data_type == "AA":
           go.Scatter(
             y=df_entropy['Entropy'], 
             x=df_entropy.index*window+1, 
-            name = 'Entropy'),
+            name = 'Entropy',
+            hovertemplate='Entropy: %{y:.3f} <br> Position: %{x:.3f}'),
           row=6, col=1)
 
   for column in df_gene_info.columns.to_list():
@@ -400,11 +417,14 @@ elif data_type == "AA":
               textposition='auto',
               textfont_color="white",
               showlegend=False,
-              orientation='h'
+              orientation='h',
+              hoverinfo='skip',
           ),
           row=9, col=1
       )
 
+
+######### Optional? ##########
   gene_plot = [True for i in range(len(gene_data)+1)] 
   buttons = [dict(label = 'All',
                     method = 'update',
@@ -434,8 +454,12 @@ elif data_type == "AA":
           )
       ])
 
+  #############################################
+
   fig.update_yaxes(range=[0, 1], row=1, col=1)
   fig.update_yaxes(range=[0, 0.4], row=2, col=1)
+  # Stack the bar plots on each other in the initial visualisation
+  fig.update_layout(barmode='stack', hovermode='x')
   fig.update_yaxes(fixedrange=True)
   fig.update_xaxes(range=[0, seq_length])
   fig.update_xaxes(showticklabels=True, row=2, col=1)
