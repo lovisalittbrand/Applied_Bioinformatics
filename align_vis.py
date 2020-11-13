@@ -17,6 +17,9 @@ from plotly.subplots import make_subplots
 import re
 import ast
 
+
+#################################### Functions #####################################
+
 # Parser function that allows to have optional commands
 def parseArguments():
     parser = argparse.ArgumentParser()
@@ -26,21 +29,24 @@ def parseArguments():
     parser.add_argument("data", help="DNA or AA", type=str)
     # Optional arguments
     parser.add_argument("-pf", "--partfile", help="Partitionfile in nexus format", type=str, default=None)
-    parser.add_argument("-g", "--gapexclude", help="Calculate frequency excluding gaps", type=bool, default=False)
+    parser.add_argument("-g", "--gapexclude", help="Calculate frequency excluding gaps", type=str2bool, default=False)
     # Version
     parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
     args = parser.parse_args()
 
     return args
-# Parse the input arguments
-args = parseArguments()
 
-# Read the iput agruments to varables
-filename = args.alignemnt_file
-window = args.window
-partition_file = args.partfile
-data_type = args.data
-gapexclude = args.gapexclude
+#function to enable boolean inputs in the parser, also handles other inputs than true or false
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
 
 # Function to calculate entropy from a frequency martix
 def calc_entropy(freq_mat):
@@ -83,7 +89,7 @@ def count_chars(filename, char_list):
           # Loop over each possible state in the base_list, if a match is foud add 1 to the correct position in the matrix
           # If no match is found add to the unknown column in the matrix.
           for char in char_list:
-            if obs_char.lower() == char:
+            if obs_char.lower() == char.lower():
               count_matrix[char_list.index(char), i] += 1
               found = True
               break
@@ -110,6 +116,32 @@ def gene_info_to_dict(partition_file, seq_length):
   
   return gene_data
 
+def freq_and_entropy(count_matrix, char_list):
+  # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+  freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
+
+  #  Calculate entropy of the freq matrix
+  df_entropy = calc_entropy(freq_matrix)
+
+  # Transforms the frequency matrix to a dictionary and then a dataframe, allso adds "u" to the base list so that the loop will parse through every column
+  base_dict = dict()
+  for i in range(0, len(base_list)):
+    base_dict[base_list[i].lower()] = freq_matrix[i,:]
+  df_freq = pd.DataFrame(base_dict)
+  return [df_freq, df_entropy]
+
+################################## Program #####################################
+
+# Parse the input arguments
+args = parseArguments()
+
+# Read the iput agruments to varables
+filename = args.alignemnt_file
+window = args.window
+partition_file = args.partfile
+data_type = args.data
+gapexclude = args.gapexclude
+
 # Check if data is DNA 
 if data_type == "DNA":
   base_list = ["a", "t", "c", "g", "-", "n"]
@@ -117,7 +149,27 @@ if data_type == "DNA":
 
   base_list = base_list + ["u"]
   # Handles the gapexclude option.
-  if gapexclude == False:
+  
+
+  if gapexclude == True:
+    # Removes counts for gaps.
+    count_matrix_del = np.delete(count_matrix, base_list.index('-'), 0)
+    # Removes "-" and adds "u" to the base list.
+    base_list.remove("-") 
+    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+    
+    base_dict = dict()
+    for i in range(0, len(base_list)):
+      base_dict[base_list[i].lower()] = freq_matrix[i,:]
+    df = pd.DataFrame(base_dict)
+
+    combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u']}
+    # Creates a list with names for the different combinations
+    combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown']
+    df_combined = pd.DataFrame(combined_data)
+
+  else:
     # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
     freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
 
@@ -131,27 +183,6 @@ if data_type == "DNA":
     combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u'], 'Gap': df['-']}
     # Creates a list with names for the different combinations
     combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown', 'Gap']
-    df_combined = pd.DataFrame(combined_data)
-
-  else:
-    # Removes counts for gaps.
-    count_matrix_del = np.delete(count_matrix, base_list.index('-'), 0)
-    # Removes "-" and adds "u" to the base list.
-    base_list.remove("-") 
-    # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
-    freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
-    
-
-    base_dict = dict()
-    for i in range(0, len(base_list)):
-      base_dict[base_list[i].lower()] = freq_matrix[i,:]
-    df = pd.DataFrame(base_dict)
-
-    
-
-    combined_data = {'A and T': df['a']+df['t'], 'C and G': df['c']+df['g'], 'N': df['n'], "Unknown": df['u']}
-    # Creates a list with names for the different combinations
-    combined_bases_list = ['A and T', 'C and G', 'N', 'Unknown']
     df_combined = pd.DataFrame(combined_data)
 
   # Replace zeros to nan so that the wont show up in the plot 
@@ -282,31 +313,7 @@ if data_type == "DNA":
       ])
 ######### ######### ######### ######### ######### ######### 
 
-  # Settings for the axis in the visualisation
-  # General settings
-  fig.update_yaxes(fixedrange=True)
-  fig.update_xaxes(range=[0, seq_length])
-  # Stack the bar plots on each other in the initial visualisation
-  fig.update_layout(barmode='stack', hovermode='x')
-  # Frequency graph 
-  fig.update_yaxes(range=[0, 1], row=1, col=1)
-  # Entropy graph
-  fig.update_yaxes(range=[0, 1], row=6, col=1)
-  # Gene graph
-  fig.update_yaxes(range=[-0.4, 0.4], row=9, col=1)  
-  fig.update_yaxes(showticklabels=False, row=9, col=1)
-  fig.update_xaxes(showticklabels=True, row=9, col=1)
-
-  # Create the rangeslider based on the gene graph.
-  fig.update_layout(
-    xaxis3=dict(
-        rangeslider=dict( 
-            visible=True 
-        )
-    )
-  ) 
-
-  fig.show()
+  
 
 # Check if AA
 elif data_type == "AA":
@@ -314,19 +321,9 @@ elif data_type == "AA":
   count_matrix, seq_length, no_seq = count_chars(filename, aa_list)
   aa_list = aa_list +["u"]
 
-  if gapexclude == False:
-  # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
-    freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
-
-    # Transforms the frequency matrix to a dictionary and then a dataframe
-    
-    aa_dict = dict()
-    for i in range(0, len(aa_list)):
-      aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
-
-    df = pd.DataFrame(aa_dict)
+  
    
-  else:
+  if gapexclude == True:
     # Removes counts for gaps.
     count_matrix_del = np.delete(count_matrix, aa_list.index('-'), 0)
     # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
@@ -340,6 +337,19 @@ elif data_type == "AA":
     df = pd.DataFrame(aa_dict)
 
     df_combined = pd.DataFrame(aa_dict)
+
+
+  else:
+  # Normalizes the data by dividing each cell in the matrix with the total number of bases for that site/grouping.
+    freq_matrix = count_matrix/(count_matrix.sum(axis=0)[:,None]).T
+
+    # Transforms the frequency matrix to a dictionary and then a dataframe
+    
+    aa_dict = dict()
+    for i in range(0, len(aa_list)):
+      aa_dict[aa_list[i].upper()] = freq_matrix[i,:]
+
+    df = pd.DataFrame(aa_dict)
 
   # Replace zeros to nan so that the wont show up in the plot 
   df = df.replace(0, np.nan)
@@ -425,54 +435,59 @@ elif data_type == "AA":
 
 
 ######### Optional? ##########
-  gene_plot = [True for i in range(len(gene_data)+1)] 
-  buttons = [dict(label = 'All',
-                    method = 'update',
-                    args = [{'visible': [True for i in range(len(aa_list))] + gene_plot},
-                            {'barmode':'stack', 'title': 'All',
-                            'showlegend':True,}
-                            ])]
+  # gene_plot = [True for i in range(len(gene_data)+1)] 
+  # buttons = [dict(label = 'All',
+  #                   method = 'update',
+  #                   args = [{'visible': [True for i in range(len(aa_list))] + gene_plot},
+  #                           {'barmode':'stack', 'title': 'All',
+  #                           'showlegend':True,}
+  #                           ])]
 
 
-  for aa in aa_list:
-    false_list =  [False for i in range(len(aa_list))] 
-    false_list[aa_list.index(aa)] = True
-    button = [dict(label = aa.upper(),
-                    method = 'update',
-                    args = [{'visible': false_list + gene_plot},
-                            {'barmode':'stack', 'title': aa.upper(),
-                            'showlegend':True}])]
-    buttons = buttons + button
+  # for aa in aa_list:
+  #   false_list =  [False for i in range(len(aa_list))] 
+  #   false_list[aa_list.index(aa)] = True
+  #   button = [dict(label = aa.upper(),
+  #                   method = 'update',
+  #                   args = [{'visible': false_list + gene_plot},
+  #                           {'barmode':'stack', 'title': aa.upper(),
+  #                           'showlegend':True}])]
+  #   buttons = buttons + button
 
-  fig.update_layout(barmode='stack')
-  fig.update_layout(
-      updatemenus=[go.layout.Updatemenu(
-          active=0,
-          buttons=list(
-              buttons
-              )
-          )
-      ])
+  # fig.update_layout(barmode='stack')
+  # fig.update_layout(
+  #     updatemenus=[go.layout.Updatemenu(
+  #         active=0,
+  #         buttons=list(
+  #             buttons
+  #             )
+  #         )
+  #     ])
 
   #############################################
 
-  fig.update_yaxes(range=[0, 1], row=1, col=1)
-  fig.update_yaxes(range=[0, 0.4], row=2, col=1)
-  # Stack the bar plots on each other in the initial visualisation
-  fig.update_layout(barmode='stack', hovermode='x')
-  fig.update_yaxes(fixedrange=True)
-  fig.update_xaxes(range=[0, seq_length])
-  fig.update_xaxes(showticklabels=True, row=2, col=1)
+# Settings for the axis in the visualisation
+# General settings
+fig.update_yaxes(fixedrange=True)
+fig.update_xaxes(range=[0, seq_length])
+# Stack the bar plots on each other in the initial visualisation
+fig.update_layout(barmode='stack', hovermode='x')
+# Frequency graph 
+fig.update_yaxes(range=[0, 1], row=1, col=1)
+# Entropy graph
+fig.update_yaxes(range=[0, 1], row=6, col=1)
+# Gene graph
+fig.update_yaxes(range=[-0.4, 0.4], row=9, col=1)  
+fig.update_yaxes(showticklabels=False, row=9, col=1)
+fig.update_xaxes(showticklabels=True, row=9, col=1)
 
-  fig.update_layout(
-    xaxis3=dict(
-        rangeslider=dict( 
-            visible=True 
-        )
-    )
+# Create the rangeslider based on the gene graph.
+fig.update_layout(
+  xaxis3=dict(
+      rangeslider=dict( 
+          visible=True 
+      )
+  )
 ) 
 
-  fig.show()
-
-else:
-  print("Must specify data as DNA or AA")
+fig.show()
