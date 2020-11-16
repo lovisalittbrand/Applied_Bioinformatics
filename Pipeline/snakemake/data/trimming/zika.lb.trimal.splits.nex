@@ -1,0 +1,243 @@
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=34;
+TAXLABELS
+[1] 'PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman'
+[2] 'COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett'
+[3] 'PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti'
+[4] 'COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett'
+[5] 'Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick'
+[6] 'ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu'
+[7] 'VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm'
+[8] 'DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky'
+[9] 'BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky'
+[10] 'DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky'
+[11] 'EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez'
+[12] 'HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky'
+[13] 'DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky'
+[14] 'DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky'
+[15] 'USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh'
+[16] 'SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho'
+[17] 'SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho'
+[18] 'SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho'
+[19] 'USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh'
+[20] 'Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh'
+[21] 'SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho'
+[22] 'USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh'
+[23] 'COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett'
+[24] 'Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin'
+[25] '1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson'
+[26] '1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson'
+[27] '1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson'
+[28] 'Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria'
+[29] 'Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria'
+[30] 'Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria'
+[31] 'V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti'
+[32] 'Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata'
+[33] 'Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria'
+[34] 'SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi'
+;
+END; [Taxa]
+
+BEGIN Splits;
+DIMENSIONS ntax=34 nsplits=194;
+FORMAT labels=no weights=yes confidences=no intervals=no;
+MATRIX
+	100	 2,
+	100	 4,
+	94	 2 4,
+	100	 7,
+	100	 2 4 7,
+	100	 3,
+	100	 23,
+	100	 3 23,
+	100	 12,
+	100	 31,
+	84	 12 31,
+	100	 32,
+	100	 12 31 32,
+	15	 3 12 23 31 32,
+	100	 8,
+	100	 15,
+	100	 22,
+	100	 15 22,
+	96	 8 15 22,
+	100	 13,
+	100	 19,
+	100	 20,
+	100	 19 20,
+	4	 13 19 20,
+	43	 8 13 15 19 20 22,
+	100	 10,
+	85	 8 10 13 15 19 20 22,
+	100	 14,
+	100	 8 10 13 14 15 19 20 22,
+	100	 29,
+	97	 8 10 13 14 15 19 20 22 29,
+	100	 30,
+	6	 8 10 13 14 15 19 20 22 29 30,
+	100	 11,
+	9	 8 10 11 13 14 15 19 20 22 29 30,
+	48	 3 8 10 11 12 13 14 15 19 20 22 23 29 30 31 32,
+	100	 6,
+	100	 34,
+	100	 6 34,
+	100	 16,
+	100	 18,
+	5	 16 18,
+	100	 17,
+	69	 16 17 18,
+	100	 21,
+	93	 16 17 18 21,
+	100	 24,
+	100	 16 17 18 21 24,
+	56	 6 16 17 18 21 24 34,
+	100	 25,
+	59	 6 16 17 18 21 24 25 34,
+	100	 27,
+	55	 6 16 17 18 21 24 25 27 34,
+	100	 26,
+	100	 6 16 17 18 21 24 25 26 27 34,
+	88	 1 2 4 5 7 9 28 33,
+	100	 28,
+	66	 1 2 4 5 7 9 33,
+	100	 9,
+	100	 33,
+	90	 9 33,
+	100	 1 2 4 5 7,
+	100	 5,
+	93	 1 2 4 7,
+	100	 1,
+	5	 3 23 30,
+	12	 31 32,
+	59	 3 12 23 30 31 32,
+	87	 8 15 19 20 22,
+	54	 8 10 15 19 20 22,
+	4	 8 10 14 15 19 20 22,
+	88	 8 10 11 13 14 15 19 20 22 29,
+	87	 16 17,
+	1	 17 18,
+	73	 12 30 31 32,
+	31	 6 26 34,
+	6	 16 17 18 24,
+	13	 6 16 17 18 21 24 26 34,
+	5	 25 27,
+	16	 3 6 12 16 17 18 21 23 24 25 26 27 30 31 32 34,
+	18	 16 17 18 21 24 27,
+	12	 16 17 18 21 24 25 27,
+	2	 8 10 11 13 14 15 19 20 22,
+	15	 1 2 3 4 5 7 9 12 23 28 30 31 32 33,
+	3	 4 7,
+	5	 16 21,
+	30	 16 17 21,
+	5	 6 25 34,
+	3	 26 27,
+	4	 12 32,
+	25	 6 16 17 18 21 24 25 26 34,
+	9	 8 10 11 12 13 14 15 19 20 22 29 30 31 32,
+	16	 1 2 3 4 5 7 9 23 28 33,
+	4	 6 12 16 17 18 21 24 25 26 27 30 31 32 34,
+	26	 1 2 4 5 7 28,
+	4	 1 5,
+	3	 10 19 20,
+	10	 3 9 23 33,
+	0	 1 2 4 5 6 7 16 17 18 21 24 25 26 27 28 34,
+	0	 1 2 3 4 5 7 9 23 28 30 33,
+	1	 11 29,
+	1	 1 2 4 5 7 9 28,
+	1	 9 28,
+	11	 16 17 18 21 24 25,
+	5	 6 16 17 18 21 24 27 34,
+	2	 9 28 33,
+	5	 8 13 14 15 19 20 22,
+	6	 1 2 3 4 5 7 9 23 33,
+	6	 8 13 15 22,
+	2	 10 13,
+	0	 10 13 14,
+	0	 10 13 14 19 20,
+	6	 6 16 17 18 21 24 25 26 27 30 34,
+	1	 3 8 10 12 13 14 15 19 20 22 23 29 30 31 32,
+	3	 8 19 20,
+	3	 8 10 11 12 13 14 15 19 20 22 29 31 32,
+	3	 17 21,
+	7	 1 2 3 4 5 7 9 12 23 28 31 32 33,
+	1	 8 10 15 22,
+	0	 3 8 10 11 13 14 15 19 20 22 23 29 30,
+	3	 13 14,
+	1	 16 17 21 24,
+	0	 6 9 16 17 18 21 24 25 26 27 33 34,
+	0	 6 9 16 17 18 21 24 25 26 27 28 33 34,
+	0	 1 2 3 4 5 7 12 23 30 31 32,
+	0	 1 2 4 5 6 7 9 16 17 18 21 24 25 26 27 33 34,
+	2	 28 30,
+	2	 6 16 17 18 21 24 25 26 27 28 30 34,
+	3	 2 4 5 7,
+	2	 1 2 4 5 7 28 33,
+	1	 18 24,
+	4	 1 2 4 5 7 9,
+	1	 1 2 3 4 5 7 9 11 12 23 28 30 31 32 33,
+	4	 1 2 4 5 7 33,
+	3	 2 7,
+	1	 3 6 9 16 17 18 21 23 24 25 26 27 33 34,
+	0	 3 8 9 10 11 13 14 15 19 20 22 23 29 33,
+	1	 1 2 4 5 7 9 12 28 30 31 32 33,
+	0	 3 9 23,
+	1	 3 11 12 23 30 31 32,
+	0	 16 17 24,
+	3	 3 8 10 11 13 14 15 19 20 22 23 29,
+	1	 15 19 20 22,
+	1	 6 11 16 17 18 21 24 25 26 27 34,
+	1	 8 10 13 14 15 19 20 22 30,
+	0	 6 11 12 16 17 18 21 24 25 26 27 30 31 32 34,
+	2	 10 14,
+	2	 3 8 10 11 12 13 14 15 19 20 22 23 29 31 32,
+	0	 8 14 15 19 20 22,
+	1	 3 6 12 16 17 18 21 23 24 25 26 27 31 32 34,
+	1	 6 25 26 34,
+	0	 6 11 16 17 18 21 24 25 26 27 30 34,
+	1	 6 16 17 18 21 24 26 27 34,
+	1	 1 2 4 5 7 9 11 28 33,
+	0	 16 17 18 21 24 26,
+	0	 8 9 10 11 13 14 15 19 20 22 29,
+	0	 8 9 10 11 13 14 15 19 20 22 29 33,
+	0	 3 8 10 13 14 15 19 20 22 23 29,
+	0	 16 17 18 21 24 26 27,
+	0	 6 27 34,
+	0	 16 18 24,
+	0	 8 10 12 13 14 15 19 20 22 29 30 31 32,
+	0	 1 2 4 5 7 8 9 10 13 14 15 19 20 22 28 29 33,
+	0	 8 9 10 13 14 15 19 20 22 29,
+	0	 8 9 10 13 14 15 19 20 22 29 33,
+	0	 28 33,
+	1	 3 6 16 17 18 21 23 24 25 26 27 34,
+	0	 3 9 23 28 33,
+	0	 25 26,
+	0	 6 25 26 27 34,
+	1	 1 2 3 4 5 7 9 12 23 31 32 33,
+	1	 6 12 16 17 18 21 24 25 26 27 31 32 34,
+	1	 8 22,
+	0	 18 21,
+	0	 8 10 13 15 22,
+	0	 1 2 4 5 6 7 9 16 17 18 21 24 25 27 28 33 34,
+	0	 1 2 4 5 7 9 28 30 33,
+	0	 3 6 9 16 17 18 21 23 24 25 26 27 28 33 34,
+	0	 29 30,
+	0	 1 2 4 5 7 8 10 11 13 14 15 19 20 22 29,
+	0	 3 8 10 12 13 14 15 19 20 22 23 29 31 32,
+	0	 11 12 31 32,
+	0	 6 26 27 34,
+	0	 8 10 11 12 13 14 15 19 20 22 28 29 30 31 32,
+	0	 11 12 30 31 32,
+	0	 3 9 12 23 31 32 33,
+	0	 16 17 18 21 24 25 26 27,
+	0	 13 15 22,
+	0	 1 2 4 5 7 12 28 31 32,
+	0	 3 6 16 17 18 21 23 24 25 26 27 30 34,
+	0	 8 13,
+	0	 10 13 19 20,
+	0	 16 18 21,
+	0	 10 14 19 20,
+;
+END; [Splits]
+

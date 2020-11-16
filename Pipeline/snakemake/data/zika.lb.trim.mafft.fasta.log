@@ -1,0 +1,151 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/zika.lb.trim.mafft.fasta -st DNA -bb 1000 -wsl -m GTR+F+I+G4
+Seed:    663849 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Tue Nov 10 14:31:32 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file data/zika.lb.trim.mafft.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 34 sequences with 10597 columns, 496 distinct patterns
+190 parsimony-informative, 159 singleton sites, 10248 constant sites
+                                                                                                                                             Gap/Ambiguity  Composition  p-value
+   1  PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman                                   0.00%    passed     99.97%
+   2  COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.00%    passed     99.95%
+   3  PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti                                   0.00%    passed     99.77%
+   4  COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.00%    passed     99.86%
+   5  Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick                                   0.01%    passed     99.95%
+   6  ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu                                      0.00%    passed     99.85%
+   7  VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm                                        0.00%    passed     99.92%
+   8  DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky        11.22%    passed     97.90%
+   9  BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky                                             5.37%    passed     98.62%
+  10  DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky         0.00%    passed     99.83%
+  11  EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez                                               0.00%    passed     99.97%
+  12  HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky                                       2.23%    passed     98.73%
+  13  DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky    2.09%    passed     99.97%
+  14  DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky         2.19%    passed     98.64%
+  15  USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                      2.31%    passed     98.63%
+  16  SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.14%    passed     97.87%
+  17  SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.00%    passed     98.64%
+  18  SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.00%    passed     98.63%
+  19  USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                    0.00%    passed     99.94%
+  20  Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh                                         0.00%    passed     99.84%
+  21  SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.82%    passed     96.12%
+  22  USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                   22.62%    passed     97.97%
+  23  COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.01%    passed     99.83%
+  24  Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin                                        1.35%    passed     99.94%
+  25  1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                        0.20%    passed    100.00%
+  26  1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                       14.49%    passed     89.57%
+  27  1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                        0.20%    passed     99.98%
+  28  Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           7.12%    passed     97.21%
+  29  Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           7.09%    passed     98.75%
+  30  Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           32.26%    passed     63.59%
+  31  V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti                                            3.07%    passed     99.17%
+  32  Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata                                            0.00%    passed     99.94%
+  33  Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria                                          44.60%    passed     85.24%
+  34  SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi                                         0.01%    passed     99.80%
+****  TOTAL                                                                                                                                          4.69%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+Creating fast initial parsimony tree by random order stepwise addition...
+0.005 seconds, parsimony score: 382 (based on 349 sites)
+Generating 1000 samples for ultrafast bootstrap (seed: 663849)...
+
+NOTE: 4 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.000 / Estimate: 0.000, 0.020 / LogL: -17680.953
+Init pinv, alpha: 0.107, 1.000 / Estimate: 0.107, 0.020 / LogL: -17680.349
+Init pinv, alpha: 0.215, 1.000 / Estimate: 0.215, 0.074 / LogL: -17680.189
+Init pinv, alpha: 0.322, 1.000 / Estimate: 0.322, 0.170 / LogL: -17680.261
+Init pinv, alpha: 0.430, 1.000 / Estimate: 0.430, 0.280 / LogL: -17680.335
+Init pinv, alpha: 0.537, 1.000 / Estimate: 0.537, 0.469 / LogL: -17680.402
+Init pinv, alpha: 0.645, 1.000 / Estimate: 0.645, 0.921 / LogL: -17680.437
+Init pinv, alpha: 0.752, 1.000 / Estimate: 0.752, 3.776 / LogL: -17680.337
+Init pinv, alpha: 0.860, 1.000 / Estimate: 0.849, 998.440 / LogL: -17682.074
+Init pinv, alpha: 0.967, 1.000 / Estimate: 0.851, 998.447 / LogL: -17682.574
+Optimal pinv,alpha: 0.215, 0.074 / LogL: -17680.189
+
+Parameters optimization took 1.637 sec
+Computing ML distances based on estimated model parameters... 0.028 sec
+Computing BIONJ tree...
+0.002 seconds
+Log-likelihood of BIONJ tree: -17699.849
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.226 second
+Computing log-likelihood of 98 initial trees ... 0.404 seconds
+Current best score: -17680.189
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -17680.188
+Iteration 10 / LogL: -17680.189 / Time: 0h:0m:3s
+Iteration 20 / LogL: -17680.202 / Time: 0h:0m:3s
+Finish initializing candidate tree set (1)
+Current best tree score: -17680.188 / CPU time: 2.086
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -17680.227 / Time: 0h:0m:4s (0h:0m:11s left)
+Iteration 40 / LogL: -17680.214 / Time: 0h:0m:5s (0h:0m:8s left)
+Iteration 50 / LogL: -17680.234 / Time: 0h:0m:6s (0h:0m:6s left)
+Log-likelihood cutoff on original alignment: -17712.986
+Iteration 60 / LogL: -17680.251 / Time: 0h:0m:7s (0h:0m:5s left)
+Iteration 70 / LogL: -17680.229 / Time: 0h:0m:8s (0h:0m:3s left)
+Iteration 80 / LogL: -17680.241 / Time: 0h:0m:9s (0h:0m:2s left)
+Iteration 90 / LogL: -17680.254 / Time: 0h:0m:10s (0h:0m:1s left)
+Iteration 100 / LogL: -17680.384 / Time: 0h:0m:11s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -17712.546
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.992
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:12s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -17680.188
+Optimal log-likelihood: -17680.188
+Rate parameters:  A-C: 1.07471  A-G: 7.98027  A-T: 0.91676  C-G: 0.30684  C-T: 22.69372  G-T: 1.00000
+Base frequencies:  A: 0.274  C: 0.220  G: 0.292  T: 0.215
+Proportion of invariable sites: 0.215
+Gamma shape alpha: 0.074
+Parameters optimization took 1 rounds (0.019 sec)
+BEST SCORE FOUND : -17680.188
+Site log-likelihoods printed to data/zika.lb.trim.mafft.fasta.sitelh
+Creating bootstrap support values...
+Split supports printed to NEXUS file data/zika.lb.trim.mafft.fasta.splits.nex
+Total tree length: 0.038
+
+Total number of iterations: 102
+CPU time used for tree search: 10.069 sec (0h:0m:10s)
+Wall-clock time used for tree search: 10.447 sec (0h:0m:10s)
+Total CPU time used: 11.932 sec (0h:0m:11s)
+Total wall-clock time used: 12.419 sec (0h:0m:12s)
+
+Computing bootstrap consensus tree...
+Reading input file data/zika.lb.trim.mafft.fasta.splits.nex...
+34 taxa and 180 splits.
+Consensus tree written to data/zika.lb.trim.mafft.fasta.contree
+Reading input trees file data/zika.lb.trim.mafft.fasta.contree
+Log-likelihood of consensus tree: -17680.328
+
+Analysis results written to: 
+  IQ-TREE report:                data/zika.lb.trim.mafft.fasta.iqtree
+  Maximum-likelihood tree:       data/zika.lb.trim.mafft.fasta.treefile
+  Likelihood distances:          data/zika.lb.trim.mafft.fasta.mldist
+  Site log-likelihoods:          data/zika.lb.trim.mafft.fasta.sitelh
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          data/zika.lb.trim.mafft.fasta.splits.nex
+  Consensus tree:                data/zika.lb.trim.mafft.fasta.contree
+  Screen log file:               data/zika.lb.trim.mafft.fasta.log
+
+Date and Time: Tue Nov 10 14:31:45 2020

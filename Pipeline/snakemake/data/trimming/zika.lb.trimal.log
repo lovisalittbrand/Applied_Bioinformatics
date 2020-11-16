@@ -1,0 +1,254 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/trimming/zika.lb.trimal -st DNA -bb 1000 -wsl
+Seed:    623914 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Nov  9 15:01:55 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file data/trimming/zika.lb.trimal ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 34 sequences with 10597 columns, 496 distinct patterns
+190 parsimony-informative, 159 singleton sites, 10248 constant sites
+                                                                                                                                             Gap/Ambiguity  Composition  p-value
+   1  PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman                                   0.00%    passed     99.97%
+   2  COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.00%    passed     99.95%
+   3  PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti                                   0.00%    passed     99.77%
+   4  COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.00%    passed     99.86%
+   5  Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick                                   0.01%    passed     99.95%
+   6  ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu                                      0.00%    passed     99.85%
+   7  VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm                                        0.00%    passed     99.92%
+   8  DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky        11.22%    passed     97.90%
+   9  BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky                                             5.37%    passed     98.62%
+  10  DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky         0.00%    passed     99.83%
+  11  EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez                                               0.00%    passed     99.97%
+  12  HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky                                       2.23%    passed     98.73%
+  13  DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky    2.09%    passed     99.97%
+  14  DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky         2.19%    passed     98.64%
+  15  USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                      2.31%    passed     98.63%
+  16  SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.14%    passed     97.87%
+  17  SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.00%    passed     98.64%
+  18  SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.00%    passed     98.63%
+  19  USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                    0.00%    passed     99.94%
+  20  Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh                                         0.00%    passed     99.84%
+  21  SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho                                                 0.82%    passed     96.12%
+  22  USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh                                                   22.62%    passed     97.97%
+  23  COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett                                    0.01%    passed     99.83%
+  24  Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin                                        1.35%    passed     99.94%
+  25  1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                        0.20%    passed    100.00%
+  26  1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                       14.49%    passed     89.57%
+  27  1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson                        0.20%    passed     99.98%
+  28  Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           7.12%    passed     97.21%
+  29  Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           7.09%    passed     98.75%
+  30  Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria                                           32.26%    passed     63.59%
+  31  V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti                                            3.07%    passed     99.17%
+  32  Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata                                            0.00%    passed     99.94%
+  33  Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria                                          44.60%    passed     85.24%
+  34  SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi                                         0.01%    passed     99.80%
+****  TOTAL                                                                                                                                          4.69%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+
+Creating fast initial parsimony tree by random order stepwise addition...
+0.004 seconds, parsimony score: 383 (based on 349 sites)
+Perform fast likelihood tree search using GTR+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -17680.465
+Optimal log-likelihood: -17680.412
+Rate parameters:  A-C: 1.07928  A-G: 8.01526  A-T: 0.93458  C-G: 0.31898  C-T: 22.30111  G-T: 1.00000
+Base frequencies:  A: 0.274  C: 0.220  G: 0.292  T: 0.215
+Proportion of invariable sites: 0.483
+Gamma shape alpha: 0.359
+Parameters optimization took 1 rounds (0.064 sec)
+Time for fast ML tree search: 0.715 seconds
+
+NOTE: ModelFinder requires 7 MB RAM!
+ModelFinder will test up to 286 DNA models (sample size: 10597) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  GTR+F         17708.237    73  35562.475    35563.501    36093.063
+  2  GTR+F+I       17680.201    74  35508.403    35509.458    36046.259
+  3  GTR+F+G4      17680.974    74  35509.949    35511.004    36047.805
+  4  GTR+F+I+G4    17680.396    75  35510.793    35511.876    36055.917
+  5  GTR+F+R2      17696.850    75  35543.700    35544.783    36088.824
+  6  GTR+F+R3      17684.877    77  35523.755    35524.897    36083.416
+  7  GTR+F+R4      17682.476    79  35522.952    35524.154    36097.150
+ 15  SYM+I         17774.939    71  35691.878    35692.850    36207.929
+ 16  SYM+G4        17775.734    71  35693.468    35694.439    36209.519
+ 17  SYM+I+G4      17775.183    72  35694.365    35695.364    36217.685
+ 28  TVM+F+I       17719.323    73  35584.645    35585.672    36115.233
+ 29  TVM+F+G4      17722.063    73  35590.127    35591.154    36120.715
+ 30  TVM+F+I+G4    17719.427    74  35586.854    35587.909    36124.710
+ 41  TVMe+I        17796.615    70  35733.230    35734.174    36242.013
+ 42  TVMe+G4       17798.456    70  35736.911    35737.855    36245.694
+ 43  TVMe+I+G4     17796.753    71  35735.507    35736.478    36251.558
+ 54  TIM3+F+I      17683.024    72  35510.048    35511.047    36033.368
+ 55  TIM3+F+G4     17683.800    72  35511.601    35512.600    36034.920
+ 56  TIM3+F+I+G4   17683.217    73  35512.434    35513.461    36043.022
+ 67  TIM3e+I       17777.627    69  35693.255    35694.173    36194.769
+ 68  TIM3e+G4      17778.443    69  35694.886    35695.804    36196.401
+ 69  TIM3e+I+G4    17777.817    70  35695.633    35696.578    36204.416
+ 80  TIM2+F+I      17682.910    72  35509.819    35510.818    36033.139
+ 81  TIM2+F+G4     17683.692    72  35511.384    35512.383    36034.703
+ 82  TIM2+F+I+G4   17683.103    73  35512.206    35513.233    36042.794
+ 93  TIM2e+I       17777.451    69  35692.901    35693.819    36194.416
+ 94  TIM2e+G4      17778.259    69  35694.519    35695.436    36196.033
+ 95  TIM2e+I+G4    17777.641    70  35695.282    35696.227    36204.065
+106  TIM+F+I       17682.153    72  35508.305    35509.304    36031.625
+107  TIM+F+G4      17682.943    72  35509.886    35510.885    36033.206
+108  TIM+F+I+G4    17682.345    73  35510.689    35511.716    36041.277
+119  TIMe+I        17776.725    69  35691.450    35692.368    36192.965
+120  TIMe+G4       17777.535    69  35693.071    35693.988    36194.585
+121  TIMe+I+G4     17776.912    70  35693.824    35694.769    36202.607
+132  TPM3u+F+I     17722.050    71  35586.101    35587.072    36102.152
+133  TPM3u+F+G4    17724.750    71  35591.501    35592.472    36107.552
+134  TPM3u+F+I+G4  17722.155    72  35588.310    35589.309    36111.629
+145  TPM3+F+I      17722.050    71  35586.101    35587.072    36102.152
+146  TPM3+F+G4     17724.750    71  35591.501    35592.472    36107.552
+147  TPM3+F+I+G4   17722.155    72  35588.310    35589.309    36111.629
+158  TPM2u+F+I     17721.909    71  35585.818    35586.789    36101.869
+159  TPM2u+F+G4    17724.638    71  35591.276    35592.247    36107.327
+160  TPM2u+F+I+G4  17722.014    72  35588.027    35589.026    36111.347
+171  TPM2+F+I      17721.909    71  35585.818    35586.789    36101.869
+172  TPM2+F+G4     17724.638    71  35591.276    35592.247    36107.327
+173  TPM2+F+I+G4   17722.014    72  35588.027    35589.026    36111.347
+184  K3Pu+F+I      17721.167    71  35584.335    35585.306    36100.386
+185  K3Pu+F+G4     17723.899    71  35589.799    35590.770    36105.850
+186  K3Pu+F+I+G4   17721.269    72  35586.538    35587.537    36109.858
+197  K3P+I         17798.299    68  35732.598    35733.490    36226.845
+198  K3P+G4        17800.169    68  35736.339    35737.230    36230.585
+199  K3P+I+G4      17798.434    69  35734.868    35735.786    36236.383
+210  TN+F+I        17683.662    71  35509.325    35510.296    36025.376
+211  TN+F+G4       17684.451    71  35510.901    35511.873    36026.952
+212  TN+F+I+G4     17683.854    72  35511.708    35512.707    36035.028
+223  TNe+I         17778.228    68  35692.457    35693.348    36186.703
+224  TNe+G4        17779.032    68  35694.065    35694.956    36188.311
+225  TNe+I+G4      17778.416    69  35694.831    35695.749    36196.346
+236  HKY+F+I       17722.691    70  35585.382    35586.326    36094.165
+237  HKY+F+G4      17725.442    70  35590.884    35591.828    36099.667
+238  HKY+F+I+G4    17722.792    71  35587.585    35588.556    36103.636
+249  K2P+I         17799.812    67  35733.624    35734.489    36220.602
+250  K2P+G4        17801.683    67  35737.367    35738.232    36224.345
+251  K2P+I+G4      17799.947    68  35735.894    35736.785    36230.140
+262  F81+F+I       17981.031    69  36100.062    36100.980    36601.577
+263  F81+F+G4      17982.298    69  36102.597    36103.514    36604.111
+264  F81+F+I+G4    17981.200    70  36102.400    36103.344    36611.182
+275  JC+I          18062.207    66  36256.414    36257.254    36736.124
+276  JC+G4         18063.698    66  36259.395    36260.235    36739.105
+277  JC+I+G4       18062.361    67  36258.721    36259.586    36745.699
+Akaike Information Criterion:           TIM+F+I
+Corrected Akaike Information Criterion: TIM+F+I
+Bayesian Information Criterion:         TN+F+I
+Best-fit model: TN+F+I chosen according to BIC
+
+All model information printed to data/trimming/zika.lb.trimal.model.gz
+CPU time for ModelFinder: 6.765 seconds (0h:0m:6s)
+Wall-clock time for ModelFinder: 7.570 seconds (0h:0m:7s)
+Generating 1000 samples for ultrafast bootstrap (seed: 623914)...
+
+NOTE: 2 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -17683.662
+Optimal log-likelihood: -17683.662
+Rate parameters:  A-C: 1.00000  A-G: 9.67765  A-T: 1.00000  C-G: 1.00000  C-T: 27.32010  G-T: 1.00000
+Base frequencies:  A: 0.274  C: 0.220  G: 0.292  T: 0.215
+Proportion of invariable sites: 0.798
+Parameters optimization took 1 rounds (0.009 sec)
+Computing ML distances based on estimated model parameters... 0.019 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -17703.434
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.222 second
+Computing log-likelihood of 98 initial trees ... 0.251 seconds
+Current best score: -17683.648
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -17683.637
+UPDATE BEST LOG-LIKELIHOOD: -17683.637
+UPDATE BEST LOG-LIKELIHOOD: -17683.637
+Iteration 10 / LogL: -17683.651 / Time: 0h:0m:1s
+UPDATE BEST LOG-LIKELIHOOD: -17683.637
+Iteration 20 / LogL: -17683.652 / Time: 0h:0m:1s
+Finish initializing candidate tree set (1)
+Current best tree score: -17683.637 / CPU time: 1.501
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -17683.693 / Time: 0h:0m:2s (0h:0m:5s left)
+Iteration 40 / LogL: -17683.723 / Time: 0h:0m:2s (0h:0m:4s left)
+Iteration 50 / LogL: -17683.695 / Time: 0h:0m:3s (0h:0m:3s left)
+Log-likelihood cutoff on original alignment: -17711.704
+Iteration 60 / LogL: -17683.689 / Time: 0h:0m:4s (0h:0m:3s left)
+Iteration 70 / LogL: -17683.712 / Time: 0h:0m:4s (0h:0m:2s left)
+Iteration 80 / LogL: -17683.686 / Time: 0h:0m:5s (0h:0m:1s left)
+Iteration 90 / LogL: -17683.706 / Time: 0h:0m:6s (0h:0m:0s left)
+Iteration 100 / LogL: -17685.704 / Time: 0h:0m:6s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -17711.766
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.989
+NOTE: UFBoot does not converge, continue at least 100 more iterations
+Iteration 110 / LogL: -17683.700 / Time: 0h:0m:7s (0h:0m:6s left)
+Iteration 120 / LogL: -17683.719 / Time: 0h:0m:7s (0h:0m:5s left)
+Iteration 130 / LogL: -17683.717 / Time: 0h:0m:8s (0h:0m:4s left)
+Iteration 140 / LogL: -17683.696 / Time: 0h:0m:8s (0h:0m:3s left)
+Iteration 150 / LogL: -17683.722 / Time: 0h:0m:9s (0h:0m:3s left)
+Log-likelihood cutoff on original alignment: -17712.719
+Iteration 160 / LogL: -17683.697 / Time: 0h:0m:10s (0h:0m:2s left)
+Iteration 170 / LogL: -17683.698 / Time: 0h:0m:10s (0h:0m:1s left)
+Iteration 180 / LogL: -17683.660 / Time: 0h:0m:11s (0h:0m:1s left)
+Iteration 190 / LogL: -17683.714 / Time: 0h:0m:11s (0h:0m:0s left)
+Iteration 200 / LogL: -17683.691 / Time: 0h:0m:12s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -17712.865
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.996
+TREE SEARCH COMPLETED AFTER 200 ITERATIONS / Time: 0h:0m:12s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -17683.637
+Optimal log-likelihood: -17683.637
+Rate parameters:  A-C: 1.00000  A-G: 9.68107  A-T: 1.00000  C-G: 1.00000  C-T: 27.33089  G-T: 1.00000
+Base frequencies:  A: 0.274  C: 0.220  G: 0.292  T: 0.215
+Proportion of invariable sites: 0.798
+Parameters optimization took 1 rounds (0.005 sec)
+BEST SCORE FOUND : -17683.637
+Site log-likelihoods printed to data/trimming/zika.lb.trimal.sitelh
+Creating bootstrap support values...
+Split supports printed to NEXUS file data/trimming/zika.lb.trimal.splits.nex
+Total tree length: 0.038
+
+Total number of iterations: 200
+CPU time used for tree search: 12.097 sec (0h:0m:12s)
+Wall-clock time used for tree search: 12.475 sec (0h:0m:12s)
+Total CPU time used: 12.348 sec (0h:0m:12s)
+Total wall-clock time used: 12.739 sec (0h:0m:12s)
+
+Computing bootstrap consensus tree...
+Reading input file data/trimming/zika.lb.trimal.splits.nex...
+34 taxa and 194 splits.
+Consensus tree written to data/trimming/zika.lb.trimal.contree
+Reading input trees file data/trimming/zika.lb.trimal.contree
+Log-likelihood of consensus tree: -17683.777
+
+Analysis results written to: 
+  IQ-TREE report:                data/trimming/zika.lb.trimal.iqtree
+  Maximum-likelihood tree:       data/trimming/zika.lb.trimal.treefile
+  Likelihood distances:          data/trimming/zika.lb.trimal.mldist
+  Site log-likelihoods:          data/trimming/zika.lb.trimal.sitelh
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          data/trimming/zika.lb.trimal.splits.nex
+  Consensus tree:                data/trimming/zika.lb.trimal.contree
+  Screen log file:               data/trimming/zika.lb.trimal.log
+
+Date and Time: Mon Nov  9 15:02:15 2020

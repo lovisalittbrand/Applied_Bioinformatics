@@ -1,0 +1,109 @@
+#SNAKEMAKE pipeline
+#Part 1: Alignment - trimming - plot frequency - phylogeny
+
+#'
+#'
+#'
+#Input parameters to shell commands
+DATA = [os.environ.get("DATA")]
+if (DATA == None):
+    DATA = ["zika"]
+
+BIN = os.environ.get("BIN")
+if (BIN == None):
+    BIN = 50 #default
+
+BB = os.environ.get("BB")
+if (BB == None):
+    BB = 1000 #default
+
+TYPE = os.environ.get("TYPE")
+if (TYPE == None):
+    TYPE = "DNA" #default
+
+PARTITION = os.environ.get("PARTITION")
+MODEL = os.environ.get("MODEL")
+if (MODEL == None):
+    if (PARTITION == None):
+        phylo_command = "iqtree -s {input} -st {TYPE} -bb {BB} -wsl"
+    else:
+        phylo_command = "iqtree -s {input} -p {PARTITION} -st {TYPE} -bb {BB} -wsl"
+else:
+    if (PARTITION == None):
+        phylo_command = "iqtree -s {input} -st {TYPE} -bb {BB} -wsl -m {MODEL}"
+    else:
+        phylo_command = "iqtree -s {input} -p {PARTITION} -st {TYPE} -bb {BB} -wsl -m {MODEL}"
+
+#Shell commands
+align_command = "mafft --auto {input} > {output}"
+plot_freq_command = "python3 align_vis.py {input} {BIN} {TYPE}"
+
+
+#'
+#'
+#'
+#Rule 1: Aligning with mafft
+rule align_seq:
+    input:
+        "kasia_data/{raw_data}.fasta"
+    output:
+        "kasia_data/{raw_data}.mafft.fasta"
+    shell:
+        align_command
+
+
+#Rule 2: Trimming with trimal, gappyout
+rule gappyout:
+    input:
+        "kasia_data/{aln_seq}.mafft.fasta"
+    output:
+        "kasia_data/{aln_seq}.trim.mafft.fasta"
+    shell:
+        "trimal -gappyout -in {input} -out {output}"
+
+#Rule 2b: Trimming with noisy
+#rule noisy:
+    #input:
+    #    expand("data/{sample}.mafft.fasta", sample=DATA)
+    #output:
+    #    file1=expand("data/{sample}.mafft_typ.eps", sample=DATA),
+    #    file2=expand("data/{sample}.mafft_sta.gr", sample=DATA),
+    #    file3=expand("data/{sample}.mafft_out.fas", sample=DATA),
+    #    file4=expand("data/{sample}.mafft_idx.txt", sample=DATA)
+    #shell:
+    #    "noisy {input} > file1,file2,file3,file4"
+
+#Rule 3: Remove line breaks from alignment
+rule rm_linebreak:
+    input:
+        "kasia_data/{trim_seq}.trim.mafft.fasta"
+    output:
+        "kasia_data/{trim_seq}.lb.trim.mafft.fasta"
+    shell:
+        "sh line_break.sh {input} {output}"
+
+
+#Rule 4: Plot amino acid/DNA frequency
+rule plot_freq:
+    input:
+        "kasia_data/{lb_seq}.lb.trim.mafft.fasta"
+    shell:
+        plot_freq_command
+
+rule concat:
+    input:
+        "kasia_data/{seq}.lb.trim.mafft.fasta",
+        ""
+    output:
+        "kasia_data/{seq}_concat.lb.trim.mafft.fasta"
+    shell:
+        "perl catfasta2phyml_mod.pl {input} -c -f -v > {output}"
+
+#Rule 5: Construct phylogeny using IQ-tree
+rule phylo:
+    input:
+        "kasia_data/{seq}.lb.trim.mafft.fasta"
+    #output:
+    #    expand("data/{sample}.iqtree", sample=DATA)
+    shell:
+        phylo_command

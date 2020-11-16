@@ -1,0 +1,255 @@
+IQ-TREE 2.0.3 built Apr 26 2020
+
+Input file name: data/zika.lb.trim.mafft.fasta
+Type of analysis: tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 663849
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol. Biol. Evol., 35:518–522.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 34 sequences with 10597 nucleotide sites
+Number of constant sites: 10248 (= 96.7066% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 10248 (= 96.7066% of all sites)
+Number of parsimony informative sites: 190
+Number of distinct site patterns: 496
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: GTR+F+I+G4
+
+Rate parameter R:
+
+  A-C: 1.0747
+  A-G: 7.9803
+  A-T: 0.9168
+  C-G: 0.3068
+  C-T: 22.6937
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.2736
+  pi(C) = 0.2203
+  pi(G) = 0.2916
+  pi(T) = 0.2145
+
+Rate matrix Q:
+
+  A   -0.7227   0.06197    0.6093   0.05149
+  C   0.07698    -1.375   0.02343     1.275
+  G    0.5716   0.01769   -0.6455   0.05616
+  T   0.06567     1.309   0.07635    -1.451
+
+Model of rate heterogeneity: Invar+Gamma with 4 categories
+Proportion of invariable sites: 0.2148
+Gamma shape alpha: 0.07418
+
+ Category  Relative_rate  Proportion
+  0         0              0.2148
+  1         5.402e-09      0.1963
+  2         0.0001235      0.1963
+  3         0.04396        0.1963
+  4         5.05           0.1963
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -17680.1882 (s.e. 150.8232)
+Unconstrained log-likelihood (without tree): -44598.8576
+Number of free parameters (#branches + #model parameters): 75
+Akaike information criterion (AIC) score: 35510.3764
+Corrected Akaike information criterion (AICc) score: 35511.4600
+Bayesian information criterion (BIC) score: 36055.5009
+
+Total tree length (sum of branch lengths): 0.0377
+Sum of internal branch lengths: 0.0158 (41.8510% of tree length)
+
+WARNING: 12 near-zero internal branches (<0.0001) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+NOTE: Tree is UNROOTED although outgroup taxon 'PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++---PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman
+|
+|     +--COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
+|  +**| (97)
+|  |  +--COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
++--| (100)
+|  +---VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm
+|
+|                               +**PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti
+|                   +-----------| (100)
+|                   |           +--COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
+|                +**| (72)
+|                |  |         +--HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky
+|                |  |      +**| (79)
+|                |  |      |  +----V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti
+|                |  |  +---| (100)
+|                |  |  |   +--Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata
+|                |  +**| (78)
+|                |     +-----------Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|             +**| (55)
+|             |  |                       +--DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |                    +--| (97)
+|             |  |                    |  |  +--USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                    |  +--| (100)
+|             |  |                    |     +--USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                 +**| (85)
+|             |  |                 |  |     +--USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                 |  +-----| (100)
+|             |  |                 |        +--Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |              +**| (62)
+|             |  |              |  +--DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |           +**| (86)
+|             |  |           |  +---DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |     +-----| (100)
+|             |  |     |     +-----DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |  +--| (98)
+|             |  |  |  +--Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|             |  +--| (92)
+|             |     +---------EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez
+|          +--| (87)
+|          |  |                           +**ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu
+|          |  |            +--------------| (100)
+|          |  |            |              +**SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi
+|          |  |         +**| (59)
+|          |  |         |  |                                      +--SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                                   +**| (89)
+|          |  |         |  |                                   |  +**SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                                +--| (69)
+|          |  |         |  |                                |  +--SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                            +---| (93)
+|          |  |         |  |                            |   +--SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  +----------------------------| (100)
+|          |  |         |                               +----------------Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin
+|          |  |      +--| (63)
+|          |  |      |  +--1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|          |  |   +**| (54)
+|          |  |   |  +--1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|          |  +---| (100)
+|          |      +--1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|       +**| (56)
+|       |  +---Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|  +----| (100)
+|  |    |  +-----BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky
+|  |    +--| (86)
+|  |       +--Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria
++--| (94)
+   +--Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick
+
+Tree in newick format:
+
+(PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman:0.0007607274,((COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0001887977,COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0003788368)97:0.0000922712,VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm:0.0006652252)100:0.0005729868,(((((((PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti:0.0000010001,COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0001887977)100:0.0021033871,(((HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky:0.0003863317,V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti:0.0008795181)79:0.0000010001,Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata:0.0005679160)100:0.0007676522,Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0020901337)78:0.0000908916)72:0.0000895861,(((((((DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0003191491,(USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0005352450,USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0002466140)100:0.0005234340)97:0.0002876512,(USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0003788905,Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0002832321)100:0.0010489058)85:0.0000931068,DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0005681823)62:0.0000010001,DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0006765400)86:0.0000883327,DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0010727297)100:0.0011238076,Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0003059921)98:0.0004038899,EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez:0.0017176739)92:0.0001906198)55:0.0000010001,(((((ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu:0.0000010001,SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi:0.0000010001)100:0.0025198552,((((SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0002844517,SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0000010001)89:0.0000010001,SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0002832321)69:0.0002256379,SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0005359418)93:0.0008180243,Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin:0.0028199950)100:0.0049077222)59:0.0000604359,1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002844444)63:0.0000943869,1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002844088)54:0.0000010001,1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002204922)100:0.0006623303)87:0.0001887976,Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0008150185)56:0.0000010001,(BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky:0.0010045233,Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0001694342)86:0.0001932975)100:0.0009514710,Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick:0.0004751193)94:0.0001854576);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000 bootstrap trees
+Log-likelihood of consensus tree: -17680.328086
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++---PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman
+|
+|     +--COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
+|  +--| (97)
+|  |  +--COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
++--| (100)
+|  +---VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm
+|
+|                               +--PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti
+|                   +-----------| (100)
+|                   |           +--COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett
+|                +--| (72)
+|                |  |         +--HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky
+|                |  |      +--| (79)
+|                |  |      |  +----V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti
+|                |  |  +---| (100)
+|                |  |  |   +--Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata
+|                |  +--| (78)
+|                |     +-----------Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|             +--| (55)
+|             |  |                       +--DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |                    +--| (97)
+|             |  |                    |  |  +--USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                    |  +--| (100)
+|             |  |                    |     +--USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                 +--| (85)
+|             |  |                 |  |     +--USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |                 |  +-----| (100)
+|             |  |                 |        +--Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh
+|             |  |              +--| (62)
+|             |  |              |  +--DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |           +--| (86)
+|             |  |           |  +---DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |     +-----| (100)
+|             |  |     |     +-----DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky
+|             |  |  +--| (98)
+|             |  |  |  +--Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|             |  +--| (92)
+|             |     +---------EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez
+|          +--| (87)
+|          |  |                           +--ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu
+|          |  |            +--------------| (100)
+|          |  |            |              +--SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi
+|          |  |         +--| (59)
+|          |  |         |  |                                      +--SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                                   +--| (89)
+|          |  |         |  |                                   |  +--SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                                +--| (69)
+|          |  |         |  |                                |  +--SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  |                            +---| (93)
+|          |  |         |  |                            |   +--SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho
+|          |  |         |  +----------------------------| (100)
+|          |  |         |                               +----------------Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin
+|          |  |      +--| (63)
+|          |  |      |  +--1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|          |  |   +--| (54)
+|          |  |   |  +--1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|          |  +---| (100)
+|          |      +--1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson
+|       +--| (56)
+|       |  +---Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria
+|  +----| (100)
+|  |    |  +-----BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky
+|  |    +--| (86)
+|  |       +--Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria
++--| (94)
+   +--Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick
+
+
+Consensus tree in newick format: 
+
+(PAN/CDC_259359_V1_V3/2015|zika|KX156774|2015-12-18|north_america|panama|panama|panama|genbank|genome|Shabman:0.0007605219,((COL/FLR_00024/2015|zika|MF574569|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0001905686,COL/FLR_00008/2015|zika|MF574562|2015-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0003788606)97:0.0000926965,VEN/UF_1/2016|zika|KX702400|2016-03-25|south_america|venezuela|venezuela|venezuela|genbank|genome|Blohm:0.0006650541)100:0.0005728753,(((((((PRVABC59|zika|KU501215|2015-12-XX|north_america|puerto_rico|puerto_rico|puerto_rico|genbank|genome|Lanciotti:0.0000024602,COL/PRV_00028/2015|zika|MF574578|2016-12-XX|south_america|colombia|colombia|colombia|genbank|genome|Pickett:0.0001890790)100:0.0021032931,(((HND/2016/HU_ME59|zika|KY785418|2016-05-13|north_america|honduras|honduras|honduras|genbank|genome|Metsky:0.0003857082,V8375|zika|KU501217|2015-11-01|north_america|guatemala|guatemala|guatemala|genbank|genome|Lanciotti:0.0008786670)79:0.0000024602,Nica1_16|zika|KX421195|2016-01-19|north_america|nicaragua|nicaragua|nicaragua|genbank|genome|Tabata:0.0005672585)100:0.0007675309,Brazil/2016/ZBRC16|zika|KY558991|2016-01-19|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0020898404)78:0.0000907981)72:0.0000898976,(((((((DOM/2016/BB_0059|zika|KY785425|2016-04-04|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0003185723,(USA/2016/FL022|zika|KY075935|2016-07-22|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0005355829,USA/2016/FLWB042|zika|KY325478|2016-09-26|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0002473332)100:0.0005242733)97:0.0002876635,(USA/2016/FLUR022|zika|KY325473|2016-08-31|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0003789432,Aedes_aegypti/USA/2016/FL05|zika|KY075937|2016-09-09|north_america|usa|usa|usa|genbank|genome|Grubaugh:0.0002839407)100:0.0010488879)85:0.0000933943,DOM/2016/BB_0183|zika|KY785420|2016-04-18|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0005681942)62:0.0000024602,DOM/2016/MA_WGS16_011|zika|KY785484|2016-06-06|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0006767900)86:0.0000892704,DOM/2016/BB_0433|zika|KY785441|2016-06-13|north_america|dominican_republic|dominican_republic|dominican_republic|genbank|genome|Metsky:0.0010729862)100:0.0011240755,Brazil/2015/ZBRA105|zika|KY558989|2015-02-23|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0003064318)98:0.0004041188,EcEs062_16|zika|KX879603|2016-04-XX|south_america|ecuador|ecuador|ecuador|genbank|genome|Marquez:0.0017175439)92:0.0001906720)55:0.0000024602,(((((ZKC2/2016|zika|KX253996|2016-02-16|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Wu:0.0000024602,SMGC_1|zika|KX266255|2016-02-14|oceania|american_samoa|american_samoa|american_samoa|genbank|genome|Bi:0.0000024602)100:0.0025196673,((((SG_027|zika|KY241697|2016-08-27|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0002838788,SG_074|zika|KY241744|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0000024602)89:0.0000024602,SG_056|zika|KY241726|2016-08-28|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0002831200)69:0.0002258989,SG_018|zika|KY241688|2016-09-13|southeast_asia|singapore|singapore|singapore|genbank|genome|Ho:0.0005372213)93:0.0008169048,Thailand/1610acTw|zika|MF692778|2016-10-XX|southeast_asia|thailand|thailand|thailand|genbank|genome|Lin:0.0028204066)100:0.0049091881)59:0.0000604399,1_0087_PF|zika|KX447509|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002850820)63:0.0000944529,1_0181_PF|zika|KX447512|2013-12-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002850099)54:0.0000021050,1_0199_PF|zika|KX447519|2013-11-XX|oceania|french_polynesia|french_polynesia|french_polynesia|genbank|genome|Pettersson:0.0002207942)100:0.0006612699)87:0.0001890790,Brazil/2015/ZBRC301|zika|KY558995|2015-05-13|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0008150711)56:0.0000024602,(BRA/2016/FC_6706|zika|KY785433|2016-04-08|south_america|brazil|brazil|brazil|genbank|genome|Metsky:0.0010048974,Brazil/2015/ZBRC303|zika|KY558997|2015-05-14|south_america|brazil|brazil|brazil|genbank|genome|Faria:0.0001693205)86:0.0001929570)100:0.0009511206,Colombia/2016/ZC204Se|zika|KY317939|2016-01-06|south_america|colombia|colombia|colombia|genbank|genome|Quick:0.0004750177)94:0.0001862918);
+
+TIME STAMP
+----------
+
+Date and time: Tue Nov 10 14:31:45 2020
+Total CPU time used: 11.932227 seconds (0h:0m:11s)
+Total wall-clock time used: 12.44993281 seconds (0h:0m:12s)
+

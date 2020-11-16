@@ -1,0 +1,11 @@
+#SNAKEMAKE pipeline
+#Part 2: Phylogenetic signal
+DATA = ["zika"]
+
+rule phylogenetic_signal:
+    input:
+        expand("data/{sample}.lb.trim.mafft.fasta.sitelh", sample=DATA)
+    output:
+        expand("data/{sample}.sitelh.txt", sample=DATA)
+    shell:
+        "python3 data/phylogenetic_signal.py {input} {output}"

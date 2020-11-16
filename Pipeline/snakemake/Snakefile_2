@@ -1,0 +1,65 @@
+#SNAKEMAKE pipeline
+DATA = ["zika"]
+
+#File encoding a bioinformatic pipeline
+
+#Commands
+align_command = "mafft --auto {input} > {output}"
+plot_freq_command = "python3 align_vis.py {input} 100 DNA"
+phylo_command = "iqtree -s {input} -st DNA -bb 1000 -wsl"
+
+
+#Rule 1: Aligning with mafft
+rule align_seq:
+    input:
+        expand("data/raw_data/{sample}.fasta", sample=DATA)
+    output:
+        expand("data/alignment/{sample}.mafft.fasta", sample=DATA)
+    shell:
+        align_command
+
+
+#Rule 2: Trimming with trimal, gappyout
+rule gappyout:
+    input:
+        expand("data/alignment/{sample}.mafft.fasta", sample=DATA)
+    output:
+        expand("data/trimming/{sample}.trimal", sample=DATA)
+    shell:
+        "trimal -gappyout -in {input} -out {output}"
+
+#Rule 2b: Trimming with noisy
+#rule noisy:
+#    input:
+#        "data/alignment/zika.lb.mafft.fasta"
+    #output:
+#        "data/trimming/zika.trimal"
+#    shell:
+#        "noisy {input}"
+
+#Rule 3: Remove line breaks from alignment
+rule rm_linebreak:
+    input:
+        expand("data/trimming/{sample}.trimal", sample=DATA)
+    output:
+        expand("data/trimming/{sample}.lb.trimal", sample=DATA)
+    shell:
+        "sh line_break.sh {input} {output}"
+
+
+#Rule 4: Plot amino acid/DNA frequency
+rule plot_freq:
+    input:
+        expand("data/trimming/{sample}.lb.trimal", sample=DATA)
+    shell:
+        plot_freq_command
+
+
+#Rule 5: Construct phylogeny using IQ-tree
+rule phylo:
+    input:
+        expand("data/trimming/{sample}.lb.trimal", sample=DATA)
+    #output:
+    #    expand("data/{sample}.iqtree", sample=DATA)
+    shell:
+        phylo_command
