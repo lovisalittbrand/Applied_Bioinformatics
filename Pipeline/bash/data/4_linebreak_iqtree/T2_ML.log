@@ -1,0 +1,548 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/4_linebreak_iqtree/concatenation.lb.fasta -spp data/4_linebreak_iqtree/partition.nexus -st AA -wsl -nt 1 -pre T2_ML -g data/partition.nexus.treefile
+Seed:    124708 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Tue Nov 17 14:00:21 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file data/4_linebreak_iqtree/partition.nexus ...
+Reading alignment file data/4_linebreak_iqtree/concatenation.lb.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 273 sequences with 1087 columns, 1073 distinct patterns
+1007 parsimony-informative, 32 singleton sites, 48 constant sites
+                                                                                                            Gap/Ambiguity  Composition  p-value
+   1  0000106_J_ASPF01000006.1_6_27                                                                                44.34%    passed     50.75%
+   2  0000106__ASPF01000012.1_12_37                                                                                78.01%    failed      1.66%
+   3  0000106__ASPF01000012.1_12_67                                                                                82.15%    passed      7.39%
+   4  AAA00_NZ_ARWO01000004.1_29_13                                                                                44.34%    passed     31.98%
+   5  AAA011_D5_ASMP01000002.1_2_15                                                                                44.43%    passed      8.11%
+   6  AAA011_NZ_AQRL01000033.1_6_72                                                                                77.83%    failed      0.07%
+   7  AAA011_NZ_AQRL01000033.1_6_75                                                                                82.34%    passed     29.35%
+   8  AAA011_NZ_AQRS01000022.1_22_3                                                                                82.24%    passed     50.00%
+   9  AAA011_NZ_AQRS01000022.1_22_6                                                                                78.01%    failed      3.07%
+  10  AAA011_NZ_AQRS01000038.1_6_17                                                                                44.34%    passed     24.80%
+  11  AAA011_O1_ASMQ01000009.1_9_10                                                                                44.43%    passed     54.97%
+  12  AAA011__NZ_AQRL01000034.1_5_5                                                                                44.34%    failed      4.98%
+  13  AAA252_NZ_AQSC01000028.1_34_7                                                                                44.43%    passed     17.91%
+  14  AAA471_B05_WP_018194176.1                                                                                    44.34%    passed     50.63%
+  15  AAA471_B05_WP_018194716.1                                                                                    82.15%    failed      1.88%
+  16  AAA471_B05_WP_018194719.1                                                                                    77.92%    failed      0.73%
+  17  AAA471_F_ASPD01000019.1_19_15                                                                                95.77%    passed      7.30%
+  18  AAG_PM3_contig_124_1460_length_25723_read_count_83436_13                                                     49.31%    failed      0.00%
+  19  AAG_PM3_contig_124_2699_length_18674_read_count_65437_3                                                      82.15%    passed     39.92%
+  20  AAG_PM3_contig_124_2699_length_18674_read_count_65437_6                                                      77.64%    failed      0.74%
+  21  AAG_PM3_contig_124_575_length_40319_read_count_123464_5                                                      44.43%    failed      1.04%
+  22  AR10_QT03_C0001G0854                                                                                         82.24%    passed     14.93%
+  23  AR10_QT03_C0001G0857                                                                                         77.92%    failed      2.06%
+  24  AR15_QT06_C0001G0552                                                                                         78.56%    failed      3.83%
+  25  AR15_QT06_C0001G0555                                                                                         82.15%    passed     61.76%
+  26  AR19_QT10_C0001G0140                                                                                         78.66%    failed      0.01%
+  27  AR19_QT10_C0001G0144                                                                                         82.61%    passed      9.44%
+  28  AR1_QJ16_C0002G0021                                                                                          78.66%    failed      0.06%
+  29  AR1_QJ16_C0002G0024                                                                                          82.52%    passed     38.91%
+  30  AR20_QT11_C0001G0389                                                                                         82.15%    failed      1.38%
+  31  AR20_QT11_C0001G0392                                                                                         78.38%    failed      2.53%
+  32  AR5_QT00_C0001G0311                                                                                          82.34%    passed     13.65%
+  33  AR5_QT00_C0001G0315                                                                                          78.93%    failed      1.08%
+  34  AarhusThor_contig_124_447_14                                                                                 45.17%    failed      0.01%
+  35  AarhusThor_contig_124_54896_1                                                                                78.10%    failed      0.16%
+  36  AarhusThor_contig_124_54896_4                                                                                82.15%    passed     54.93%
+  37  Acidianus_hospitali_332796521                                                                                44.34%    passed     11.56%
+  38  Acidilobus_saccharo_302348189                                                                                44.43%    passed     32.11%
+  39  Aciduliprofundum_bo_289595750                                                                                44.34%    passed     56.21%
+  40  Aciduliprofundum_bo_289597190                                                                                78.47%    failed      1.17%
+  41  Aciduliprofundum_bo_289597193                                                                                82.15%    passed     17.43%
+  42  Aeropyrum_pernix_K1_14600538                                                                                 78.10%    failed      0.03%
+  43  Aeropyrum_pernix_K1_14600545                                                                                 82.15%    passed     62.76%
+  44  Aeropyrum_pernix_K1_14601403                                                                                 44.43%    passed     43.99%
+  45  Altiarch_scaffold_3203_10                                                                                    78.10%    passed      6.75%
+  46  Altiarch_scaffold_3203_7                                                                                     82.34%    passed     20.03%
+  47  Aquifex_aeolicus_VF5_gi_15605616_ref_NP_212989_1_                                                            82.15%    passed     11.15%
+  48  Aquifex_aeolicus_VF5_gi_15605619_ref_NP_212992_1_                                                            74.79%    failed      0.05%
+  49  Arabidopsis_tha_AT1G56070.1-P                                                                                44.34%    failed      0.38%
+  50  Archaeoglobus_fulgid_11499478                                                                                44.34%    passed     39.75%
+  51  Archaeoglobus_fulgid_11499506                                                                                78.20%    passed     17.31%
+  52  Archaeoglobus_fulgid_11499509                                                                                82.15%    passed     26.21%
+  53  Bacillus_subtilis_16_BSU01120                                                                                44.34%    failed      2.60%
+  54  Bacillus_subtilis_16_BSU01160                                                                                82.15%    passed     64.71%
+  55  Bacillus_subtilis_16_BSU01190                                                                                74.79%    passed      9.00%
+  56  Bacteroides_thetaiota_BT_2724                                                                                74.89%    passed      8.09%
+  57  Bacteroides_thetaiota_BT_2727                                                                                82.52%    failed      2.95%
+  58  Bacteroides_thetaiota_BT_2729                                                                                44.43%    passed     31.56%
+  59  BfLoki_RBG_13_Archaea_45_8_RBG_13_scaffold_1341_8                                                            44.34%    failed      0.99%
+  60  BfLoki_RBG_13_Archaea_45_8_RBG_13_scaffold_8060_10                                                           78.20%    passed     13.74%
+  61  BfLoki_RBG_13_Archaea_45_8_RBG_13_scaffold_923_44                                                            82.15%    passed     59.87%
+  62  Borrelia_burgdorferi_B_BB0540                                                                                44.62%    failed      0.32%
+  63  Ca_Korarchaeum_cryp_170289744                                                                                44.34%    passed     52.08%
+  64  Ca_Korarchaeum_cryp_170291100                                                                                82.15%    passed     16.69%
+  65  Ca_Korarchaeum_cryp_170291103                                                                                77.46%    passed     10.04%
+  66  Ca_Micrarchaeum_aci_255513346                                                                                44.62%    passed     39.56%
+  67  Ca_Micrarchaeum_aci_255513433                                                                                78.29%    failed      1.22%
+  68  Ca_Micrarchaeum_aci_255513436                                                                                82.52%    passed     80.06%
+  69  Ca_Nanosalina_sp_J0_339757641                                                                                59.61%    failed      0.01%
+  70  Ca_Nitrososphaera_g_408403259                                                                                77.37%    failed      1.58%
+  71  Ca_Nitrososphaera_g_408404337                                                                                82.15%    passed     13.89%
+  72  Ca_Nitrososphaera_g_408405307                                                                                44.34%    passed     94.99%
+  73  Ca_Parvarchaeum_aci_290558826                                                                                44.34%    failed      4.13%
+  74  Ca_Parvarchaeum_aci_290559286                                                                                78.56%    failed      3.72%
+  75  Ca_Saccharimonas_aalborgensis_L336_1020                                                                      74.98%    failed      0.75%
+  76  Ca_Saccharimonas_aalborgensis_L336_1024                                                                      82.34%    passed     23.61%
+  77  Ca_Solibacter_usitatus_Ellin6076_gi_116624199_ref_YP_826355_1_                                               74.89%    passed     18.12%
+  78  Ca_Solibacter_usitatus_Ellin6076_gi_116624202_ref_YP_826358_1_                                               82.15%    failed      4.16%
+  79  Caldiarchaeum_subte_343484509                                                                                77.83%    failed      0.30%
+  80  Caldiarchaeum_subte_343484512                                                                                82.15%    passed     56.14%
+  81  Caldiarchaeum_subte_343485768                                                                                44.34%    passed     30.74%
+  82  Caldivirga_maquilin_159040903                                                                                82.24%    failed      3.03%
+  83  Caldivirga_maquilin_159041508                                                                                44.34%    passed     23.08%
+  84  Caldivirga_maquilin_159041843                                                                                77.09%    passed     11.98%
+  85  Campylobacter_jejuni_N_Cj0493                                                                                44.34%    failed      4.87%
+  86  Cenarchaeum_symbios_118576052                                                                                82.15%    passed     36.89%
+  87  Cenarchaeum_symbios_118576108                                                                                44.34%    passed     30.12%
+  88  Cenarchaeum_symbios_118577137                                                                                77.64%    failed      0.43%
+  89  Chlamydia_trachomatis_D_CT437                                                                                44.71%    passed     21.52%
+  90  Deinococcus_radiodurans_R1_gi_15805340_ref_NP_294034_1_                                                      82.61%    passed     45.40%
+  91  Deinococcus_radiodurans_R1_gi_15805343_ref_NP_294037_1_                                                      74.79%    failed      1.31%
+  92  Desulfurococcus_kam_218884485                                                                                78.01%    failed      0.95%
+  93  Desulfurococcus_kam_218884488                                                                                82.15%    passed     24.72%
+  94  Desulfurococcus_kam_218884628                                                                                44.34%    passed     10.14%
+  95  Dictyostelium_dis_DDB_0191363                                                                                44.53%    failed      1.58%
+  96  Entamoeba_histolytica__B1N306                                                                                44.34%    failed      0.00%
+  97  Escherichia_coli_K_12_s_b3317                                                                                74.89%    failed      2.72%
+  98  Escherichia_coli_K_12_s_b3320                                                                                82.15%    passed     13.00%
+  99  Escherichia_coli_K_12_s_b3340                                                                                44.34%    passed     35.28%
+ 100  Ferroglobus_placidu_288931140                                                                                44.34%    failed      2.91%
+ 101  Ferroglobus_placidu_288931510                                                                                82.15%    passed     18.88%
+ 102  Ferroglobus_placidu_288931513                                                                                78.20%    passed     14.70%
+ 103  Ferroplasma_acidarm_257076167                                                                                44.34%    passed     17.77%
+ 104  Ferroplasma_acidarm_257076559                                                                                82.15%    passed     93.82%
+ 105  Ferroplasma_acidarm_257076562                                                                                78.66%    failed      0.05%
+ 106  Geoarchaeon_NAG1_2504813508                                                                                  77.92%    failed      4.45%
+ 107  Geoarchaeon_NAG1_2504813511                                                                                  82.15%    failed      2.42%
+ 108  Geoarchaeon_NAG1_2504814065                                                                                  44.34%    passed     24.34%
+ 109  Halalkalicoccus_jeo_300712246                                                                                44.34%    failed      0.00%
+ 110  Haloarcula_marismort_55378381                                                                                77.92%    failed      1.08%
+ 111  Haloarcula_marismort_55378384                                                                                82.15%    failed      2.66%
+ 112  Haloarcula_marismort_55379082                                                                                44.34%    failed      0.00%
+ 113  Halobacterium_NRC_1_16554524                                                                                 44.34%    failed      0.00%
+ 114  Haloferax_volcanii__292654534                                                                                44.34%    failed      0.00%
+ 115  Haloferax_volcanii__292656682                                                                                77.83%    failed      3.77%
+ 116  Haloferax_volcanii__292656685                                                                                82.15%    passed     30.42%
+ 117  Homo_sapiens_ENSP00000307940                                                                                 44.34%    passed     17.22%
+ 118  Hyperthermus_butyli_124027716                                                                                44.34%    passed     45.60%
+ 119  Ignicoccus_hospital_156937755                                                                                82.15%    passed      8.62%
+ 120  Ignicoccus_hospital_156938133                                                                                76.91%    failed      0.01%
+ 121  Ignicoccus_hospital_156938170                                                                                44.34%    passed      5.58%
+ 122  Ignisphaera_aggrega_305663907                                                                                44.34%    passed     66.23%
+ 123  Kor1_contig_124_1_length_190209_read_count_23545767_177                                                      82.15%    passed     52.96%
+ 124  Kor1_contig_124_1_length_190209_read_count_23545767_180                                                      77.64%    failed      1.18%
+ 125  Kor1_contig_124_1_length_190209_read_count_23545767_222                                                      45.26%    failed      0.21%
+ 126  Kor1_contig_124_5_length_117016_read_count_11740318_82                                                       53.82%    passed     38.24%
+ 127  Kor2_contig_124_498_length_15829_read_count_235210_4                                                         44.34%    passed     30.47%
+ 128  Kor2_contig_124_5821_length_4474_read_count_84192_3                                                          77.64%    failed      1.28%
+ 129  Kor3_contig_124_1992_length_8099_read_count_610209_1_contig_124_9520_length_3297_read_count_177940_1_fused   84.18%    passed     43.04%
+ 130  Kor3_contig_124_895_length_12093_read_count_1069129_9                                                        49.77%    passed     31.03%
+ 131  Kor3_contig_124_9520_length_3297_read_count_177940_4                                                         77.09%    failed      3.70%
+ 132  Leishmania_infant_LinJ36.2470                                                                                44.34%    failed      4.00%
+ 133  Loki2_s26_3                                                                                                  44.62%    failed      0.42%
+ 134  Loki3_c6_12                                                                                                  44.34%    passed     41.74%
+ 135  Loki3_s167_24                                                                                                82.15%    passed      8.80%
+ 136  Loki3_s167_27                                                                                                77.00%    failed      0.82%
+ 137  Loki4_NODE_1_length_1181447_cov_4_38286_ID_1_51                                                              44.34%    failed      4.27%
+ 138  Loki4_NODE_1_length_1181447_cov_4_38286_ID_1_622                                                             77.74%    passed      9.45%
+ 139  Loki4_NODE_1_length_1181447_cov_4_38286_ID_1_625                                                             82.15%    passed     13.86%
+ 140  Loki4_NODE_1_length_1181447_cov_4_38286_ID_1_628                                                             44.99%    failed      0.00%
+ 141  MBGD_SCGC_AB539_MBGDN05_00305                                                                                78.47%    failed      2.17%
+ 142  MBGD_SCGC_AB539_MBGDN05_00308                                                                                82.15%    passed     60.72%
+ 143  MCG_SCGC_AB539E0_MCGE09_00384                                                                                82.15%    passed     35.58%
+ 144  MCG_SCGC_AB539E0_MCGE09_00387                                                                                77.83%    failed      0.22%
+ 145  Metallosphaera_cupr_330835822                                                                                78.10%    passed     12.85%
+ 146  Metallosphaera_cupr_330835825                                                                                82.15%    failed      1.72%
+ 147  Metallosphaera_cupr_330835832                                                                                44.34%    passed     15.10%
+ 148  Metallosphaera_sedu_146302869                                                                                44.34%    passed     28.04%
+ 149  Methanobacterium_AL_325958531                                                                                82.15%    passed     90.15%
+ 150  Methanobacterium_AL_325958534                                                                                77.83%    passed      7.05%
+ 151  Methanobacterium_AL_325960109                                                                                44.34%    passed     28.27%
+ 152  Methanocaldococcus_j_15668348                                                                                82.15%    passed     59.79%
+ 153  Methanocaldococcus_j_15668351                                                                                77.83%    failed      0.27%
+ 154  Methanocaldococcus_j_15669237                                                                                44.34%    failed      4.67%
+ 155  Methanocella_paludi_282163894                                                                                44.34%    passed     49.65%
+ 156  Methanocella_paludi_282164890                                                                                82.24%    passed     56.68%
+ 157  Methanocella_paludi_282164893                                                                                77.92%    failed      1.68%
+ 158  Methanococcus_marip_159905508                                                                                77.92%    failed      1.32%
+ 159  Methanococcus_marip_159905511                                                                                82.15%    passed     16.14%
+ 160  Methanococcus_marip_159905687                                                                                44.34%    passed     18.07%
+ 161  Methanocorpusculum__124484910                                                                                82.24%    passed     66.58%
+ 162  Methanocorpusculum__124484913                                                                                78.20%    passed      6.16%
+ 163  Methanocorpusculum__124486426                                                                                44.34%    failed      4.42%
+ 164  Methanoculleus_mari_126178514                                                                                82.15%    passed     19.04%
+ 165  Methanoculleus_mari_126178517                                                                                78.10%    failed      0.03%
+ 166  Methanoculleus_mari_126180145                                                                                44.34%    passed     28.19%
+ 167  Methanohalobium_eve_298674721                                                                                44.34%    passed     11.16%
+ 168  Methanomassili_MlumB10_12_754                                                                                44.34%    passed     48.70%
+ 169  Methanomassili_MlumB10_13_114                                                                                78.84%    failed      0.09%
+ 170  Methanomassili_MlumB10_13_117                                                                                82.15%    passed     21.40%
+ 171  Methanoplanus_petro_307352764                                                                                44.34%    passed     15.68%
+ 172  Methanoplanus_petro_307354323                                                                                82.15%    passed      8.55%
+ 173  Methanoplanus_petro_307354326                                                                                78.29%    failed      0.39%
+ 174  Methanopyrus_kandler_20094117                                                                                44.34%    failed      0.05%
+ 175  Methanosaeta_thermo_116754131                                                                                44.34%    passed      5.87%
+ 176  Methanosaeta_thermo_116755013                                                                                78.29%    passed     17.23%
+ 177  Methanosaeta_thermo_116755016                                                                                82.15%    passed     44.32%
+ 178  Methanosarcina_aceti_20089942                                                                                82.15%    passed     83.33%
+ 179  Methanosarcina_aceti_20089945                                                                                78.10%    passed      6.10%
+ 180  Methanosarcina_aceti_20090121                                                                                44.34%    passed     18.63%
+ 181  Methanosphaera_stadt_84489705                                                                                77.83%    passed     20.21%
+ 182  Methanosphaera_stadt_84489708                                                                                82.15%    passed     32.48%
+ 183  Methanosphaera_stadt_84490154                                                                                44.34%    failed      3.14%
+ 184  Methanosphaerula_pa_219850953                                                                                44.34%    passed     29.35%
+ 185  Methanospirillum_hun_88604061                                                                                44.34%    passed     48.10%
+ 186  Methanothermobacter__15678033                                                                                82.15%    passed     74.76%
+ 187  Methanothermobacter__15678036                                                                                77.83%    failed      3.88%
+ 188  Methanothermobacter__15679070                                                                                44.34%    passed      7.08%
+ 189  Methanothermus_ferv_312136869                                                                                44.34%    passed      9.75%
+ 190  Methanothermus_ferv_312137075                                                                                82.15%    passed     52.01%
+ 191  Methanothermus_ferv_312137078                                                                                77.83%    failed      0.72%
+ 192  Methanotorris_igneu_333911414                                                                                44.34%    passed      6.79%
+ 193  Nanoarchaeote_Nst1_Nst1_132                                                                                  82.15%    failed      0.01%
+ 194  Nanoarchaeote_Nst1_Nst1_257                                                                                  44.62%    failed      2.11%
+ 195  Nanoarchaeote_Nst1_Nst1_458                                                                                  77.74%    failed      0.14%
+ 196  Nanoarchaeum_equitan_41615150                                                                                78.10%    failed      2.36%
+ 197  Nanoarchaeum_equitan_41615218                                                                                82.52%    passed     32.11%
+ 198  Nanoarchaeum_equitan_41615324                                                                                44.34%    passed      8.19%
+ 199  Nitrosoarchaeum_kor_340344709                                                                                46.55%    passed     42.72%
+ 200  Nitrosoarchaeum_lim_329765003                                                                                44.34%    passed     43.08%
+ 201  Nitrosopumilus_mari_161527614                                                                                77.55%    failed      4.84%
+ 202  Nitrosopumilus_mari_161528256                                                                                44.34%    passed     38.68%
+ 203  Nitrosopumilus_mari_161528317                                                                                82.15%    passed     44.17%
+ 204  Picrophilus_torridus_48477489                                                                                44.34%    passed     20.30%
+ 205  Plasmodium_falcip_PF14_0486-1                                                                                44.34%    failed      0.00%
+ 206  Pyrobaculum_aerophil_18311871                                                                                44.34%    passed     32.02%
+ 207  Pyrobaculum_aerophil_18312189                                                                                77.55%    failed      0.42%
+ 208  Pyrobaculum_aerophil_18313001                                                                                82.15%    failed      3.46%
+ 209  Pyrobaculum_calidif_126458838                                                                                44.34%    passed     25.55%
+ 210  Pyrococcus_furiosus__18978194                                                                                78.01%    failed      4.26%
+ 211  Pyrococcus_furiosus__18978197                                                                                82.15%    passed     13.68%
+ 212  Pyrococcus_furiosus__18978384                                                                                44.34%    passed      6.10%
+ 213  Pyrolobus_fumarii_1_347524186                                                                                78.10%    failed      0.68%
+ 214  Pyrolobus_fumarii_1_347524198                                                                                82.15%    passed     22.24%
+ 215  Pyrolobus_fumarii_1_347524327                                                                                44.34%    passed     37.79%
+ 216  Rhodopirellula_baltica_RB5434                                                                                44.99%    failed      0.66%
+ 217  Rhodopirellula_baltica_RB7833                                                                                82.34%    passed     16.09%
+ 218  Rhodopirellula_baltica_RB7837                                                                                74.79%    failed      0.03%
+ 219  Rhodopseudomonas_palustris_CGA009_gi_39936310_ref_NP_948586_1_                                               74.79%    passed     14.24%
+ 220  Rhodopseudomonas_palustris_CGA009_gi_39936313_ref_NP_948589_1_                                               82.15%    passed     10.53%
+ 221  Rickettsia_prowazekii_M_RP132                                                                                44.53%    passed     15.85%
+ 222  Saccharomyces_cerevis_YDR385W                                                                                44.34%    passed     23.55%
+ 223  Simkania_negevensis_Z_gi_338734020_ref_YP_004672493_1_                                                       74.89%    failed      1.66%
+ 224  Simkania_negevensis_Z_gi_338734023_ref_YP_004672496_1_                                                       82.15%    passed     36.15%
+ 225  Staphylothermus_mar_126465765                                                                                44.34%    passed     13.49%
+ 226  Streptomyces_bingchenggensis_BCW_1_gi_374988945_ref_YP_004964440_1_                                          82.15%    passed     16.15%
+ 227  Streptomyces_bingchenggensis_BCW_1_gi_374988948_ref_YP_004964443_1_                                          74.89%    failed      0.20%
+ 228  Sulfolobus_acidocald_70606409                                                                                78.10%    failed      0.76%
+ 229  Sulfolobus_acidocald_70606412                                                                                82.15%    failed      4.37%
+ 230  Sulfolobus_acidocald_70606418                                                                                44.34%    passed     37.31%
+ 231  Sulfolobus_islandic_238619855                                                                                44.34%    passed     25.41%
+ 232  Sulfolobus_solfatari_15897630                                                                                44.34%    passed     23.96%
+ 233  Sulfolobus_tokodaii__15920648                                                                                44.34%    passed     27.50%
+ 234  Synechocystis_PCC_680_sll1098                                                                                44.43%    failed      1.83%
+ 235  Synechocystis_PCC_680_sll1799                                                                                82.15%    passed     45.89%
+ 236  Synechocystis_PCC_680_sll1802                                                                                74.79%    passed      5.43%
+ 237  Tetrahymena_thermophil_Q8MU83                                                                                44.34%    failed      0.49%
+ 238  Thalassiosira_pseud_JGI269148                                                                                44.43%    failed      0.03%
+ 239  Thermococcus_kodakar_57640244                                                                                44.34%    passed     16.74%
+ 240  Thermococcus_kodakar_57641474                                                                                78.01%    failed      3.09%
+ 241  Thermococcus_kodakar_57641477                                                                                82.15%    passed      8.22%
+ 242  Thermofilum_pendens_119719145                                                                                77.28%    failed      0.33%
+ 243  Thermofilum_pendens_119719148                                                                                82.15%    passed     32.14%
+ 244  Thermofilum_pendens_119719525                                                                                44.34%    passed      9.77%
+ 245  Thermoplasma_acidoph_16081568                                                                                44.34%    passed     40.44%
+ 246  Thermoplasma_acidoph_16082267                                                                                78.56%    failed      0.28%
+ 247  Thermoplasma_acidoph_16082270                                                                                82.15%    passed     28.32%
+ 248  Thermoproteus_uzoni_327310704                                                                                44.34%    passed     30.72%
+ 249  Thermoproteus_uzoni_327311480                                                                                77.74%    failed      0.03%
+ 250  Thermoproteus_uzoni_327311641                                                                                82.15%    passed     36.19%
+ 251  Thermosphaera_aggre_296243054                                                                                44.34%    failed      3.37%
+ 252  Thermotoga_maritima_MS_TM1497                                                                                74.70%    failed      0.42%
+ 253  Thermotoga_maritima_MS_TM1500                                                                                82.34%    failed      3.83%
+ 254  Thermotoga_maritima_MS_TM1503                                                                                44.53%    failed      0.98%
+ 255  Thor45_SMTZ1_1000034813                                                                                      44.34%    passed     13.95%
+ 256  Thor45_SMTZ1_1000141311                                                                                      82.15%    passed     48.03%
+ 257  Thor45_SMTZ1_100018624                                                                                       78.01%    failed      0.07%
+ 258  Thor45_SMTZ1_100023643                                                                                       45.17%    failed      0.15%
+ 259  Thor83_SMTZ1_1000614013                                                                                      44.34%    passed      9.92%
+ 260  Thor83_SMTZ1_100241744                                                                                       78.10%    failed      0.34%
+ 261  Thor83_SMTZ1_100241747                                                                                       82.15%    passed     43.23%
+ 262  Trichomonas_vaginalis_A2ECS2                                                                                 44.34%    failed      4.23%
+ 263  Uncultured_Marine_G_374724264                                                                                82.89%    passed     45.87%
+ 264  Uncultured_Marine_G_374724267                                                                                78.10%    failed      0.04%
+ 265  Uncultured_Marine_G_374724575                                                                                44.34%    passed     29.41%
+ 266  Vulcanisaeta_distri_307595041                                                                                82.15%    passed     28.11%
+ 267  Vulcanisaeta_distri_307595514                                                                                44.34%    passed     47.18%
+ 268  Vulcanisaeta_distri_307595536                                                                                77.09%    passed      5.46%
+ 269  YNP_N21_NODE_3_length_76570_cov_10_0515_ID_5_42                                                              44.34%    passed     33.28%
+ 270  YNP_bin45_contig_124_717_length_37878_read_count_94734_34                                                    44.34%    passed     35.37%
+ 271  contig145_12777_28.5176_9                                                                                    44.34%    failed      0.13%
+ 272  contig1_71539_40.4734_20                                                                                     82.15%    passed      5.95%
+ 273  contig58_21634_46.7123_8                                                                                     78.01%    failed      1.38%
+WARNING: 163 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                                                                                                        65.49%  112 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 3 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	AA	79	194	179	5		data/2_trimming/arCOG04070.trim.mafft.fasta
+2	AA	81	288	263	15		data/2_trimming/arCOG04067.trim.mafft.fasta
+3	AA	113	605	565	28		data/2_trimming/arCOG01559.trim.mafft.fasta
+Degree of missing data: 0.639
+Info: multi-threading strategy over partitions
+
+Reading constraint tree data/partition.nexus.treefile...
+
+Creating fast initial parsimony tree by random order stepwise addition...
+0.381 seconds, parsimony score: 24980 (based on 1039 sites)
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Initial log-likelihood: -120695.230
+Current log-likelihood at step 1: -119517.310
+Current log-likelihood at step 2: -119481.428
+Current log-likelihood at step 3: -119470.862
+Current log-likelihood at step 4: -119464.849
+Current log-likelihood at step 5: -119459.504
+Current log-likelihood at step 6: -119454.811
+Parameters optimization took 5 rounds (9.891 sec)
+
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+Initial log-likelihood: -118650.454
+Current log-likelihood at step 1: -118650.138
+Partition-specific rates:  1.233 1.201 0.830
+Parameters optimization took 0 rounds (1.086 sec)
+
+Time for fast ML tree search: 26.777 seconds
+
+NOTE: ModelFinder requires 108 MB RAM!
+Selecting individual models for 3 charsets using BIC...
+ No. Model        Score       TreeLen     Charset
+   1 LG+R5        42605.144   37.583      data/2_trimming/arCOG04070.trim.mafft.fasta
+   2 LG+R5        54680.525   42.801      data/2_trimming/arCOG04067.trim.mafft.fasta
+   3 LG+R7        139868.609  36.275      data/2_trimming/arCOG01559.trim.mafft.fasta
+Full partition model BIC score: 240978.577 (LnL: -118486.316  df:573)
+Partition information was printed to T2_ML.best_scheme.nex
+Partition information in Raxml format was printed to T2_ML.best_scheme
+
+All model information printed to T2_ML.model.gz
+CPU time for ModelFinder: 5475.958 seconds (1h:31m:15s)
+Wall-clock time for ModelFinder: 5634.108 seconds (1h:33m:54s)
+
+NOTE: 107 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -121451.071
+Current log-likelihood at step 1: -118926.732
+Current log-likelihood at step 2: -118553.906
+Current log-likelihood at step 3: -118507.956
+Current log-likelihood at step 4: -118490.555
+Current log-likelihood at step 5: -118486.194
+Current log-likelihood at step 6: -118484.167
+Current log-likelihood at step 7: -118483.521
+Current log-likelihood at step 8: -118483.346
+Current log-likelihood at step 9: -118483.298
+Partition-specific rates:  1.608 1.236 0.693
+Parameters optimization took 8 rounds (63.209 sec)
+
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 99 parsimony trees... WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+6.543 second
+Computing log-likelihood of 1 initial trees ... 0.600 seconds
+Current best score: -118483.298
+
+Do NNI search on 2 best initial trees
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -118481.714
+Current log-likelihood at step 1: -118481.659
+Parameters optimization took 0 rounds (5.361 sec)
+
+BETTER TREE FOUND at iteration 1: -118481.659
+Finish initializing candidate tree set (3)
+Current best tree score: -118481.659 / CPU time: 13.832
+Number of iterations: 2
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 10 / LogL: -118485.049 / Time: 0h:1m:22s
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -118481.264
+Current log-likelihood at step 1: -118480.794
+Current log-likelihood at step 2: -118480.747
+Parameters optimization took 1 rounds (13.215 sec)
+
+BETTER TREE FOUND at iteration 15: -118480.747
+Iteration 20 / LogL: -118481.871 / Time: 0h:1m:40s
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -118477.385
+Current log-likelihood at step 1: -118477.217
+Current log-likelihood at step 2: -118477.171
+Parameters optimization took 1 rounds (9.298 sec)
+
+BETTER TREE FOUND at iteration 25: -118477.171
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -118477.079
+Current log-likelihood at step 1: -118476.846
+Current log-likelihood at step 2: -118476.817
+Parameters optimization took 1 rounds (9.662 sec)
+
+BETTER TREE FOUND at iteration 30: -118476.817
+Iteration 30 / LogL: -118476.817 / Time: 0h:2m:6s (0h:7m:14s left)
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -118467.957
+Current log-likelihood at step 1: -118467.841
+Current log-likelihood at step 2: -118467.822
+Parameters optimization took 1 rounds (9.215 sec)
+
+BETTER TREE FOUND at iteration 31: -118467.822
+Iteration 40 / LogL: -118477.214 / Time: 0h:2m:19s (0h:5m:26s left)
+Iteration 50 / LogL: -118491.804 / Time: 0h:2m:24s (0h:3m:58s left)
+Iteration 60 / LogL: -118471.144 / Time: 0h:2m:28s (0h:2m:58s left)
+Iteration 70 / LogL: -118472.755 / Time: 0h:2m:32s (0h:2m:14s left)
+Iteration 80 / LogL: -118469.477 / Time: 0h:2m:36s (0h:1m:41s left)
+Iteration 90 / LogL: -118476.712 / Time: 0h:2m:40s (0h:1m:13s left)
+Iteration 100 / LogL: -118474.454 / Time: 0h:2m:45s (0h:0m:51s left)
+Iteration 110 / LogL: -118493.490 / Time: 0h:2m:49s (0h:0m:32s left)
+Iteration 120 / LogL: -118474.964 / Time: 0h:2m:54s (0h:0m:16s left)
+Iteration 130 / LogL: -118479.725 / Time: 0h:2m:59s (0h:0m:1s left)
+TREE SEARCH COMPLETED AFTER 132 ITERATIONS / Time: 0h:3m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -118467.822
+Current log-likelihood at step 1: -118467.812
+Current log-likelihood at step 2: -118467.803
+Partition-specific rates:  1.608 1.238 0.692
+Parameters optimization took 1 rounds (5.832 sec)
+
+Partition information was printed to T2_ML.best_model.nex
+BEST SCORE FOUND : -118467.803
+Site log-likelihoods printed to T2_ML.sitelh
+Total tree length: 110.081
+
+Total number of iterations: 132
+CPU time used for tree search: 112.078 sec (0h:1m:52s)
+Wall-clock time used for tree search: 116.663 sec (0h:1m:56s)
+Total CPU time used: 177.964 sec (0h:2m:57s)
+Total wall-clock time used: 186.215 sec (0h:3m:6s)
+
+Analysis results written to: 
+  IQ-TREE report:                T2_ML.iqtree
+  Maximum-likelihood tree:       T2_ML.treefile
+  Site log-likelihoods:          T2_ML.sitelh
+  Screen log file:               T2_ML.log
+
+Date and Time: Tue Nov 17 15:37:21 2020

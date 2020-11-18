@@ -5,12 +5,9 @@
 #
 # DESCRIPTION: The following script performs and connects a series of bioinformatic analyses in a pipeline.
 #			   The pipeline are performed in data located in folder /data
-#			   The pipeline can run both constrained and unconstrained phylogenetic analyses with IQ-tree based on parameter input
 #
 # USAGE: 
-#  $ sh bash_pipeline.sh COGS_FILE CONSTRAINT_TREE
-#	- COGS_FILE: input txt-file containing names of all arCOG-files that will be analyzed
-#	- CONSTRAINT_TREE: optional parameter to constrain tree topology in phylogeny reconstruction
+#  $ sh bash_pipeline.sh 
 #
 #===============================================================================
 
@@ -29,6 +26,7 @@ while read LINE
 do  
   cogs_vector+=($LINE)
 done <$cogs_file
+echo ${cogs_vector[@]} 
 
 #-------------------------------------------------------------------------------
 # PIPELINE STEP: 1-2	Alignment	Trimming

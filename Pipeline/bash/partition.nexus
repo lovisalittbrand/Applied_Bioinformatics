@@ -2,4 +2,5 @@
 begin sets;
 charset 'data/2_trimming/arCOG04070.trim.mafft.fasta' = 1-194;
 charset 'data/2_trimming/arCOG04067.trim.mafft.fasta' = 195-482;
+charset 'data/2_trimming/arCOG01559.trim.mafft.fasta' = 483-1087;
 end;
