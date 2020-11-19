@@ -32,7 +32,7 @@ def parseArguments():
     # Optional arguments
     parser.add_argument("-pf", "--partfile", help="Partitionfile in nexus format", type=str, default=None)
     parser.add_argument("-g", "--gapexclude", help="Calculate frequency excluding gaps", type=str2bool, default=False)
-    parser.add_argument("-tf", "--taxafreq", help="Show freq per taxa", type=str2bool, default=False)
+    parser.add_argument("-tf", "--taxafreq", help="Show freq per taxa plot in additional window", type=str2bool, default=False)
     # Version
     parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
     args = parser.parse_args()
@@ -115,7 +115,7 @@ def count_chars_taxa(filename, char_list_ref):
     # Add the taxa name to the index list
     taxa_index.append(record.id)
     # Create an empty count array
-    count_line = np.zeros((1,len(char_list)))
+    count_line = np.zeros((1,len(char_list)+1))
     # loop over every position in the sequence
     for obs_char in record.seq:
       found = False
@@ -127,7 +127,7 @@ def count_chars_taxa(filename, char_list_ref):
           break
       # if none of the characters are found add to the unknown position so long that it isnt a gap
       if found == False and obs_char != '-':
-        count_line[:,len(char_list)-1] += 1
+        count_line[:,len(char_list)] += 1
     # Normalize the row
     count_line = count_line/np.sum(count_line)
     # Check whether or not we are in the first loop or not so that we can merge results to the count list in a proper way.
@@ -136,7 +136,7 @@ def count_chars_taxa(filename, char_list_ref):
     else:
       result = count_line
     # Return the data with indexes as taxa names and comuns as character names
-  return pd.DataFrame(result, index=taxa_index, columns=char_list)
+  return pd.DataFrame(result, index=taxa_index, columns=[x.upper() for x in char_list]+ ["Unknown"])
 
 
 # Reads a partitionfile ant transform the data to a dataframe for visualisation.
@@ -188,12 +188,13 @@ if __name__ == "__main__":
   if data_type == "DNA":
     base_list = ["a", "t", "c", "g", "-", "n"]
     count_matrix, seq_length, no_seq = count_chars(filename, base_list)
-    
-    base_list = base_list + ["u"]
 
     # Creates dataset for taxa base freq visualisation 
     if taxafreq == True:
       taxafreq_df = count_chars_taxa(filename, base_list)
+      print(taxafreq_df)
+
+    base_list = base_list + ["u"]
 
     # Handles the gapexclude option.
     if gapexclude == True:
@@ -301,6 +302,7 @@ if __name__ == "__main__":
               y=df_entropy['Entropy'], 
               x=df_entropy.index*window+1, 
               name = 'Entropy',
+              showlegend=False,
               hovertemplate='Entropy: %{y:.3f} <br> Position: %{x:.3f}'),
             row=6, col=1)
 
@@ -327,10 +329,10 @@ if __name__ == "__main__":
     entropy_plot = [True]
     gene_plot = [True for i in range(len(gene_data))] 
     # Create the first option in the dropdown menu and the features that comes whith that option.
-    buttons = [dict(label = 'All',
+    buttons = [dict(label = 'Base pair frequency',
                       method = 'update',
                       args = [{'visible': [True for i in range(len(base_list))] + entropy_plot + gene_plot},
-                              {'barmode':'stack', 'title': 'All',
+                              {'barmode':'stack', 'title': 'Base pair frequency',
                               'showlegend':True,}
                               ])]
 
@@ -339,10 +341,10 @@ if __name__ == "__main__":
       false_list =  [False for i in range(len(combined_bases_list))] 
       false_list[combined_bases_list.index(base)] = True
       # Create a button much like above
-      button = [dict(label = base,
+      button = [dict(label = base + " frequency",
                       method = 'update',
                       args = [{'visible': false_list + entropy_plot + gene_plot},
-                              {'barmode':'stack', 'title': base,
+                              {'barmode':'stack', 'title': base + " frequency",
                               'showlegend':True}])]
       buttons = buttons + button
 
@@ -356,6 +358,19 @@ if __name__ == "__main__":
                 )
             )
         ])
+
+    fig.update_layout(
+      title="Base pair frequency",
+      xaxis3_title="Position",
+      yaxis_title="Frequency",
+      yaxis2_title="Entropy",
+      legend_title="Base pairs",
+      font=dict(
+          family="Helvetica, monospace",
+          size=12,
+          color="Black"
+      )
+    )
   ######### ######### ######### ######### ######### ######### 
 
     
@@ -365,11 +380,11 @@ if __name__ == "__main__":
     aa_list = ["f", "i", "w", "l", "v", "m", "y", "c", "a", "g", "p", "h", "t", "s", "q", "n", "e", "d", "k", "r", "-"]
     count_matrix, seq_length, no_seq = count_chars(filename, aa_list)
 
-    aa_list = aa_list +["u"]
-
     # Creates dataset for taxa aa freq visualisation 
     if taxafreq == True:
       taxafreq_df = count_chars_taxa(filename, aa_list)
+
+    aa_list = aa_list +["u"]
 
     if gapexclude == True:
       # Removes counts for gaps.
@@ -462,6 +477,7 @@ if __name__ == "__main__":
               y=df_entropy['Entropy'], 
               x=df_entropy.index*window+1, 
               name = 'Entropy',
+              showlegend=False,
               hovertemplate='Entropy: %{y:.3f} <br> Position: %{x:.3f}'),
             row=6, col=1)
 
@@ -480,39 +496,6 @@ if __name__ == "__main__":
             ),
             row=9, col=1
         )
-
-
-  ######### Optional? ##########
-    # gene_plot = [True for i in range(len(gene_data)+1)] 
-    # buttons = [dict(label = 'All',
-    #                   method = 'update',
-    #                   args = [{'visible': [True for i in range(len(aa_list))] + gene_plot},
-    #                           {'barmode':'stack', 'title': 'All',
-    #                           'showlegend':True,}
-    #                           ])]
-
-
-    # for aa in aa_list:
-    #   false_list =  [False for i in range(len(aa_list))] 
-    #   false_list[aa_list.index(aa)] = True
-    #   button = [dict(label = aa.upper(),
-    #                   method = 'update',
-    #                   args = [{'visible': false_list + gene_plot},
-    #                           {'barmode':'stack', 'title': aa.upper(),
-    #                           'showlegend':True}])]
-    #   buttons = buttons + button
-
-    # fig.update_layout(barmode='stack')
-    # fig.update_layout(
-    #     updatemenus=[go.layout.Updatemenu(
-    #         active=0,
-    #         buttons=list(
-    #             buttons
-    #             )
-    #         )
-    #     ])
-
-    #############################################
 
   # Settings for the axis in the visualisation
   # General settings
@@ -537,6 +520,19 @@ if __name__ == "__main__":
         )
     )
   ) 
+  # Titles and font
+  fig.update_layout(
+      title="Amino acid frequency",
+      xaxis3_title="Position",
+      yaxis_title="Frequency",
+      yaxis2_title="Entropy",
+      legend_title="Amino acids",
+      font=dict(
+          family="Helvetica, monospace",
+          size=12,
+          color="Black"
+      )
+    )
 
   fig.show()
 
@@ -552,5 +548,21 @@ if taxafreq == True:
             name = taxafreq_df.index[i]
         ),
     )
+
+  # Fix y axis so paning will be easier
+  fig2.update_yaxes(fixedrange=True)
+
+  # Titles and font
+  fig2.update_layout(
+    title="Character frequency for each taxa",
+    yaxis_title="Frequency",
+    xaxis_title="Character",
+    legend_title="Taxa",
+    font=dict(
+        family="Helvetica, monospace",
+        size=14,
+        color="Black"
+    )
+  )
 
   fig2.show()
