@@ -192,7 +192,6 @@ if __name__ == "__main__":
     # Creates dataset for taxa base freq visualisation 
     if taxafreq == True:
       taxafreq_df = count_chars_taxa(filename, base_list)
-      print(taxafreq_df)
 
     base_list = base_list + ["u"]
 
@@ -322,57 +321,69 @@ if __name__ == "__main__":
             ),
             row=9, col=1
         )
+    fig.update_layout(
+        title="Base pair frequency",
+        xaxis3_title="Position",
+        yaxis_title="Frequency",
+        yaxis2_title="Entropy",
+        legend_title="Base pairs",
+        font=dict(
+            family="Helvetica, monospace",
+            size=12,
+            color="Black"
+        )
+      )
 
-  ######### Optional? ##########
+  # ######### Optional dropdown menu ##########
 
-    # Define list with true to use later to decide on their related graphs visibility 
-    entropy_plot = [True]
-    gene_plot = [True for i in range(len(gene_data))] 
-    # Create the first option in the dropdown menu and the features that comes whith that option.
-    buttons = [dict(label = 'Base pair frequency',
-                      method = 'update',
-                      args = [{'visible': [True for i in range(len(base_list))] + entropy_plot + gene_plot},
-                              {'barmode':'stack', 'title': 'Base pair frequency',
-                              'showlegend':True,}
-                              ])]
+  #   # Define list with true to use later to decide on their related graphs visibility 
+  #   entropy_plot = [True]
+  #   gene_plot = [True for i in range(len(gene_data))] 
+  #   # Create the first option in the dropdown menu and the features that comes whith that option.
+  #   buttons = [dict(label = 'Base pair frequency',
+  #                     method = 'update',
+  #                     args = [{'visible': [True for i in range(len(base_list))] + entropy_plot + gene_plot},
+  #                             {'barmode':'stack', 'title': 'Base pair frequency',
+  #                             'showlegend':True,}
+  #                             ])]
 
-    # Loop over the positions in the combined base list to decide on which bar plot that shuld be visible.
-    for base in combined_bases_list:
-      false_list =  [False for i in range(len(combined_bases_list))] 
-      false_list[combined_bases_list.index(base)] = True
-      # Create a button much like above
-      button = [dict(label = base + " frequency",
-                      method = 'update',
-                      args = [{'visible': false_list + entropy_plot + gene_plot},
-                              {'barmode':'stack', 'title': base + " frequency",
-                              'showlegend':True}])]
-      buttons = buttons + button
+  #   # Loop over the positions in the combined base list to decide on which bar plot that shuld be visible.
+  #   for base in combined_bases_list:
+  #     false_list =  [False for i in range(len(combined_bases_list))] 
+  #     false_list[combined_bases_list.index(base)] = True
+  #     # Create a button much like above
+  #     button = [dict(label = base + " frequency",
+  #                     method = 'update',
+  #                     args = [{'visible': false_list + entropy_plot + gene_plot},
+  #                             {'barmode':'stack', 'title': base + " frequency",
+  #                             'showlegend':True}])]
+  #     buttons = buttons + button
 
     
-    # Show the dropdown menu.
-    fig.update_layout(
-        updatemenus=[go.layout.Updatemenu(
-            active=0,
-            buttons=list(
-                buttons
-                )
-            )
-        ])
+  #   # Show the dropdown menu.
+  #   fig.update_layout(
+  #       updatemenus=[go.layout.Updatemenu(
+  #           active=0,
+  #           buttons=list(
+  #               buttons
+  #               )
+  #           )
+  #       ])
 
-    fig.update_layout(
-      title="Base pair frequency",
-      xaxis3_title="Position",
-      yaxis_title="Frequency",
-      yaxis2_title="Entropy",
-      legend_title="Base pairs",
-      font=dict(
-          family="Helvetica, monospace",
-          size=12,
-          color="Black"
-      )
-    )
-  ######### ######### ######### ######### ######### ######### 
-
+  #   fig.update_layout(
+  #     title="Base pair frequency",
+  #     xaxis3_title="Position",
+  #     yaxis_title="Frequency",
+  #     yaxis2_title="Entropy",
+  #     legend_title="Base pairs",
+  #     font=dict(
+  #         family="Helvetica, monospace",
+  #         size=12,
+  #         color="Black"
+  #     )
+  #   )
+  # ######### ######### ######### ######### ######### ######### 
+    
     
 
   # Check if AA
@@ -496,6 +507,19 @@ if __name__ == "__main__":
             ),
             row=9, col=1
         )
+    # Titles and font
+    fig.update_layout(
+        title="Amino acid frequency",
+        xaxis3_title="Position",
+        yaxis_title="Frequency",
+        yaxis2_title="Entropy",
+        legend_title="Amino acids",
+        font=dict(
+            family="Helvetica, monospace",
+            size=12,
+            color="Black"
+        )
+      )
 
   # Settings for the axis in the visualisation
   # General settings
@@ -520,19 +544,6 @@ if __name__ == "__main__":
         )
     )
   ) 
-  # Titles and font
-  fig.update_layout(
-      title="Amino acid frequency",
-      xaxis3_title="Position",
-      yaxis_title="Frequency",
-      yaxis2_title="Entropy",
-      legend_title="Amino acids",
-      font=dict(
-          family="Helvetica, monospace",
-          size=12,
-          color="Black"
-      )
-    )
 
   fig.show()
 
@@ -545,7 +556,8 @@ if taxafreq == True:
         go.Bar(
             x = taxafreq_df.columns,
             y = taxafreq_df.iloc[i],
-            name = taxafreq_df.index[i]
+            name = taxafreq_df.index[i],
+            hovertemplate='Character %{x} Frequency: %{y:.3f}',           
         ),
     )
 
