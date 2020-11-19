@@ -263,31 +263,38 @@ if __name__ == "__main__":
     file.close()
     # Loop through the columns and create a barplot for each column and put them in the same position in the grid
     for column in df_combined.columns.to_list():
+      # If statement to handle nucleotides that are the input in the base_list but arent in the dna_color.txt
       if column in color_dict:
         fig.add_trace(
             # Define that it's a bar graph
             go.Bar(
-                # position data
-                x = df_combined.index*window +1,
-                # Base freq data
-                y = df_combined[column],
-                # Define the name of the data based on the column name
-                name = column,
-                # Decide the color of bargraph 
-                marker_color = color_dict[column],
-                # Styling of hover info
-                hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',
+              # position data
+              x = df_combined.index*window +1,
+              # Base freq data
+              y = df_combined[column],
+              # Define the name of the data based on the column name
+              name = column,
+              # Decide the color of bargraph 
+              marker_color = color_dict[column],
+              # Styling of hover info
+              hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',
             ),
+            # Position in graph grid
             row=1, col=1
         )
       else:
         fig.add_trace(
             go.Bar(
-                x = df.index*window+1,
-                y = df[column],
-                name = column,
-                hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',        
+              # position data
+              x = df.index*window+1,
+              # Base freq data
+              y = df[column],
+              # Define the name of the data based on the column name
+              name = column,
+              # Styling of hover info
+              hovertemplate='Base: ' + column + ' Frequency: %{y:.3f} Position: %{x:.3f}',        
             ),
+            # Position in graph grid
             row=1, col=1
         )
 
