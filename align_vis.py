@@ -1,9 +1,11 @@
 # Tool to visualise the base frequency from a MSA
-# input like this: python3 align_nis.py MSA.fasta window DNA_or_AA -pf partition_file
+# input like this: python3 align_nis.py MSA.fasta window DNA_or_AA -pf partition_file -g gapexclude -tf taxafreq
 # MSA.fasta: The alignment file
 # window: Size of window that calculates the frequency
 # DNA_or_AA: Is the seaquence DNA or amin acid. DNA for DNA and AA for amino acid
 # partition_file: The partition file in nexus format. Optional
+# gapexclude: Define if gaps should be included or excluded in the frequency calculations. Optional. Is a boolean statement (Ture/False)
+# taxafreq: Show aa/nucleotide fequency per taxa. Optional. Is a boolean statement (Ture/False)
 
 import argparse
 import sys
@@ -12,7 +14,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.graph_objects as go
-import plotly.express as px
 from plotly.subplots import make_subplots
 from Bio import SeqIO
 import re
@@ -256,11 +257,12 @@ if __name__ == "__main__":
             [{}]]
     )
 
-    # Define the colors of the bases
+    # Define the colors of the bases acording to the coloring file
     file = open("dna_color.txt", "r")
     contents = file.read()
     color_dict = ast.literal_eval(contents)
     file.close()
+
     # Loop through the columns and create a barplot for each column and put them in the same position in the grid
     for column in df_combined.columns.to_list():
       # If statement to handle nucleotides that are the input in the base_list but arent in the dna_color.txt
@@ -442,6 +444,7 @@ if __name__ == "__main__":
     # Visualise the data.
     fig = go.Figure()
 
+    # Create visulisation grid
     fig = make_subplots(
       rows=9, cols=1,
       shared_xaxes=True,
@@ -457,6 +460,7 @@ if __name__ == "__main__":
             [{}]]
     )
 
+    # Define the colors of the bases acording to the coloring file
     file = open("aa_color.txt", "r")
     contents = file.read()
     color_dict = ast.literal_eval(contents)
@@ -487,9 +491,10 @@ if __name__ == "__main__":
             row=1, col=1
         )
 
-
+    # Calculate entropy
     df_entropy = calc_entropy(freq_matrix)
 
+    # Create entropy plot
     fig = fig.add_trace(
             go.Scatter(
               y=df_entropy['Entropy'], 
@@ -499,6 +504,7 @@ if __name__ == "__main__":
               hovertemplate='Entropy: %{y:.3f} <br> Position: %{x:.3f}'),
             row=6, col=1)
 
+    # Create bottom gene plot
     for column in df_gene_info.columns.to_list():
         fig.add_trace(
             go.Bar(
