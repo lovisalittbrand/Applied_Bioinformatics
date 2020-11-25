@@ -1,0 +1,6 @@
+{'A and T': 'red'
+, 'C and G': 'blue'
+, 'N': 'green'
+, 'Unknown': 'purple'
+, 'Gap': 'gray'
+}

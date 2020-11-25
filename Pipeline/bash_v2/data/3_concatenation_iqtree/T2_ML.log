@@ -1,0 +1,234 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/3_concatenation_iqtree/concatenation.fasta -spp data/3_concatenation_iqtree/partition.nexus -st AA -wsl -nt 1 -pre T2_ML -g data/T2_constraint.treefile -m JTT+R3
+Seed:    289946 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 25 15:28:11 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file data/3_concatenation_iqtree/partition.nexus ...
+Reading alignment file data/3_concatenation_iqtree/concatenation.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+WARNING: 49 sites contain only gaps or ambiguous characters.
+Alignment has 4 sequences with 482 columns, 251 distinct patterns
+0 parsimony-informative, 273 singleton sites, 209 constant sites
+                               Gap/Ambiguity  Composition  p-value
+   1  Aciduliprofundum_boonei_T469    11.20%    passed     98.89%
+   2  Aeropyrum_pernix_K1             10.37%    passed     98.77%
+   3  Homo_sapiens                   100.00%    passed       nan%
+   4  Methanosarcina_acetivorans_C2   10.37%    passed     84.92%
+WARNING: 1 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                           32.99%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 2 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	AA	3	288	0	143	JTT+R3	arCOG04067
+WARNING: No parsimony-informative sites in partition arCOG04067
+2	AA	3	194	0	66	JTT+R3	arCOG04070
+WARNING: No parsimony-informative sites in partition arCOG04070
+Degree of missing data: 0.000
+Info: multi-threading strategy over partitions
+
+Reading constraint tree data/T2_constraint.treefile...
+WARNING: Rooted constraint tree will be treated as unrooted tree
+NOTE: State(s) C not present in partition arCOG04070 and thus removed from Markov process to prevent numerical problems
+NOTE: 1 states (see above) are not present and thus removed from Markov process to prevent numerical problems
+Creating fast initial parsimony tree by random order stepwise addition...
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+0.003 seconds, parsimony score: 0 (based on 273 sites)
+
+NOTE: 0 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -2868.085
+Current log-likelihood at step 1: -2841.348
+Current log-likelihood at step 2: -2841.193
+Current log-likelihood at step 3: -2841.089
+Current log-likelihood at step 4: -2840.999
+Partition-specific rates:  0.997 1.004
+Parameters optimization took 3 rounds (0.028 sec)
+
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 99 parsimony trees... WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
+0.027 second
+Current best score: -2840.999
+
+Do NNI search on 1 best initial trees
+Finish initializing candidate tree set (1)
+Current best tree score: -2840.999 / CPU time: 0.028
+Number of iterations: 1
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 10 / LogL: -2840.999 / Time: 0h:0m:0s
+Iteration 20 / LogL: -2840.999 / Time: 0h:0m:0s
+Iteration 30 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -2840.999 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 101 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -2840.999
+Current log-likelihood at step 1: -2840.919
+Current log-likelihood at step 2: -2840.847
+Current log-likelihood at step 3: -2840.782
+Current log-likelihood at step 4: -2840.721
+Current log-likelihood at step 5: -2840.664
+Current log-likelihood at step 6: -2840.610
+Current log-likelihood at step 7: -2840.558
+Current log-likelihood at step 8: -2840.509
+Current log-likelihood at step 9: -2840.461
+Current log-likelihood at step 10: -2840.414
+Current log-likelihood at step 11: -2840.369
+Current log-likelihood at step 12: -2840.324
+Current log-likelihood at step 13: -2840.281
+Current log-likelihood at step 14: -2840.239
+Current log-likelihood at step 15: -2840.198
+Current log-likelihood at step 16: -2840.158
+Current log-likelihood at step 17: -2840.120
+Current log-likelihood at step 18: -2840.085
+Current log-likelihood at step 19: -2840.052
+Current log-likelihood at step 20: -2840.022
+Current log-likelihood at step 21: -2839.995
+Current log-likelihood at step 22: -2839.970
+Current log-likelihood at step 23: -2839.949
+Current log-likelihood at step 24: -2839.931
+Current log-likelihood at step 25: -2839.916
+Current log-likelihood at step 26: -2839.904
+Current log-likelihood at step 27: -2839.894
+Current log-likelihood at step 28: -2839.886
+Partition-specific rates:  0.934 1.098
+Parameters optimization took 27 rounds (0.140 sec)
+
+Partition information was printed to T2_ML.best_model.nex
+BEST SCORE FOUND : -2839.886
+Site log-likelihoods printed to T2_ML.sitelh
+Total tree length: 1.678
+
+Total number of iterations: 101
+CPU time used for tree search: 0.049 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.056 sec (0h:0m:0s)
+Total CPU time used: 0.217 sec (0h:0m:0s)
+Total wall-clock time used: 0.262 sec (0h:0m:0s)
+
+Analysis results written to: 
+  IQ-TREE report:                T2_ML.iqtree
+  Maximum-likelihood tree:       T2_ML.treefile
+  Site log-likelihoods:          T2_ML.sitelh
+  Screen log file:               T2_ML.log
+
+Date and Time: Wed Nov 25 15:28:11 2020
