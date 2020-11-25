@@ -1,6 +1,6 @@
 #nexus
 begin sets;
-zcharset OG0000000_aln.fasta = 1-546
+    charset OG0000000_aln.fasta = 1-546
     charset OG0000001_aln.fasta = 547-1782
     charset OG0000002_aln.fasta = 1783-3020
     charset OG0000003_aln.fasta = 3021-3123
