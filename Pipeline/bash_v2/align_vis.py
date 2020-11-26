@@ -70,7 +70,7 @@ def calc_entropy(freq_mat):
     return entropy_df
 
 # Founction to count no of uccurences in a sequence.
-def count_chars_old(filename, char_list):
+def count_chars(filename, char_list):
   no_seq = 0
   seq_length = 0
   # Reads alignment file and counts bases in for each posisiton and creates a matrix containing the data
@@ -99,35 +99,6 @@ def count_chars_old(filename, char_list):
               break
           if found == False:
             count_matrix[len(char_list), i] += 1
-  return [count_matrix, seq_length, no_seq]
-
-def count_chars(filename, char_list):
-  no_seq = 0
-  seq_length = 0
-  # Reads alignment file and counts bases in for each posisiton and creates a matrix containing the data
-  # Read alignemnt file
-  records = list(SeqIO.parse(filename, "fasta"))
-  for record in records:
-    # Declarate length and create a zero matrix with correct size in the first loop.
-    if no_seq == 0:
-      seq_length = len(record.seq)
-      count_matrix = np.zeros((len(char_list)+1, math.ceil(seq_length/window)))
-    no_seq += 1
-    # Loop through each position in the sequence
-    for j in range(0, len(record.seq)):
-      # Calculate to what index the count should be grouped to based on the window value. 
-      i = math.floor(j/window)
-      obs_char = record.seq[j]
-      found = False
-      # Loop over each possible state in the base_list, if a match is foud add 1 to the correct position in the matrix
-      # If no match is found add to the unknown column in the matrix.
-      for char in char_list:
-        if obs_char.lower() == char.lower():
-          count_matrix[char_list.index(char), i] += 1
-          found = True
-          break
-      if found == False:
-        count_matrix[len(char_list), i] += 1
   return [count_matrix, seq_length, no_seq]
 
 # Function that calcualtes the frequency for each taxa and returns a dataframe
@@ -179,7 +150,7 @@ def gene_info_to_dict(partition_file, seq_length):
       for line in file:
         if (line.startswith('\tcharset')):
           # Regex that fetch the name of teh gene and start and stop position and then puts the length and name in a dict
-          m = re.search(r"charset (.+) = (\d+)-(\d+)", line)
+          m = re.match(r"\tcharset (.+) = (\d+)-(\d+);", line)
           gene_data[m[1]] = [int(m[3])-int(m[2])+1]
   # If no partition file is specified, create a gene as long as the sequence 
   else:
