@@ -177,9 +177,9 @@ def gene_info_to_dict(partition_file, seq_length):
     # Open file and read each line in search for lines that starts with charstet 
     with open(partition_file, 'r') as file:
       for line in file:
-        if (line.startswith('\tcharset')):
-          # Regex that fetch the name of teh gene and start and stop position and then puts the length and name in a dict
-          m = re.search(r"charset (.+) = (\d+)-(\d+)", line)
+        # Regex that fetch the name of teh gene and start and stop position and then puts the length and name in a dict
+        m = re.search(r"charset (.+) = (\d+)-(\d+)", line)
+        if m != None:
           gene_data[m[1]] = [int(m[3])-int(m[2])+1]
   # If no partition file is specified, create a gene as long as the sequence 
   else:
