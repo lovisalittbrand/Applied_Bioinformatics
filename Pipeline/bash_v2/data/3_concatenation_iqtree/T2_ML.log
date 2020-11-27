@@ -2,10 +2,10 @@ IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
 Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
 Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
-Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Host:    Lovisas-dator (AVX2, FMA3, 8 GB RAM)
 Command: iqtree -s data/3_concatenation_iqtree/concatenation.fasta -spp data/3_concatenation_iqtree/partition.nexus -st AA -wsl -nt 1 -pre T2_ML -g data/T2_constraint.treefile -m JTT+R3
-Seed:    289946 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Wed Nov 25 15:28:11 2020
+Seed:    561255 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Nov 27 15:40:20 2020
 Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
 
 HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
@@ -41,7 +41,7 @@ NOTE: State(s) C not present in partition arCOG04070 and thus removed from Marko
 NOTE: 1 states (see above) are not present and thus removed from Markov process to prevent numerical problems
 Creating fast initial parsimony tree by random order stepwise addition...
 WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
-0.003 seconds, parsimony score: 0 (based on 273 sites)
+0.001 seconds, parsimony score: 0 (based on 273 sites)
 
 NOTE: 0 MB RAM (0 GB) is required!
 Estimate model parameters (epsilon = 0.100)
@@ -51,7 +51,7 @@ Current log-likelihood at step 2: -2841.193
 Current log-likelihood at step 3: -2841.089
 Current log-likelihood at step 4: -2840.999
 Partition-specific rates:  0.997 1.004
-Parameters optimization took 3 rounds (0.028 sec)
+Parameters optimization took 3 rounds (0.031 sec)
 
 --------------------------------------------------------------------
 |             INITIALIZING CANDIDATE TREE SET                      |
@@ -155,12 +155,12 @@ WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforce
 WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
 WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
 WARNING: Constraint tree has all taxa and is bifurcating, which strictly enforces final tree!
-0.027 second
+0.032 second
 Current best score: -2840.999
 
 Do NNI search on 1 best initial trees
 Finish initializing candidate tree set (1)
-Current best tree score: -2840.999 / CPU time: 0.028
+Current best tree score: -2840.999 / CPU time: 0.033
 Number of iterations: 1
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
@@ -212,7 +212,7 @@ Current log-likelihood at step 26: -2839.904
 Current log-likelihood at step 27: -2839.894
 Current log-likelihood at step 28: -2839.886
 Partition-specific rates:  0.934 1.098
-Parameters optimization took 27 rounds (0.140 sec)
+Parameters optimization took 27 rounds (0.141 sec)
 
 Partition information was printed to T2_ML.best_model.nex
 BEST SCORE FOUND : -2839.886
@@ -220,10 +220,10 @@ Site log-likelihoods printed to T2_ML.sitelh
 Total tree length: 1.678
 
 Total number of iterations: 101
-CPU time used for tree search: 0.049 sec (0h:0m:0s)
-Wall-clock time used for tree search: 0.056 sec (0h:0m:0s)
-Total CPU time used: 0.217 sec (0h:0m:0s)
-Total wall-clock time used: 0.262 sec (0h:0m:0s)
+CPU time used for tree search: 0.053 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.061 sec (0h:0m:0s)
+Total CPU time used: 0.227 sec (0h:0m:0s)
+Total wall-clock time used: 0.252 sec (0h:0m:0s)
 
 Analysis results written to: 
   IQ-TREE report:                T2_ML.iqtree
@@ -231,4 +231,4 @@ Analysis results written to:
   Site log-likelihoods:          T2_ML.sitelh
   Screen log file:               T2_ML.log
 
-Date and Time: Wed Nov 25 15:28:11 2020
+Date and Time: Fri Nov 27 15:40:20 2020

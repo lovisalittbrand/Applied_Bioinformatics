@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """
-Author:         Jimmy Saw
-Date modified:	2014-01-23
+Author:         Jimmy Saw. Modified by Erik Bürger, Lovisa Littbrand and Mirela Balan
+Date modified:	2020-11-27
 Description:    This script can concatenate ArCOG alignments trimmed with TrimAl
                 given lists of unique taxa, ArCOGs, and mapping file. Mapping file
                 should look like this:
@@ -17,7 +17,7 @@ DSAG    arCOG04254      scaffold_102356_18
 
 
 Usage:          upp_concatArCOGalignments.py <taxa list> <ArCOG list> <Map file> <suffix>
-Example:        upp_concatArCOGalignments.py -t unique_taxa.list -c ../57.list -m combined_ArCOGs.map -s .mafft.trimmed.fasta
+Example:        upp_concatArCOGalignments.py -t unique_taxa.list -c ../57.list -m combined_ArCOGs.map -s .mafft.trimmed.fasta -f folder_with_aligned_seq
 """
 
 import re
@@ -57,14 +57,20 @@ unique_cogs = list(sorted(set([i.rstrip() for i in cogs_lines])))
 
 mapdict = {}
 
+# Creates a dict with the names in the fasta files as key and the value is the taxa to which it belongs to and to what gene as a arCOG
 for line in map_lines:
     l = line.split("\t")
     mapdict[l[2].rstrip()] = (l[1], l[0])
-concatenation = open("concatenation.fasta", "w")
-f = open("partition.nexus", "w")
-f.write("#nexus\n")
-f.write("begin sets;\n")
+
+concatenation_file = open("concatenation.fasta", "w")
+
+# Create partition file and the first rows of it.
+partition_file = open("partition.nexus", "w")
+partition_file.write("#nexus\n")
+partition_file.write("begin sets;\n")
 count = 0
+
+# Loop over each given taxa
 for i in unique_taxa:
     concatted_aa = ""
     for j in unique_cogs: #sequentially concat each ArCOG
@@ -86,20 +92,14 @@ for i in unique_taxa:
             for k in cog_dict.keys():
                 if mapdict[k][0] == i:
                     concatted_aa += str(cog_dict[k].seq)
-                    #if i == "DSAG":
-                    #    print cog_dict[k].id
+        # If this i the first loop over all given taxa write to the partition file
         if count == 0:
-            f.write("\tcharset " + j + " = " + str(previous_length) + "-" + str(len(concatted_aa)) + ";\n")
+            partition_file.write("\tcharset " + j + " = " + str(previous_length) + "-" + str(len(concatted_aa)) + ";\n")
     count += 1
     print("Done with", i, "Length of concatted AA = ", len(concatted_aa))
-    concatenation.write(">" + i + "\n")
-    concatenation.write(concatted_aa + "\n")
-    # tmpseqrec = SeqRecord(Seq(concatted_aa), id=i, description="")
-    # # outfaa = os.path.join(args.outdir, "aligned_trimmed." + i + ".concat.faa")
-    # outfaa = os.path.join(args.folder, "aligned_trimmed." + i + ".concat.faa")
-    # #outfaa = args.outfile
-    # SeqIO.write(tmpseqrec, outfaa, "fasta")
+    concatenation_file.write(">" + i + "\n")
+    concatenation_file.write(concatted_aa + "\n")
 
-f.write("end;\n")
+partition_file.write("end;\n")
 
 
