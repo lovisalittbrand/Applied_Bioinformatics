@@ -232,8 +232,11 @@ if __name__ == "__main__":
       # Removes "-" and adds "u" to the base list.
       base_list.remove("-") 
       # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+      # Removes error message to hanlde the case when there are only gaps in a position
+      np.seterr(all='ignore')
       freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
-      
+      np.seterr(all='raise')
+
       base_dict = dict()
       for i in range(0, len(base_list)):
         base_dict[base_list[i].lower()] = freq_matrix[i,:]
@@ -437,9 +440,14 @@ if __name__ == "__main__":
 
     if gapexclude == True:
       # Removes counts for gaps.
+      
       count_matrix_del = np.delete(count_matrix, aa_list.index('-'), 0)
       # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+      np.seterr(all='ignore')
       freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+      np.seterr(all='raise')
+
+
       # Removes "-" and adds "u" to the base list.
       aa_list.remove("-") 
 
