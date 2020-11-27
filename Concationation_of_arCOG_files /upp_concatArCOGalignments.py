@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """
-Author:         Jimmy Saw
-Date modified:	2014-01-23
+Author:         Jimmy Saw. Modified by Erik Bürger, Lovisa Littbrand and Mirela Balan
+Date modified:	2020-11-27
 Description:    This script can concatenate ArCOG alignments trimmed with TrimAl
                 given lists of unique taxa, ArCOGs, and mapping file. Mapping file
                 should look like this:
