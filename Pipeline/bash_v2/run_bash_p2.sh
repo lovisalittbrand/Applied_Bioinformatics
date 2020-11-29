@@ -39,7 +39,7 @@ part_file="data/3_concatenation_iqtree/partition.nexus"
 #-------------------------------------------------------------------------------
 
 #Run to obtain site likelihoods from constraint tree 
-sh bash_pipeline.sh $cogs_file $unique_taxa $mapping_arcogs $constraint_tree $concat_file $part_file
+sh bash_pipeline.sh --cogs $cogs_file --taxa $unique_taxa -m $mapping_arcogs --tree $constraint_tree --concat $concat_file -p $part_file
 
 #-------------------------------------------------------------------------------
 # MERGE SLH-FILES

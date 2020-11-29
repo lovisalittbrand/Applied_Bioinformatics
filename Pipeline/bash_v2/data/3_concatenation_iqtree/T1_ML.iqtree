@@ -3,7 +3,7 @@ IQ-TREE 2.0.3 built Apr 26 2020
 Partition file name: data/3_concatenation_iqtree/partition.nexus
 Input file name: data/3_concatenation_iqtree/concatenation.fasta
 Type of analysis: tree reconstruction
-Random seed number: 97893
+Random seed number: 660328
 
 REFERENCES
 ----------
@@ -75,7 +75,7 @@ Tree in newick format:
 TIME STAMP
 ----------
 
-Date and time: Wed Nov 25 15:27:22 2020
-Total CPU time used: 0.293957 seconds (0h:0m:0s)
-Total wall-clock time used: 0.325451 seconds (0h:0m:0s)
+Date and time: Fri Nov 27 15:39:50 2020
+Total CPU time used: 0.245931 seconds (0h:0m:0s)
+Total wall-clock time used: 0.263281 seconds (0h:0m:0s)
 

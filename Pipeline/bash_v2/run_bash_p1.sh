@@ -37,4 +37,4 @@ mapping_arcogs="data/mapping_arcog.maps"
 #-------------------------------------------------------------------------------
 
 #Run to obtain site likelihoods from unconstraint tree 
-sh bash_pipeline.sh $cogs_file $unique_taxa $mapping_arcogs
+sh bash_pipeline.sh --cogs $cogs_file --taxa $unique_taxa -m $mapping_arcogs
