@@ -133,7 +133,7 @@ if (style1_sorted == False and style2_two_sides == False and style3_mode_site ==
     fig = go.Figure(data=[go.Bar(
                 x=df_sort_GLS2['gene_name'], y=df_sort_GLS2['Diff_gene'].abs(),
                 marker=dict(color=clrs),
-                hovertemplate='Gene: %{x} <br> Signal: %{y:.3f}'
+                hovertemplate='Gene: %{x} <br> Signal: %{y:.3f} <extra></extra>'
             )])
     
     fig.update_layout(  
@@ -174,7 +174,7 @@ if style2_two_sides == True:
     fig = go.Figure(data=[go.Bar(
                 x=df_sort_GLS['gene_name'], y=df_sort_GLS['Diff_gene'],
                 marker=dict(color=clrs),
-                hovertemplate='Gene: %{x} <br> Signal: %{y:.3f}'
+                hovertemplate='Gene: %{x} <br> Signal: %{y:.3f} <extra></extra>'
             )])
     
     fig.update_layout(
@@ -260,13 +260,13 @@ if style3_mode_site == True:
             [{}]]
     )
     
-    clrs2  = ['green' if i >= 0 else 'red' for i in df_site_lk.iloc[2]] # set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
+    clrs2  = ['green' if i >= 0 else 'red' for i in df_site_lk.loc['Diff_site']] # set color 'green' if T1-T2 >= 0, else if T1-T2 < 0 set color 'red'
     
     fig.add_trace(
         go.Bar(
-                x=df_site_lk.iloc[2].index, y=df_site_lk.iloc[2],
+                x=df_site_lk.loc['Diff_site'].index, y=df_site_lk.loc['Diff_site'],
                 marker=dict(color=clrs2),
-                hovertemplate='Position: %{x} <br> Signal: %{y:.3f}'),
+                hovertemplate='Position: %{x} <br> Signal: %{y:.3f} <extra></extra>'),
             # Position in graph grid
             row=1, col=1)
     
@@ -293,7 +293,7 @@ if style3_mode_site == True:
         y = [0 for i in range(len(df_genes))],
         customdata=df_genes['gene_name'],
         orientation='h',
-        hovertemplate='Gene: %{customdata}', 
+        hovertemplate='Gene: %{customdata} <extra></extra>', 
         text=df_genes['gene_name'],  
         textposition="inside",        
         marker=dict(color=[f'rgb({np.random.randint(0,256)}, {np.random.randint(0,256)}, {np.random.randint(0,256)})' for _ in range(25)]),
