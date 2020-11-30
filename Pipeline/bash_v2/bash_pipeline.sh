@@ -8,8 +8,8 @@
 #			   The pipeline can run both constrained and unconstrained phylogenetic analyses with IQ-tree based on parameter input
 #
 # USAGE: There are two alternative ways of using this pipeline depending on if you have a concatenation or not.
-# (1) $ sh bash_pipeline.sh <COGS_FILE> <UNIQUE_TAXA> <MAPPING_ARCOGS>
-# (2) $ sh bash_pipeline.sh <COGS_FILE> <UNIQUE_TAXA> <MAPPING_ARCOGS> <CONSTRAINT_TREE> <CONCAT_FILE> <PART_FILE>
+# (1) $ sh bash_pipeline.sh -c <COGS_FILE> --taxa <UNIQUE_TAXA> -m <MAPPING_ARCOGS>
+# (2) $ sh bash_pipeline.sh -c <COGS_FILE> --taxa <UNIQUE_TAXA> -m <MAPPING_ARCOGS> --tree <CONSTRAINT_TREE> --concat <CONCAT_FILE> -p <PART_FILE>
 #
 #	- COGS_FILE: input txt-file containing names of all arCOG-files that will be analyzed
 #	- UNIQUE_TAXA: list containing names of all unique taxa used for mapping
@@ -184,6 +184,7 @@ else
 
 	echo "\n#####"
 	echo "Pipeline step 5: Visualizing frequency and entropy"
+	
 	echo "Data: Concatenation"
 	echo "#####\n"
 	bin=10
