@@ -27,9 +27,9 @@
 #-------------------------------------------------------------------------------
 
 #Path to required parameters
-cogs_file="data/cog_list.txt" 
-unique_taxa="data/our_unique_taxa.list"
-mapping_arcogs="data/mapping_arcog.maps"
+cogs_file="data/25AERibosomalProteins.lines" 
+unique_taxa="data/taxa.list"
+mapping_arcogs="data/AERibosomalProteins.maps"
 
 
 #-------------------------------------------------------------------------------

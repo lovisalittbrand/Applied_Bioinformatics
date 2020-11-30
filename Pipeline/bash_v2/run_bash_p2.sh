@@ -61,5 +61,5 @@ slh="data/3_concatenation_iqtree/combined.sitelh"
 partition="data/3_concatenation_iqtree/partition.nexus"
 
 #Calculate and visualize the phylogenetic signal for both individual sites and genes based on output from IQ-tree
-python3 SLS_diff.py $slh 
-#python3 GLS_diff.py $slh $partition
+#python3 SLS_diff.py $slh 
+python3 GLS_diff.py $slh $partition -gs

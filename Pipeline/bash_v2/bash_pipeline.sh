@@ -123,7 +123,7 @@ else
 	for i in ${cogs_vector[@]}
 	do
 		echo "\n#####"
-		echo "Pipeline steps 1-3: Alignment; Trimming; Removing Line breaks"
+		echo "Pipeline steps 1-2: Alignment; Trimming"
 		echo "Data: ${i}"
 		echo "Software: MAFFT; Trimal-Gappyout"
 		echo "#####\n"
@@ -135,7 +135,8 @@ else
 
 
 		output_trim="data/2_trimming/${i}.trim.mafft.fasta"
-		trimal -gappyout -in $output_aln -out $output_trim
+		#trimal -gappyout -in $output_aln -out $output_trim
+		trimal -gt 0.75 -in $output_aln -out $output_trim
 
 	done
 
@@ -171,7 +172,7 @@ else
 	concatenation_result="data/3_concatenation_iqtree/concatenation.fasta"
 
 
-	iqtree -s $concatenation_result -spp $partition_result -st "AA" -wsl -nt 1 -pre T1_ML -m JTT+R3
+	iqtree -s $concatenation_result -spp $partition_result -st "AA" -wsl -nt 1 -pre T1_ML -m LG+C60+F
 	for f in T1_ML.*
 	do
 		mv $f "data/3_concatenation_iqtree/$f"
