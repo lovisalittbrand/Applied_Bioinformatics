@@ -60,7 +60,7 @@ mapdict = {}
 # Creates a dict with the names in the fasta files as key and the value is the taxa to which it belongs to and to what gene as a arCOG
 for line in map_lines:
     l = line.split("\t")
-    mapdict[l[2].rstrip()] = (l[1], l[0])
+    mapdict[l[2].strip()] = (l[1].strip(), l[0].strip())
 
 concatenation_file = open("concatenation.fasta", "w")
 
