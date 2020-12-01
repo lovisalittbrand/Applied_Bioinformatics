@@ -19,6 +19,7 @@ from Bio import SeqIO
 import re
 import ast
 import copy
+import random
 
 
 #################################### Functions #####################################
@@ -597,8 +598,23 @@ if __name__ == "__main__":
 
   fig.show()
 
+
+
+
+
+
 #taxa aa/base freq visualisation 
+
+# Create a lis of increasing hue values based on the number of species.
 if taxafreq == True:
+  step = 355/len(taxafreq_df.index)
+  h_list = []
+  h = 10
+  for n in range(0, len(taxafreq_df.index)):
+    h_list.append(h)
+    h = h + step
+
+
   fig2 = go.Figure()
   # Loop over each taxa
   for i in range(0, len(taxafreq_df.index)):
@@ -607,6 +623,8 @@ if taxafreq == True:
             x = taxafreq_df.columns,
             y = taxafreq_df.iloc[i],
             name = taxafreq_df.index[i],
+            # Create unique hsv combinations.
+            marker_color = "hsv(" + str(h_list[i]) +", " + str(0.2 + random.random()*0.8)+ ", " + str(0.2 + random.random()*0.8) + " )",
             hovertemplate='Character %{x} Frequency: %{y:.3f}',           
         ),
     )
