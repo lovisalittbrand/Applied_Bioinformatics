@@ -1,0 +1,9 @@
+Analysis: Trimming files:
+
+The FASTA-sequences contained in 1_untrimmed (mafft.fasta) was trimmed with Trimal:
+trimal -gappyout -in input -out output
+
+To ensure that the files are ready for concatenation the names in FASTA-header must be mapped to unique taxa name. This is done in the following way:
+for i in *.trim.mafft.fasta; do awk -F"_" '{if($0 ~ /^>/) print $1"_"$2"_"$3; else print $0}' $i > ${i%.trim.mafft.fasta}_cat.fasta; done
+
+Thereafter, the files are ready for concatenation -> results can be found in /original_conatenation.

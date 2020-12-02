@@ -1,0 +1,24 @@
+#nexus
+begin sets;
+ charset OG0000000_cat.mafft = 1-542;
+ charset OG0000001_cat.mafft = 543-1762;
+ charset OG0000002_cat.mafft = 1763-2997;
+ charset OG0000003_cat.mafft = 2998-3099;
+ charset OG0000004_cat.mafft = 3100-3216;
+ charset OG0000005_cat.mafft = 3217-3519;
+ charset OG0000006_cat.mafft = 3520-4199;
+ charset OG0000007_cat.mafft = 4200-4298;
+ charset OG0000008_cat.mafft = 4299-4418;
+ charset OG0000009_cat.mafft = 4419-4598;
+ charset OG0000010_cat.mafft = 4599-5434;
+ charset OG0000011_cat.mafft = 5435-5805;
+ charset OG0000012_cat.mafft = 5806-5916;
+ charset OG0000013_cat.mafft = 5917-6329;
+ charset OG0000014_cat.mafft = 6330-6443;
+ charset OG0000015_cat.mafft = 6444-7211;
+ charset OG0000016_cat.mafft = 7212-7948;
+ charset OG0000017_cat.mafft = 7949-8015;
+ charset OG0000018_cat.mafft = 8016-8663;
+ charset OG0000019_cat.mafft = 8664-8818;
+ charset OG0000020_cat.mafft = 8819-8969;
+end;

@@ -1,0 +1,24 @@
+#nexus
+begin sets;
+ charset Gene_0 = 1-546;
+ charset Gene_1 = 547-1782;
+ charset Gene_2 = 1783-3020;
+ charset Gene_3 = 3021-3123;
+ charset Gene_4 = 3124-3241;
+ charset Gene_5 = 3242-3564;
+ charset Gene_6 = 3565-4251;
+ charset Gene_7 = 4252-4352;
+ charset Gene_8 = 4353-4473;
+ charset Gene_9 = 4474-4705;
+ charset Gene_10 = 4706-5553;
+ charset Gene_11 = 5554-5924;
+ charset Gene_12 = 5925-6036;
+ charset Gene_13 = 6037-6461;
+ charset Gene_14 = 6462-6836;
+ charset Gene_15 = 6837-7609;
+ charset Gene_16 = 7610-8357;
+ charset Gene_17 = 8358-8537;
+ charset Gene_18 = 8538-9191;
+ charset Gene_19 = 9192-9346;
+ charset Gene_20 = 9347-9619;
+end;

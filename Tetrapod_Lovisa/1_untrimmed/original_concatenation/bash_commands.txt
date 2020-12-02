@@ -1,0 +1,17 @@
+Analysis: Creating concatenation and running Iqtree
+
+A concatenation and partition file was created using the script catfasta2phyml_mod.pl.
+perl catfasta2phyml_mod.pl -c -f -v *_aln.fasta > concatenation.fasta 2> partition.nexus
+
+RUNS IQTREE
+___________
+
+The following runs were made with Iqtree:
+1. Unconstrained
+iqtree -s concatenation.fasta -st "AA" -wsl -nt 1 -pre T1_ML 
+
+Best model: JTT+R3 -> used in further analysis to speed up process
+
+2. Constrained
+Constraint topology: T2.treefile
+iqtree -wsl -nt 1 -st "AA" -s concatenation.fasta -m JTT+R3 -g T2.treefile -pre T2_ML

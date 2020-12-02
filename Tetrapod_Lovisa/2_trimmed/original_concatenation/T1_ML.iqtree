@@ -1,0 +1,225 @@
+IQ-TREE 2.0.3 built Apr 26 2020
+
+Input file name: concatenation.fasta
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 584523
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 23 sequences with 8969 amino-acid sites
+Number of constant sites: 3536 (= 39.4247% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 3536 (= 39.4247% of all sites)
+Number of parsimony informative sites: 2803
+Number of distinct site patterns: 6251
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: JTT+R3
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+JTT+R3          -101246.134  202586.267 - 6.27e-07  202586.773 - 8.17e-07  202920.039 +    0.998
+JTT+R4          -101243.237  202584.475 - 1.54e-06  202585.024 - 1.96e-06  202932.450 -  0.00201
+JTTDCMut+R3     -101286.443  202666.887 - 1.95e-24  202667.393 - 2.55e-24  203000.659 - 3.11e-18
+JTTDCMut+R4     -101283.779  202665.559 - 3.79e-24  202666.108 - 4.84e-24  203013.534 - 4.98e-21
+JTT+F+R3        -101213.999  202559.998 +    0.317  202560.991 +    0.324  203028.699 - 2.54e-24
+JTT+F+R4        -101211.233  202558.465 +    0.683  202559.520 +    0.676  203041.369 - 4.49e-27
+JTTDCMut+F+R3   -101248.086  202628.172 - 4.98e-16  202629.165 - 5.09e-16  203096.873 - 3.98e-39
+JTTDCMut+F+R4   -101245.373  202626.745 - 1.02e-15  202627.800 - 1.01e-15  203109.649 -  6.7e-42
+mtInv+F+R3      -101971.233  204074.466 -        0  204075.460 -        0  204543.167 -        0
+mtInv+F+R4      -101962.759  204061.518 -        0  204062.573 -        0  204544.422 -        0
+LG+R3           -102085.643  204265.287 -        0  204265.792 -        0  204599.058 -        0
+LG+R4           -102078.661  204255.322 -        0  204255.871 -        0  204603.297 -        0
+LG+F+R3         -102014.513  204161.026 -        0  204162.020 -        0  204629.727 -        0
+LG+F+R4         -102008.486  204152.971 -        0  204154.026 -        0  204635.875 -        0
+mtMet+F+R4      -102022.414  204180.828 -        0  204181.882 -        0  204663.732 -        0
+mtMet+F+R3      -102034.483  204200.966 -        0  204201.959 -        0  204669.667 -        0
+LG+G4           -102187.146  204462.291 -        0  204462.735 -        0  204774.758 -        0
+LG+I+G4         -102190.688  204471.375 -        0  204471.839 -        0  204790.944 -        0
+LG+R2           -102207.687  204505.374 -        0  204505.838 -        0  204824.943 -        0
+VT+R3           -102273.949  204641.899 -        0  204642.404 -        0  204975.670 -        0
+VT+R4           -102272.053  204642.106 -        0  204642.656 -        0  204990.081 -        0
+WAG+R3          -102358.098  204810.196 -        0  204810.702 -        0  205143.968 -        0
+WAG+R4          -102355.386  204808.772 -        0  204809.321 -        0  205156.747 -        0
+VT+F+R3         -102329.444  204790.887 -        0  204791.881 -        0  205259.588 -        0
+VT+F+R4         -102327.651  204791.303 -        0  204792.357 -        0  205274.207 -        0
+WAG+F+R3        -102357.182  204846.364 -        0  204847.357 -        0  205315.065 -        0
+WAG+F+R4        -102354.424  204844.848 -        0  204845.903 -        0  205327.752 -        0
+Dayhoff+F+R4    -102482.452  205100.903 -        0  205101.958 -        0  205583.807 -        0
+DCMut+F+R4      -102489.289  205114.579 -        0  205115.633 -        0  205597.483 -        0
+Dayhoff+F+R3    -102499.429  205130.859 -        0  205131.852 -        0  205599.560 -        0
+DCMut+F+R3      -102506.121  205144.241 -        0  205145.235 -        0  205612.942 -        0
+mtZOA+F+R4      -102628.329  205392.659 -        0  205393.713 -        0  205875.563 -        0
+mtZOA+F+R3      -102647.773  205427.546 -        0  205428.539 -        0  205896.247 -        0
+rtREV+F+R3      -102659.868  205451.737 -        0  205452.730 -        0  205920.438 -        0
+rtREV+F+R4      -102652.428  205440.855 -        0  205441.910 -        0  205923.759 -        0
+HIVb+F+R4       -102735.424  205606.849 -        0  205607.903 -        0  206089.753 -        0
+HIVb+F+R3       -102753.098  205638.196 -        0  205639.189 -        0  206106.897 -        0
+cpREV+R3        -102849.175  205792.350 -        0  205792.855 -        0  206126.121 -        0
+cpREV+R4        -102847.792  205793.584 -        0  205794.134 -        0  206141.559 -        0
+mtREV+F+R4      -102762.540  205661.080 -        0  205662.135 -        0  206143.984 -        0
+mtREV+F+R3      -102772.226  205676.452 -        0  205677.445 -        0  206145.153 -        0
+FLU+F+R4        -102773.486  205682.972 -        0  205684.026 -        0  206165.876 -        0
+FLU+F+R3        -102783.667  205699.334 -        0  205700.327 -        0  206168.035 -        0
+cpREV+F+R3      -102806.204  205744.407 -        0  205745.400 -        0  206213.108 -        0
+Dayhoff+R4      -102884.984  205867.967 -        0  205868.517 -        0  206215.942 -        0
+Dayhoff+R3      -102898.906  205891.812 -        0  205892.318 -        0  206225.584 -        0
+cpREV+F+R4      -102804.583  205745.167 -        0  205746.221 -        0  206228.071 -        0
+DCMut+R4        -102893.379  205884.759 -        0  205885.308 -        0  206232.734 -        0
+DCMut+R3        -102907.164  205908.329 -        0  205908.835 -        0  206242.101 -        0
+rtREV+R3        -103134.675  206363.351 -        0  206363.857 -        0  206697.123 -        0
+rtREV+R4        -103128.424  206354.849 -        0  206355.398 -        0  206702.824 -        0
+LG+I            -103184.432  206456.863 -        0  206457.307 -        0  206769.331 -        0
+FLU+R4          -103251.843  206601.686 -        0  206602.235 -        0  206949.661 -        0
+FLU+R3          -103262.002  206618.004 -        0  206618.510 -        0  206951.776 -        0
+mtVer+F+R4      -103219.242  206574.484 -        0  206575.539 -        0  207057.388 -        0
+HIVb+R4         -103313.239  206724.478 -        0  206725.027 -        0  207072.453 -        0
+mtVer+F+R3      -103238.332  206608.663 -        0  206609.657 -        0  207077.364 -        0
+HIVb+R3         -103329.976  206753.951 -        0  206754.457 -        0  207087.723 -        0
+PMB+R3          -103421.611  206937.222 -        0  206937.728 -        0  207270.994 -        0
+PMB+R4          -103419.418  206936.836 -        0  206937.385 -        0  207284.811 -        0
+PMB+F+R3        -103521.596  207175.192 -        0  207176.185 -        0  207643.893 -        0
+PMB+F+R4        -103519.579  207175.159 -        0  207176.213 -        0  207658.063 -        0
+Blosum62+R3     -103617.511  207329.023 -        0  207329.528 -        0  207662.794 -        0
+Blosum62+R4     -103614.716  207327.431 -        0  207327.980 -        0  207675.406 -        0
+Blosum62+F+R3   -103671.344  207474.687 -        0  207475.681 -        0  207943.388 -        0
+Blosum62+F+R4   -103668.973  207473.945 -        0  207475.000 -        0  207956.849 -        0
+mtART+F+R4      -103934.553  208005.105 -        0  208006.159 -        0  208488.009 -        0
+mtART+F+R3      -103973.648  208079.296 -        0  208080.290 -        0  208547.997 -        0
+mtMAM+F+R4      -104351.309  208838.618 -        0  208839.673 -        0  209321.522 -        0
+mtMAM+F+R3      -104393.642  208919.284 -        0  208920.278 -        0  209387.985 -        0
+LG              -104739.228  209564.455 -        0  209564.879 -        0  209869.821 -        0
+mtZOA+R4        -105239.300  210576.599 -        0  210577.149 -        0  210924.574 -        0
+mtZOA+R3        -105275.646  210645.293 -        0  210645.799 -        0  210979.065 -        0
+mtMet+R4        -105642.807  211383.614 -        0  211384.164 -        0  211731.589 -        0
+mtMet+R3        -105668.506  211431.012 -        0  211431.518 -        0  211764.784 -        0
+HIVw+F+R4       -105667.888  211471.776 -        0  211472.831 -        0  211954.680 -        0
+HIVw+F+R3       -105692.003  211516.005 -        0  211516.999 -        0  211984.706 -        0
+mtREV+R4        -106091.438  212280.877 -        0  212281.426 -        0  212628.852 -        0
+mtREV+R3        -106108.862  212311.723 -        0  212312.229 -        0  212645.495 -        0
+mtVer+R4        -106546.734  213191.467 -        0  213192.016 -        0  213539.442 -        0
+mtVer+R3        -106582.058  213258.115 -        0  213258.621 -        0  213591.887 -        0
+mtInv+R4        -106657.519  213413.038 -        0  213413.587 -        0  213761.013 -        0
+mtInv+R3        -106676.544  213447.088 -        0  213447.594 -        0  213780.860 -        0
+HIVw+R4         -107237.896  214573.793 -        0  214574.342 -        0  214921.768 -        0
+HIVw+R3         -107269.125  214632.249 -        0  214632.755 -        0  214966.021 -        0
+mtART+R4        -107456.402  215010.804 -        0  215011.353 -        0  215358.779 -        0
+mtART+R3        -107523.940  215141.879 -        0  215142.385 -        0  215475.651 -        0
+mtMAM+R4        -107869.521  215837.042 -        0  215837.591 -        0  216185.017 -        0
+mtMAM+R3        -107940.957  215975.914 -        0  215976.420 -        0  216309.686 -        0
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: JTT+R3
+
+State frequencies: (model)
+
+Model of rate heterogeneity: FreeRate with 3 categories
+Site proportion and rates:  (0.6030,0.2886) (0.3347,1.6178) (0.0623,4.5654)
+
+ Category  Relative_rate  Proportion
+  1         0.2886         0.6030
+  2         1.6178         0.3347
+  3         4.5654         0.0623
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -101240.7996 (s.e. 816.4070)
+Unconstrained log-likelihood (without tree): -75406.8097
+Number of free parameters (#branches + #model parameters): 47
+Akaike information criterion (AIC) score: 202575.5991
+Corrected Akaike information criterion (AICc) score: 202576.1049
+Bayesian information criterion (BIC) score: 202909.3710
+
+Total tree length (sum of branch lengths): 1.9893
+Sum of internal branch lengths: 0.5685 (28.5802% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'African-lungfish_Protopterus_annectens' is drawn at root
+
++----African-lungfish_Protopterus_annectens
+|
++--American-lungfish_Lepidosiren_paradoxa
+|
+|     +-------------------Australian-lungfish_Neoceratodus_forsteri
++-----|
+      |                             +----armadillo_Dasypus_novemcinctus
+      |                          +--|
+      |                          |  +--elephant_Loxodonta_africana
+      |                       +--|
+      |                       |  |  +--dog_Canis_lupus
+      |                       |  +--|
+      |                       |     |  +--human_Homo_sapiens
+      |                       |     +--|
+      |                       |        +---mouse_Mus_musculus
+      |                    +--|
+      |                    |  |  +--kangaroo_Macropus_eugenii
+      |                    |  +--|
+      |                    |     +--opossum_Monodelphis_domestica
+      |                 +--|
+      |                 |  +------platypus_Ornithorhynchus_anatinus
+      |              +--|
+      |              |  |           +--chicken_Gallus_gallus
+      |              |  |        +--|
+      |              |  |        |  +-----turkey_Meleagris_gallopavo
+      |              |  |     +--|
+      |              |  |     |  +--zebrafinch_Taeniopygia_guttata
+      |              |  |  +--|
+      |              |  |  |  +------lizard_Anolis_carolinensis
+      |              |  +--|
+      |              |     +--turtle_Pelodiscus_sinensis
+      |          +---|
+      |          |   +---------------------frog_Silurana_tropicalis
+      +----------|
+                 |  +---------------coelacanth_Latimeria_chalumnae
+                 +--|
+                    |            +-------gar_Lepisosteus_oculatus
+                    |  +---------|
+                    |  |         |                +---------pufferfish_Takifugu_rubripes
+                    |  |         |        +-------|
+                    |  |         |        |       +---tilapia_Oreochromis_niloticus
+                    |  |         +--------|
+                    |  |                  +----------zebrafish_Danio_rerio
+                    +--|
+                       +---------------------------shark_Callorhinchus_milii
+
+Tree in newick format:
+
+(African-lungfish_Protopterus_annectens:0.0449695951,American-lungfish_Lepidosiren_paradoxa:0.0262159545,(Australian-lungfish_Neoceratodus_forsteri:0.1665287309,(((((((armadillo_Dasypus_novemcinctus:0.0427144221,elephant_Loxodonta_africana:0.0220862116):0.0011193653,(dog_Canis_lupus:0.0114989187,(human_Homo_sapiens:0.0099887187,mouse_Mus_musculus:0.0333209155):0.0032367246):0.0018223283):0.0266942254,(kangaroo_Macropus_eugenii:0.0131679990,opossum_Monodelphis_domestica:0.0115147053):0.0198307858):0.0103969525,platypus_Ornithorhynchus_anatinus:0.0631478554):0.0165077784,((((chicken_Gallus_gallus:0.0034954535,turkey_Meleagris_gallopavo:0.0492285245):0.0068344463,zebrafinch_Taeniopygia_guttata:0.0245647669):0.0160142987,lizard_Anolis_carolinensis:0.0626502946):0.0034063846,turtle_Pelodiscus_sinensis:0.0279089357):0.0105710988):0.0225730244,frog_Silurana_tropicalis:0.1809891666):0.0373054603,(coelacanth_Latimeria_chalumnae:0.1322857293,((gar_Lepisosteus_oculatus:0.0644826259,((pufferfish_Takifugu_rubripes:0.0836074959,tilapia_Oreochromis_niloticus:0.0333381209):0.0665478931,zebrafish_Danio_rerio:0.0891468448):0.0768019982):0.0818556850,shark_Callorhinchus_milii:0.2238874762):0.0161154530):0.0119738484):0.0877461251):0.0511852990);
+
+TIME STAMP
+----------
+
+Date and time: Tue Nov 24 17:17:18 2020
+Total CPU time used: 631.918 seconds (0h:10m:31s)
+Total wall-clock time used: 750.944 seconds (0h:12m:30s)
+

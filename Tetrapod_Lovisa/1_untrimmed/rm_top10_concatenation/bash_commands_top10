@@ -1,0 +1,33 @@
+Analysis: removal of 10 strong sites in gene 10 
+
+The following positions were removed from original concatenation:
+5267
+5492
+5340
+5376
+4996
+5330
+5094
+5276
+4888
+4706
+
+Concatenation after removing 10 sites: concatenation_rm_top10.fasta
+Modified partition file after removal: partition_rm_top10.nexus
+Simplified gene names for plotting: partition_rm_top10_renamed.nexus
+
+RUNS IQTREE
+____________
+
+1. Unconstrained = tree ML consider to be the best
+iqtree -wsl -nt 1 -st "AA" -s concatenation_rm_top10.fasta -m JTT+R3 -pre unconstrained
+
+2. Constrained T1
+constrained topology: T1.treefile
+iqtree -wsl -nt 1 -st "AA" -s concatenation_rm_top10.fasta  -m JTT+R3 -g T1.treefile -pre T1_ML
+
+3. Constrained T2
+constrained topology: T2.treefile
+iqtree -wsl -nt 1 -st "AA" -s concatenation_rm_top10.fasta  -m JTT+R3 -g T2.treefile -pre T2_ML
+
+Combined site likelihood into combined_rm_top10.sitelh: using T1_ML.sitelh and T2_ML.sitelh
