@@ -19,6 +19,7 @@ from Bio import SeqIO
 import re
 import ast
 import copy
+import random
 
 
 #################################### Functions #####################################
@@ -232,8 +233,11 @@ if __name__ == "__main__":
       # Removes "-" and adds "u" to the base list.
       base_list.remove("-") 
       # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+      # Removes error message to hanlde the case when there are only gaps in a position
+      np.seterr(all='ignore')
       freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
-      
+      np.seterr(all='raise')
+
       base_dict = dict()
       for i in range(0, len(base_list)):
         base_dict[base_list[i].lower()] = freq_matrix[i,:]
@@ -437,9 +441,14 @@ if __name__ == "__main__":
 
     if gapexclude == True:
       # Removes counts for gaps.
+      
       count_matrix_del = np.delete(count_matrix, aa_list.index('-'), 0)
       # Normalizes the data by dividing each cell responding to one position by the sum of all cells on that position.
+      np.seterr(all='ignore')
       freq_matrix = count_matrix_del/(count_matrix_del.sum(axis=0)[:,None]).T
+      np.seterr(all='raise')
+
+
       # Removes "-" and adds "u" to the base list.
       aa_list.remove("-") 
 
@@ -589,8 +598,23 @@ if __name__ == "__main__":
 
   fig.show()
 
+
+
+
+
+
 #taxa aa/base freq visualisation 
+
+# Create a lis of increasing hue values based on the number of species.
 if taxafreq == True:
+  step = 355/len(taxafreq_df.index)
+  h_list = []
+  h = 10
+  for n in range(0, len(taxafreq_df.index)):
+    h_list.append(h)
+    h = h + step
+
+
   fig2 = go.Figure()
   # Loop over each taxa
   for i in range(0, len(taxafreq_df.index)):
@@ -599,6 +623,8 @@ if taxafreq == True:
             x = taxafreq_df.columns,
             y = taxafreq_df.iloc[i],
             name = taxafreq_df.index[i],
+            # Create unique hsv combinations.
+            marker_color = "hsv(" + str(h_list[i]) +", " + str(0.2 + random.random()*0.8)+ ", " + str(0.2 + random.random()*0.8) + " )",
             hovertemplate='Character %{x} Frequency: %{y:.3f}',           
         ),
     )
