@@ -36,7 +36,10 @@ out_file = open(output_file + ".fasta", "w")
 
 # Reads the sites_to_remove_file and sorts it's indices in a list
 site_to_remove = open(site_file, "r")
-site = site_to_remove.readline().split()
+lines = site_to_remove.readlines()
+site = []
+for line in lines:
+    site.append(line)
 site = [int(j) for j in site] 
 site.sort()
 
