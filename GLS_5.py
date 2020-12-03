@@ -51,6 +51,11 @@ with open(file_likelihood) as log_likelihood:
 # calculate the T1-T2 difference between the log likelihoods for each position
 df_site_lk.loc['Diff_site']=df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values
 
+#export the dataframe with genomic position and difference in site likelihood to .csv file
+out=df_site_lk.T
+out.to_csv(r'genomePosition_siteLikelihood.csv', index=True)
+
+
 # import nexus partition file and extract gene name, its beginning, end and length (new parser)
 gene_data = dict()
 # Check if partition file is available 
