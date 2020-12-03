@@ -1,0 +1,24 @@
+#nexus
+begin sets;
+	charset OG0000000.mafft.fasta = 1-546;
+	charset OG0000001.mafft.fasta = 547-1782;
+	charset OG0000002.mafft.fasta = 1783-3019;
+	charset OG0000003.mafft.fasta = 3020-3122;
+	charset OG0000004.mafft.fasta = 3123-3240;
+	charset OG0000005.mafft.fasta = 3241-3563;
+	charset OG0000006.mafft.fasta = 3564-4249;
+	charset OG0000007.mafft.fasta = 4250-4350;
+	charset OG0000008.mafft.fasta = 4351-4471;
+	charset OG0000009.mafft.fasta = 4472-4703;
+	charset OG0000010.mafft.fasta = 4704-5549;
+	charset OG0000011.mafft.fasta = 5550-5920;
+	charset OG0000012.mafft.fasta = 5921-6032;
+	charset OG0000013.mafft.fasta = 6033-6457;
+	charset OG0000014.mafft.fasta = 6458-6832;
+	charset OG0000015.mafft.fasta = 6833-7604;
+	charset OG0000016.mafft.fasta = 7605-8352;
+	charset OG0000017.mafft.fasta = 8353-8532;
+	charset OG0000018.mafft.fasta = 8533-9186;
+	charset OG0000019.mafft.fasta = 9187-9341;
+	charset OG0000020.mafft.fasta = 9342-9614;
+end;

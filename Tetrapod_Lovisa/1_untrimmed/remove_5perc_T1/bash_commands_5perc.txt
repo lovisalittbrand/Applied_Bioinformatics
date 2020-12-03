@@ -1,0 +1,13 @@
+Analysis: investigating break point of topology switch
+
+1. Removing 5 percentage of the sites favoring T1 to see if it changed the topology.
+
+new concatenation: concat_rm_5perc.fasta
+new partition: concat_rm_5perc_partition.nexus
+
+
+The following run were made with Iqtree:
+- Unconstrained run
+iqtree -s concat_rm_5perc.fasta -st "AA" -wsl -nt 1 -pre unconstrained -m JTT+R3
+
+Changed the topology!! T1 -> T2

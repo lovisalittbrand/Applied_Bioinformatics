@@ -1,0 +1,14 @@
+Analysis: investigating break point of topology switch
+
+1. Removing sites favoring T1 with signal > 0.5. This corresponds to approximately 1% of total number of sites favoring T1.
+
+python3 site_remover.py concatenation.fasta sites_to_remove_0.01perc.txt concat_0.01perc -pf partition.nexus 
+
+new concatenation: concat_0.5signal.fasta
+new partition: concat_0.5signal_partition.nexus
+
+
+The following run were made with Iqtree:
+- Unconstrained run
+iqtree -s concat_0.5signal.fasta -st "AA" -wsl -nt 1 -pre unconstrained -m JTT+R3
+

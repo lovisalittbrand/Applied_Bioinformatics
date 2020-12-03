@@ -1,0 +1,182 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s concat_0.001perc.fasta -st AA -wsl -nt 1 -pre unconstrained -m JTT+R3
+Seed:    386509 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Dec  3 16:44:26 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file concat_0.001perc.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 23 sequences with 9614 columns, 6649 distinct patterns
+2931 parsimony-informative, 2750 singleton sites, 3933 constant sites
+                                           Gap/Ambiguity  Composition  p-value
+   1  African-lungfish_Protopterus_annectens      11.11%    passed     99.38%
+   2  American-lungfish_Lepidosiren_paradoxa      28.98%    passed     69.31%
+   3  Australian-lungfish_Neoceratodus_forsteri   35.04%    failed      1.25%
+   4  armadillo_Dasypus_novemcinctus              10.88%    passed     99.94%
+   5  chicken_Gallus_gallus                        2.33%    passed     99.96%
+   6  coelacanth_Latimeria_chalumnae               4.00%    passed     87.89%
+   7  dog_Canis_lupus                              4.35%    passed    100.00%
+   8  elephant_Loxodonta_africana                  0.62%    passed    100.00%
+   9  frog_Silurana_tropicalis                     2.53%    passed     66.44%
+  10  gar_Lepisosteus_oculatus                     0.66%    passed     95.83%
+  11  human_Homo_sapiens                           1.98%    passed    100.00%
+  12  kangaroo_Macropus_eugenii                   15.25%    passed    100.00%
+  13  lizard_Anolis_carolinensis                   7.22%    passed     99.93%
+  14  mouse_Mus_musculus                           0.43%    passed     99.45%
+  15  opossum_Monodelphis_domestica                9.03%    passed     99.95%
+  16  platypus_Ornithorhynchus_anatinus           30.80%    passed     12.12%
+  17  pufferfish_Takifugu_rubripes                15.05%    passed     99.15%
+  18  shark_Callorhinchus_milii                    0.90%    passed     97.00%
+  19  tilapia_Oreochromis_niloticus               17.84%    passed     48.99%
+  20  turkey_Meleagris_gallopavo                  16.64%    passed     50.16%
+  21  turtle_Pelodiscus_sinensis                   6.30%    passed     99.70%
+  22  zebrafinch_Taeniopygia_guttata              39.27%    failed      1.19%
+  23  zebrafish_Danio_rerio                       39.02%    passed     13.77%
+****  TOTAL                                       13.05%  2 sequences failed composition chi2 test (p-value<5%; df=19)
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.035 seconds
+
+NOTE: 71 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -107550.407
+2. Current log-likelihood: -106609.063
+3. Current log-likelihood: -106579.066
+4. Current log-likelihood: -106564.569
+5. Current log-likelihood: -106554.387
+6. Current log-likelihood: -106546.546
+7. Current log-likelihood: -106540.564
+8. Current log-likelihood: -106536.113
+9. Current log-likelihood: -106532.891
+10. Current log-likelihood: -106530.540
+11. Current log-likelihood: -106528.777
+12. Current log-likelihood: -106527.409
+13. Current log-likelihood: -106526.303
+14. Current log-likelihood: -106525.363
+15. Current log-likelihood: -106524.534
+16. Current log-likelihood: -106523.833
+17. Current log-likelihood: -106523.156
+18. Current log-likelihood: -106522.514
+19. Current log-likelihood: -106521.890
+20. Current log-likelihood: -106521.283
+21. Current log-likelihood: -106520.690
+22. Current log-likelihood: -106520.111
+23. Current log-likelihood: -106519.546
+24. Current log-likelihood: -106518.995
+25. Current log-likelihood: -106518.459
+26. Current log-likelihood: -106517.939
+27. Current log-likelihood: -106517.436
+28. Current log-likelihood: -106516.949
+29. Current log-likelihood: -106516.479
+30. Current log-likelihood: -106516.028
+31. Current log-likelihood: -106515.595
+32. Current log-likelihood: -106515.181
+33. Current log-likelihood: -106514.786
+34. Current log-likelihood: -106514.406
+35. Current log-likelihood: -106514.049
+36. Current log-likelihood: -106513.707
+37. Current log-likelihood: -106513.384
+38. Current log-likelihood: -106513.080
+39. Current log-likelihood: -106512.801
+40. Current log-likelihood: -106512.533
+41. Current log-likelihood: -106512.282
+42. Current log-likelihood: -106512.048
+43. Current log-likelihood: -106511.834
+44. Current log-likelihood: -106511.632
+45. Current log-likelihood: -106511.448
+46. Current log-likelihood: -106511.278
+47. Current log-likelihood: -106511.121
+48. Current log-likelihood: -106510.977
+49. Current log-likelihood: -106510.844
+50. Current log-likelihood: -106510.723
+51. Current log-likelihood: -106510.611
+52. Current log-likelihood: -106510.509
+Optimal log-likelihood: -106510.405
+Site proportion and rates:  (0.584,0.267) (0.339,1.514) (0.076,4.317)
+Parameters optimization took 52 rounds (104.070 sec)
+Computing ML distances based on estimated model parameters... 0.086 sec
+Computing BIONJ tree...
+0.002 seconds
+Log-likelihood of BIONJ tree: -106906.369
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 3.815 second
+Computing log-likelihood of 98 initial trees ... 27.794 seconds
+Current best score: -106510.405
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -106505.581
+Iteration 10 / LogL: -106505.598 / Time: 0h:2m:59s
+UPDATE BEST LOG-LIKELIHOOD: -106505.580
+Iteration 20 / LogL: -106505.771 / Time: 0h:3m:42s
+Finish initializing candidate tree set (1)
+Current best tree score: -106505.580 / CPU time: 116.730
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -106509.113 / Time: 0h:4m:44s (0h:11m:36s left)
+UPDATE BEST LOG-LIKELIHOOD: -106505.580
+UPDATE BEST LOG-LIKELIHOOD: -106505.578
+Iteration 40 / LogL: -106505.594 / Time: 0h:5m:36s (0h:8m:46s left)
+UPDATE BEST LOG-LIKELIHOOD: -106505.578
+Iteration 50 / LogL: -106505.582 / Time: 0h:6m:24s (0h:6m:39s left)
+Iteration 60 / LogL: -106506.071 / Time: 0h:7m:2s (0h:4m:53s left)
+Iteration 70 / LogL: -106507.110 / Time: 0h:7m:43s (0h:3m:28s left)
+Iteration 80 / LogL: -106505.808 / Time: 0h:8m:26s (0h:2m:14s left)
+Iteration 90 / LogL: -106505.787 / Time: 0h:9m:9s (0h:1m:7s left)
+Iteration 100 / LogL: -106506.191 / Time: 0h:9m:52s (0h:0m:5s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:10m:1s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -106505.578
+2. Current log-likelihood: -106505.500
+3. Current log-likelihood: -106505.433
+4. Current log-likelihood: -106505.369
+5. Current log-likelihood: -106505.314
+6. Current log-likelihood: -106505.260
+7. Current log-likelihood: -106505.216
+8. Current log-likelihood: -106505.176
+9. Current log-likelihood: -106505.139
+10. Current log-likelihood: -106505.109
+11. Current log-likelihood: -106505.077
+12. Current log-likelihood: -106505.053
+13. Current log-likelihood: -106505.030
+14. Current log-likelihood: -106505.012
+15. Current log-likelihood: -106504.995
+16. Current log-likelihood: -106504.979
+17. Current log-likelihood: -106504.965
+18. Current log-likelihood: -106504.951
+Optimal log-likelihood: -106504.940
+Site proportion and rates:  (0.603,0.280) (0.331,1.607) (0.066,4.550)
+Parameters optimization took 18 rounds (26.584 sec)
+BEST SCORE FOUND : -106504.940
+Site log-likelihoods printed to unconstrained.sitelh
+Total tree length: 1.938
+
+Total number of iterations: 102
+CPU time used for tree search: 455.682 sec (0h:7m:35s)
+Wall-clock time used for tree search: 495.490 sec (0h:8m:15s)
+Total CPU time used: 573.291 sec (0h:9m:33s)
+Total wall-clock time used: 627.658 sec (0h:10m:27s)
+
+Analysis results written to: 
+  IQ-TREE report:                unconstrained.iqtree
+  Maximum-likelihood tree:       unconstrained.treefile
+  Likelihood distances:          unconstrained.mldist
+  Site log-likelihoods:          unconstrained.sitelh
+  Screen log file:               unconstrained.log
+
+Date and Time: Thu Dec  3 16:54:54 2020
