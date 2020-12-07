@@ -1,0 +1,7 @@
+Running Iqtree 3 times with different constraints:
+
+1. iqtree -s concatenation.fasta -st "AA" -wsl -nt 1 -pre T1_ML -m JTT+R3 -g T1.treefile 
+
+2. iqtree -s concatenation.fasta -st "AA" -wsl -nt 1 -pre T2_ML -m JTT+R3 -g T2.treefile 
+
+3. iqtree -s concatenation.fasta -st "AA" -wsl -nt 1 -pre T3_ML -m JTT+R3 -g T3.treefile 
