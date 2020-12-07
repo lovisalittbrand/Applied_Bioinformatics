@@ -4,12 +4,12 @@
 # FILE: bash_pipeline.sh
 #
 # DESCRIPTION: The following script performs and connects a series of bioinformatic analyses in a pipeline.
-#			   The pipeline are performed in data located in folder /data
-#			   The pipeline can run both constrained and unconstrained phylogenetic analyses with IQ-tree based on parameter input
+#			   The pipeline are performed in data located in folder ./data
+#			   The pipeline can run both constrained and unconstrained phylogenetic analyses with Iqtree based on parameter input
 #
 # USAGE: There are two alternative ways of using this pipeline depending on if you have a concatenation or not.
-# (1) $ sh bash_pipeline.sh -c <COGS_FILE> --taxa <UNIQUE_TAXA> -m <MAPPING_ARCOGS>
-# (2) $ sh bash_pipeline.sh -c <COGS_FILE> --taxa <UNIQUE_TAXA> -m <MAPPING_ARCOGS> --tree <CONSTRAINT_TREE> --concat <CONCAT_FILE> -p <PART_FILE>
+# (PART 1) $ sh bash_pipeline.sh -c <COGS_FILE> --taxa <UNIQUE_TAXA> -m <MAPPING_ARCOGS>
+# (PART 2) $ sh bash_pipeline.sh --tree <CONSTRAINT_TREE> --concat <CONCAT_FILE> [-p <PART_FILE>]
 #
 #	- COGS_FILE: input txt-file containing names of all arCOG-files that will be analyzed
 #	- UNIQUE_TAXA: list containing names of all unique taxa used for mapping
@@ -20,7 +20,7 @@
 #
 # EXAMPLE: 
 # (1) $ sh bash_pipeline.sh cog_list.txt unique_taxa.list mapping_arcogs.maps 
-# (2) $ sh bash_pipeline.sh cog_list.txt unique_taxa.list mapping_arcogs.maps constraint.treefile concatenation.fasta partition.nexus 
+# (2) $ sh bash_pipeline.sh constraint.treefile concatenation.fasta [partition.nexus]
 #===============================================================================
 
 #-------------------------------------------------------------------------------
@@ -30,19 +30,23 @@
 function usage() 
 {
 	echo ""
-	echo "Usage: sh bash_pipeline [-c COGS_FILE] [-t TAXA_FILE] [-m MAPPING_FILE] [[-t TREE_CONSTRAINT] [--concat CONCATENATION] [-p PARTITION]]"
+	echo "Usage:" 
+	echo "PART 1: sh bash_pipeline [-c COGS_FILE] [-t TAXA_FILE] [-m MAPPING_FILE]"
+	echo "PART 2: sh bash_pipeline [-t TREE_CONSTRAINT] [--concat CONCATENATION] [[-p PARTITION]]"
 	echo ""
 	echo "GENERAL OPTIONS:"
 	echo "-h, --help	Printing help usages"
 	echo ""
-	echo "MANDATORY USAGE:"
+	echo "PIPELINE PART 1 USAGE:"
 	echo "-c, --cogs	Txt-file containing names of all arCOGS that will be studied"
 	echo "--taxa		Txt-file containing all unique taxa names needed for mapping"
 	echo "-m, --map	Mapping file containing all relationship"
 	echo ""
-	echo "OPTIONAL ADDITION OF PARAMETERS (ALL MUST BE INCLUDED):"
+	echo "PIPELINE PART 2 USAGE:"
 	echo "--tree		Tree-file containing constraint topology"
 	echo "--concat	Concatenated alignment"
+	echo ""
+	echo "PIPELINE PART 2 OPTIONAL ADDITION:"
 	echo "-p		Partition file (nexus)"
 }
 
@@ -85,34 +89,50 @@ while [ "$1" != "" ]; do
 done
 
 
-
+# Reading input ARCOGS
 cogs_vector=()
 while read LINE  
 do  
   cogs_vector+=($LINE)
 done <$COGS_FILE
 
+# 								PIPELINE PART 2
+#########################################################################################
+# Second run of pipeline: concatenation and topology constraint exist
 
-# --- Second run of pipeline: concatenation exist
-if [ -f "$CONSTRAINT_TREE" ];
+if [[ -f "$CONSTRAINT_TREE" && -f "$CONCAT_FILE" ]];
 then
 	#-------------------------------------------------------------------------------
-	# PIPELINE STEP: 4		Creating phylogenetic tree
+	# PIPELINE STEP: 1		Creating phylogenetic tree
 	#-------------------------------------------------------------------------------
 	echo "\n#####"
-	echo "Pipeline step 4: Creating phylogenetic tree based on constraint topology"
+	echo "Pipeline step 1: Creating phylogenetic tree based on constraint topology"
 	echo "Data: Concatenation"
-	echo "Software: IQ-Tree"
-	echo "#####\n"
 	
-	iqtree -s $CONCAT_FILE -spp $PART_FILE -st "AA" -wsl -nt 1 -pre T2_ML -g $CONSTRAINT_TREE -m JTT+R3
+	if [ -f "$PART_FILE" ];
+	then
+		echo "Software: Iqtree, partitioned analysis"
+		echo "#####\n"
+		
+		# Running partitioned analysis
+		iqtree -s $CONCAT_FILE -spp $PART_FILE -st "AA" -wsl -nt 1 -pre T2_ML -g $CONSTRAINT_TREE -m JTT+R3
+	else 
+		echo "Software: Iqtree, unpartitioned analysis"
+		echo "#####\n"
+		
+		# Running unpartitioned analysis
+		iqtree -s $CONCAT_FILE -st "AA" -wsl -nt 1 -pre T2_ML -g $CONSTRAINT_TREE -m JTT+R3
+	fi
 	
 	for f in T2_ML.*
 	do
-		mv $f "data/3_concatenation_iqtree/$f"
+		mv $f "data/4_iqtree/$f"
 	done
-	
-# --- First run of pipeline: concatenation does not exist
+
+# 								PIPELINE PART 1
+#########################################################################################
+# First run of pipeline: concatenation and topology constraint does not exist
+
 else 
 	#-------------------------------------------------------------------------------
 	# PIPELINE STEP: 1-2	Alignment	Trimming
@@ -149,13 +169,13 @@ else
 	echo "Data: ${cogs_file_list[@]}"
 	echo "#####\n"
 
-	mkdir "data/3_concatenation_iqtree"
-	output_con="data/3_concatenation_iqtree/concatenation.fasta"
+	mkdir "data/3_concatenation"
+	output_con="data/3_concatenation/concatenation.fasta"
 
 	python3 upp_concatArCOGalignments.py -t $UNIQUE_TAXA -c $COGS_FILE -m $MAPPING_COGS -s .trim.mafft.fasta -f data/2_trimming
 
-	mv "concatenation.fasta" "data/3_concatenation_iqtree/concatenation.fasta"
-	mv "partition.nexus" "data/3_concatenation_iqtree/partition.nexus"
+	mv "concatenation.fasta" "data/3_concatenation/concatenation.fasta"
+	mv "partition.nexus" "data/3_concatenation/partition.nexus"
 	
 
 	#-------------------------------------------------------------------------------
@@ -168,14 +188,15 @@ else
 	echo "Software: Iqtree"
 	echo "#####\n"
 
-	partition_result="data/3_concatenation_iqtree/partition.nexus"
-	concatenation_result="data/3_concatenation_iqtree/concatenation.fasta"
+	partition_result="data/3_concatenation/partition.nexus"
+	concatenation_result="data/3_concatenation/concatenation.fasta"
 
-
-	iqtree -s $concatenation_result -spp $partition_result -st "AA" -wsl -nt 1 -pre T1_ML -m LG+C60+F
+	iqtree -s $concatenation_result -spp $partition_result -st "AA" -wsl -nt 1 -pre T1_ML -m JTT+R3
+	
+	mkdir "data/4_iqtree"
 	for f in T1_ML.*
 	do
-		mv $f "data/3_concatenation_iqtree/$f"
+		mv $f "data/4_iqtree/$f"
 	done
 
 

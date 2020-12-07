@@ -1,0 +1,500 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/3_concatenation_iqtree/concatenation.fasta -spp data/3_concatenation_iqtree/partition.nexus -st AA -wsl -nt 1 -pre T1_ML -m JTT+R3
+Seed:    748037 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Dec  7 15:26:09 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file data/3_concatenation_iqtree/partition.nexus ...
+Reading alignment file data/3_concatenation_iqtree/concatenation.fasta ... Fasta format detected
+NOTE: Change sequence name 'Dictyostelium_discoideum Aeropyrum' -> Dictyostelium_discoideum_Aeropyrum
+NOTE: Change sequence name 'Dictyostelium_discoideum Bnatans' -> Dictyostelium_discoideum_Bnatans
+NOTE: Change sequence name 'Dictyostelium_discoideum Ehistolytica' -> Dictyostelium_discoideum_Ehistolytica
+NOTE: Change sequence name 'Dictyostelium_discoideum Linfantum' -> Dictyostelium_discoideum_Linfantum
+NOTE: Change sequence name 'Dictyostelium_discoideum Thermofilum' -> Dictyostelium_discoideum_Thermofilum
+NOTE: Change sequence name 'Dictyostelium_discoideum Thor83' -> Dictyostelium_discoideum_Thor83
+NOTE: Change sequence name 'Dictyostelium_discoideum Tpseudonana' -> Dictyostelium_discoideum_Tpseudonana
+NOTE: Change sequence name 'Dictyostelium_discoideum Tthermophila' -> Dictyostelium_discoideum_Tthermophila
+NOTE: Change sequence name 'Dictyostelium_discoideum Ttrahens' -> Dictyostelium_discoideum_Ttrahens
+NOTE: Change sequence name 'Dictyostelium_discoideum Tvaginalis' -> Dictyostelium_discoideum_Tvaginalis
+Alignment most likely contains protein sequences
+Alignment has 90 sequences with 2531 columns, 2519 distinct patterns
+2386 parsimony-informative, 90 singleton sites, 55 constant sites
+                                       Gap/Ambiguity  Composition  p-value
+   1  15                                      12.72%    failed      0.59%
+   2  AAG_PM3                                  9.25%    passed      6.15%
+   3  AR1                                     19.83%    failed      0.00%
+   4  AR10                                     4.11%    failed      0.00%
+   5  AR15                                     2.65%    failed      0.04%
+   6  AR19                                    33.47%    failed      0.00%
+   7  AR20                                     3.20%    failed      0.00%
+   8  Aciduliprofundum_boonei_T469             0.83%    failed      0.00%
+   9  Aeropyrum_pernix_K1                      0.87%    failed      0.00%
+  10  Aiga_0000106_J15                        44.80%    passed      6.91%
+  11  Altiarch                                14.42%    failed      0.00%
+  12  Arabidopsis_thaliana                     0.28%    failed      0.00%
+  13  Archaeoglobus_fulgidus_DSM_43            2.29%    failed      0.00%
+  14  Ca_Korarchaeum_cryptofilum_OP            3.28%    failed      0.00%
+  15  Ca_Micrarchaeum_acidiphilum_A          100.00%    passed       nan%
+  16  Ca_Nitrososphaera_gargensis_G            3.16%    failed      3.39%
+  17  Ca_Parvarchaeum_acidophilus_A          100.00%    passed       nan%
+  18  Caldiarchaeum_subterraneum               7.47%    failed      0.00%
+  19  Caldivirga_maquilingensis_IC             0.79%    failed      0.00%
+  20  Cenarchaeum_symbiosum_A                  3.08%    failed      1.33%
+  21  Chlamydomonas_reinhardtii                3.95%    failed      0.00%
+  22  Desulfurococcus_kamchatkensis            1.94%    failed      0.17%
+  23  Diapher_AAA011_E11                      11.26%    failed      0.06%
+  24  Dictyostelium_discoideum               100.00%    passed       nan%
+  25  Dictyostelium_discoideum_Aeropyrum      98.14%    failed      0.25%
+  26  Dictyostelium_discoideum_Bnatans        87.40%    failed      1.06%
+  27  Dictyostelium_discoideum_Ehistolytica   86.76%    passed     17.54%
+  28  Dictyostelium_discoideum_Linfantum      93.09%    passed      8.74%
+  29  Dictyostelium_discoideum_Thermofilum    97.43%    passed     62.79%
+  30  Dictyostelium_discoideum_Thor83         94.11%    passed     47.97%
+  31  Dictyostelium_discoideum_Tpseudonana    70.45%    failed      0.00%
+  32  Dictyostelium_discoideum_Tthermophila   86.53%    failed      1.79%
+  33  Dictyostelium_discoideum_Ttrahens       96.17%    failed      0.00%
+  34  Dictyostelium_discoideum_Tvaginalis     90.28%    passed     10.22%
+  35  Entamoeba_histolytica_HM_1_IM            0.75%    failed      0.00%
+  36  Ferroglobus_placidus_DSM_1064            1.22%    failed      0.00%
+  37  Ferroplasma_acidarmanus_fer1             1.03%    failed      0.00%
+  38  Geo_AAA471_B05                          15.69%    failed      0.00%
+  39  Geoarchaeon_NAG1                       100.00%    passed       nan%
+  40  Haloarcula_marismortui_ATCC_4            1.62%    failed      0.00%
+  41  Haloferax_volcanii_DS2                   3.52%    failed      0.00%
+  42  Homo_sapiens                             1.94%    failed      0.00%
+  43  Ignicoccus_hospitalis_KIN4_I             0.87%    failed      0.00%
+  44  Kor1                                     2.96%    failed      0.00%
+  45  Kor2                                    37.02%    failed      0.00%
+  46  Kor3                                     7.23%    failed      0.00%
+  47  Leishmania_infantum                      0.24%    failed      0.00%
+  48  Loki                                     1.82%    failed      0.00%
+  49  LokiBf                                  19.52%    failed      0.01%
+  50  MBGD_SCGC_AB539N05                      28.57%    failed      2.80%
+  51  MCG_SCGC_AB539E09                       61.95%    failed      3.80%
+  52  Metallosphaera_cuprina_Ar_4              1.54%    failed      0.22%
+  53  Methanobacterium_AL_21                   2.17%    failed      0.47%
+  54  Methanocaldococcus_jannaschii            0.67%    failed      0.01%
+  55  Methanocella_paludicola_SANAE            1.11%    failed      1.91%
+  56  Methanococcus_maripaludis_C6             0.95%    failed      0.05%
+  57  Methanocorpusculum_labreanum             0.95%    failed      0.00%
+  58  Methanoculleus_marisnigri_JR1            0.75%    failed      0.00%
+  59  Methanomassiliicoccus_lu_B10             1.15%    failed      0.09%
+  60  Methanoplanus_petrolearius_DS            0.55%    failed      0.38%
+  61  Methanosaeta_thermophila_PT              1.62%    failed      0.02%
+  62  Methanosarcina_acetivorans_C2            0.87%    passed      9.92%
+  63  Methanosphaera_stadtmanae_DSM            2.65%    failed      0.46%
+  64  Methanothermobacter_thermauto            2.88%    failed      2.40%
+  65  Methanothermus_fervidus_DSM_2            2.21%    failed      0.00%
+  66  Naegleria_gruberi                       12.49%    failed      0.01%
+  67  Nano_AAA011_G17                         10.59%    failed      0.00%
+  68  Nanoarchaeote_Nst1                     100.00%    passed       nan%
+  69  Nanoarchaeum_equitans_Kin4_M             2.45%    failed      0.00%
+  70  Nitrosopumilus_maritimus_SCM1            3.04%    passed      6.15%
+  71  Odin                                     0.83%    passed     13.63%
+  72  Plasmodium_falciparum                    0.87%    failed      0.00%
+  73  Pyrobaculum_aerophilum_IM2               0.95%    failed      0.00%
+  74  Pyrococcus_furiosus_DSM_3638             0.91%    failed      0.00%
+  75  Pyrolobus_fumarii_1A                     0.67%    failed      0.00%
+  76  Saccharomyces_cerevisiae                 2.61%    failed      0.00%
+  77  Sulfolobus_acidocaldarius_DSM            2.25%    failed      0.03%
+  78  Tetrahymena_thermophila                  0.24%    failed      0.00%
+  79  Thalassiosira_pseudonana_CCMP            2.84%    failed      0.00%
+  80  Thecamonas_trahens                       0.71%    failed      0.00%
+  81  Thermococcus_kodakarensis_KOD            1.15%    failed      0.00%
+  82  Thermofilum_pendens_Hrk_5                0.91%    failed      0.28%
+  83  Thermoplasma_acidophilum_DSM             0.95%    failed      0.06%
+  84  Thermoproteus_uzoniensis_768             1.98%    failed      0.00%
+  85  Thor45                                  22.17%    passed     37.94%
+  86  Thor83                                   1.11%    failed      0.48%
+  87  ThorAarhus                               6.56%    passed      7.03%
+  88  Trichomonas_vaginalis                    0.51%    failed      0.00%
+  89  Uncultured_Marine_Group_II_Eu          100.00%    passed       nan%
+  90  Vulcanisaeta_distributa_DSM_1            2.02%    failed      0.00%
+WARNING: 17 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                                   21.88%  72 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 25 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	AA	72	120	119	0	JTT+R3	arCOG00780
+2	AA	74	123	118	0	JTT+R3	arCOG00781
+3	AA	71	52	42	3	JTT+R3	arCOG00782
+4	AA	74	66	65	1	JTT+R3	arCOG00785
+5	AA	71	139	133	2	JTT+R3	arCOG01344
+6	AA	72	65	59	1	JTT+R3	arCOG01885
+7	AA	71	125	122	2	JTT+R3	arCOG01946
+8	AA	71	59	57	2	JTT+R3	arCOG01950
+9	AA	67	47	40	5	JTT+R3	arCOG04049
+10	AA	74	149	143	1	JTT+R3	arCOG04089
+11	AA	74	233	223	2	JTT+R3	arCOG04093
+12	AA	69	62	57	5	JTT+R3	arCOG04108
+13	AA	71	92	85	2	JTT+R3	arCOG04109
+14	AA	66	56	45	2	JTT+R3	arCOG04126
+15	AA	73	97	95	2	JTT+R3	arCOG04129
+16	AA	72	126	121	2	JTT+R3	arCOG04154
+17	AA	63	51	46	3	JTT+R3	arCOG04177
+18	AA	73	99	95	1	JTT+R3	arCOG04182
+19	AA	72	50	43	3	JTT+R3	arCOG04183
+20	AA	71	197	192	1	JTT+R3	arCOG04186
+21	AA	72	81	71	3	JTT+R3	arCOG04208
+22	AA	73	187	173	7	JTT+R3	arCOG04209
+23	AA	73	102	100	0	JTT+R3	arCOG04287
+24	AA	72	69	60	4	JTT+R3	arCOG04314
+25	AA	71	84	82	1	JTT+R3	arCOG04473
+Degree of missing data: 0.144
+Info: multi-threading strategy over partitions
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.138 seconds
+
+NOTE: 101 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -267865.085
+Current log-likelihood at step 1: -265469.441
+Current log-likelihood at step 2: -265410.992
+Current log-likelihood at step 3: -265394.571
+Current log-likelihood at step 4: -265390.805
+Current log-likelihood at step 5: -265389.382
+Current log-likelihood at step 6: -265387.382
+Current log-likelihood at step 7: -265383.457
+Current log-likelihood at step 8: -265381.712
+Current log-likelihood at step 9: -265381.121
+Current log-likelihood at step 10: -265380.909
+Current log-likelihood at step 11: -265380.836
+Partition-specific rates:  1.069 1.158 0.805 1.145 1.031 1.032 1.046 0.936 0.742 1.017 1.167 0.925 0.830 0.723 0.995 0.927 0.822 1.525 0.941 1.235 0.937 0.784 0.686 0.479 1.092
+Parameters optimization took 10 rounds (30.990 sec)
+
+Computing ML distances based on estimated model parameters... 12.764 sec
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing BIONJ tree...
+0.012 seconds
+Log-likelihood of BIONJ tree: -265946.079
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 15.672 second
+Computing log-likelihood of 98 initial trees ... 47.407 seconds
+Current best score: -265380.836
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265225.365
+Current log-likelihood at step 1: -265222.843
+Current log-likelihood at step 2: -265222.371
+Current log-likelihood at step 3: -265222.237
+Current log-likelihood at step 4: -265222.193
+Parameters optimization took 3 rounds (9.826 sec)
+
+BETTER TREE FOUND at iteration 1: -265222.193
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265161.986
+Current log-likelihood at step 1: -265160.110
+Current log-likelihood at step 2: -265159.404
+Current log-likelihood at step 3: -265159.109
+Current log-likelihood at step 4: -265157.036
+Current log-likelihood at step 5: -265151.898
+Current log-likelihood at step 6: -265151.824
+Parameters optimization took 5 rounds (14.784 sec)
+
+BETTER TREE FOUND at iteration 2: -265151.824
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265142.722
+Current log-likelihood at step 1: -265142.250
+Current log-likelihood at step 2: -265142.152
+Parameters optimization took 1 rounds (5.115 sec)
+
+BETTER TREE FOUND at iteration 3: -265142.152
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265141.576
+Current log-likelihood at step 1: -265140.420
+Current log-likelihood at step 2: -265139.869
+Current log-likelihood at step 3: -265139.651
+Current log-likelihood at step 4: -265139.564
+Parameters optimization took 3 rounds (10.948 sec)
+
+BETTER TREE FOUND at iteration 4: -265139.564
+Iteration 10 / LogL: -265154.521 / Time: 0h:4m:21s
+Iteration 20 / LogL: -265176.695 / Time: 0h:5m:44s
+Finish initializing candidate tree set (19)
+Current best tree score: -265139.564 / CPU time: 276.125
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265139.167
+Current log-likelihood at step 1: -265138.885
+Current log-likelihood at step 2: -265138.821
+Parameters optimization took 1 rounds (4.987 sec)
+
+BETTER TREE FOUND at iteration 24: -265138.821
+Iteration 30 / LogL: -265159.158 / Time: 0h:7m:41s (0h:24m:53s left)
+Iteration 40 / LogL: -265144.948 / Time: 0h:9m:24s (0h:20m:14s left)
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265138.673
+Current log-likelihood at step 1: -265138.390
+Current log-likelihood at step 2: -265138.340
+Parameters optimization took 1 rounds (4.944 sec)
+
+BETTER TREE FOUND at iteration 42: -265138.340
+Iteration 50 / LogL: -265139.256 / Time: 0h:11m:20s (0h:21m:17s left)
+Iteration 60 / LogL: -265142.528 / Time: 0h:12m:59s (0h:18m:3s left)
+Iteration 70 / LogL: -265140.095 / Time: 0h:14m:53s (0h:15m:32s left)
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265138.273
+Current log-likelihood at step 1: -265138.066
+Current log-likelihood at step 2: -265138.051
+Parameters optimization took 1 rounds (5.048 sec)
+
+UPDATE BEST LOG-LIKELIHOOD: -265138.051
+
+******************************************************
+CHECKPOINT: Resuming analysis from T1_ML.ckp.gz
+
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Apr 26 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Lovisas-dator.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree -s data/3_concatenation/concatenation.fasta -spp data/3_concatenation/partition.nexus -st AA -wsl -nt 1 -pre T1_ML -m JTT+R3
+Seed:    594378 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Dec  7 15:43:44 2020
+Kernel:  AVX+FMA - 1 threads (4 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 4 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+WARNING: Command-line argument `data/3_concatenation/concatenation.fasta` differs from checkpoint `data/3_concatenation_iqtree/concatenation.fasta`
+WARNING: Command-line argument `data/3_concatenation/partition.nexus` differs from checkpoint `data/3_concatenation_iqtree/partition.nexus`
+WARNING: Command-line differs from checkpoint!
+Reading partition model file data/3_concatenation/partition.nexus ...
+Reading alignment file data/3_concatenation/concatenation.fasta ... Fasta format detected
+NOTE: Change sequence name 'Dictyostelium_discoideum Aeropyrum' -> Dictyostelium_discoideum_Aeropyrum
+NOTE: Change sequence name 'Dictyostelium_discoideum Bnatans' -> Dictyostelium_discoideum_Bnatans
+NOTE: Change sequence name 'Dictyostelium_discoideum Ehistolytica' -> Dictyostelium_discoideum_Ehistolytica
+NOTE: Change sequence name 'Dictyostelium_discoideum Linfantum' -> Dictyostelium_discoideum_Linfantum
+NOTE: Change sequence name 'Dictyostelium_discoideum Thermofilum' -> Dictyostelium_discoideum_Thermofilum
+NOTE: Change sequence name 'Dictyostelium_discoideum Thor83' -> Dictyostelium_discoideum_Thor83
+NOTE: Change sequence name 'Dictyostelium_discoideum Tpseudonana' -> Dictyostelium_discoideum_Tpseudonana
+NOTE: Change sequence name 'Dictyostelium_discoideum Tthermophila' -> Dictyostelium_discoideum_Tthermophila
+NOTE: Change sequence name 'Dictyostelium_discoideum Ttrahens' -> Dictyostelium_discoideum_Ttrahens
+NOTE: Change sequence name 'Dictyostelium_discoideum Tvaginalis' -> Dictyostelium_discoideum_Tvaginalis
+Alignment most likely contains protein sequences
+Alignment has 90 sequences with 2531 columns, 2519 distinct patterns
+2386 parsimony-informative, 90 singleton sites, 55 constant sites
+                                       Gap/Ambiguity  Composition  p-value
+   1  15                                      12.72%    failed      0.59%
+   2  AAG_PM3                                  9.25%    passed      6.15%
+   3  AR1                                     19.83%    failed      0.00%
+   4  AR10                                     4.11%    failed      0.00%
+   5  AR15                                     2.65%    failed      0.04%
+   6  AR19                                    33.47%    failed      0.00%
+   7  AR20                                     3.20%    failed      0.00%
+   8  Aciduliprofundum_boonei_T469             0.83%    failed      0.00%
+   9  Aeropyrum_pernix_K1                      0.87%    failed      0.00%
+  10  Aiga_0000106_J15                        44.80%    passed      6.91%
+  11  Altiarch                                14.42%    failed      0.00%
+  12  Arabidopsis_thaliana                     0.28%    failed      0.00%
+  13  Archaeoglobus_fulgidus_DSM_43            2.29%    failed      0.00%
+  14  Ca_Korarchaeum_cryptofilum_OP            3.28%    failed      0.00%
+  15  Ca_Micrarchaeum_acidiphilum_A          100.00%    passed       nan%
+  16  Ca_Nitrososphaera_gargensis_G            3.16%    failed      3.39%
+  17  Ca_Parvarchaeum_acidophilus_A          100.00%    passed       nan%
+  18  Caldiarchaeum_subterraneum               7.47%    failed      0.00%
+  19  Caldivirga_maquilingensis_IC             0.79%    failed      0.00%
+  20  Cenarchaeum_symbiosum_A                  3.08%    failed      1.33%
+  21  Chlamydomonas_reinhardtii                3.95%    failed      0.00%
+  22  Desulfurococcus_kamchatkensis            1.94%    failed      0.17%
+  23  Diapher_AAA011_E11                      11.26%    failed      0.06%
+  24  Dictyostelium_discoideum               100.00%    passed       nan%
+  25  Dictyostelium_discoideum_Aeropyrum      98.14%    failed      0.25%
+  26  Dictyostelium_discoideum_Bnatans        87.40%    failed      1.06%
+  27  Dictyostelium_discoideum_Ehistolytica   86.76%    passed     17.54%
+  28  Dictyostelium_discoideum_Linfantum      93.09%    passed      8.74%
+  29  Dictyostelium_discoideum_Thermofilum    97.43%    passed     62.79%
+  30  Dictyostelium_discoideum_Thor83         94.11%    passed     47.97%
+  31  Dictyostelium_discoideum_Tpseudonana    70.45%    failed      0.00%
+  32  Dictyostelium_discoideum_Tthermophila   86.53%    failed      1.79%
+  33  Dictyostelium_discoideum_Ttrahens       96.17%    failed      0.00%
+  34  Dictyostelium_discoideum_Tvaginalis     90.28%    passed     10.22%
+  35  Entamoeba_histolytica_HM_1_IM            0.75%    failed      0.00%
+  36  Ferroglobus_placidus_DSM_1064            1.22%    failed      0.00%
+  37  Ferroplasma_acidarmanus_fer1             1.03%    failed      0.00%
+  38  Geo_AAA471_B05                          15.69%    failed      0.00%
+  39  Geoarchaeon_NAG1                       100.00%    passed       nan%
+  40  Haloarcula_marismortui_ATCC_4            1.62%    failed      0.00%
+  41  Haloferax_volcanii_DS2                   3.52%    failed      0.00%
+  42  Homo_sapiens                             1.94%    failed      0.00%
+  43  Ignicoccus_hospitalis_KIN4_I             0.87%    failed      0.00%
+  44  Kor1                                     2.96%    failed      0.00%
+  45  Kor2                                    37.02%    failed      0.00%
+  46  Kor3                                     7.23%    failed      0.00%
+  47  Leishmania_infantum                      0.24%    failed      0.00%
+  48  Loki                                     1.82%    failed      0.00%
+  49  LokiBf                                  19.52%    failed      0.01%
+  50  MBGD_SCGC_AB539N05                      28.57%    failed      2.80%
+  51  MCG_SCGC_AB539E09                       61.95%    failed      3.80%
+  52  Metallosphaera_cuprina_Ar_4              1.54%    failed      0.22%
+  53  Methanobacterium_AL_21                   2.17%    failed      0.47%
+  54  Methanocaldococcus_jannaschii            0.67%    failed      0.01%
+  55  Methanocella_paludicola_SANAE            1.11%    failed      1.91%
+  56  Methanococcus_maripaludis_C6             0.95%    failed      0.05%
+  57  Methanocorpusculum_labreanum             0.95%    failed      0.00%
+  58  Methanoculleus_marisnigri_JR1            0.75%    failed      0.00%
+  59  Methanomassiliicoccus_lu_B10             1.15%    failed      0.09%
+  60  Methanoplanus_petrolearius_DS            0.55%    failed      0.38%
+  61  Methanosaeta_thermophila_PT              1.62%    failed      0.02%
+  62  Methanosarcina_acetivorans_C2            0.87%    passed      9.92%
+  63  Methanosphaera_stadtmanae_DSM            2.65%    failed      0.46%
+  64  Methanothermobacter_thermauto            2.88%    failed      2.40%
+  65  Methanothermus_fervidus_DSM_2            2.21%    failed      0.00%
+  66  Naegleria_gruberi                       12.49%    failed      0.01%
+  67  Nano_AAA011_G17                         10.59%    failed      0.00%
+  68  Nanoarchaeote_Nst1                     100.00%    passed       nan%
+  69  Nanoarchaeum_equitans_Kin4_M             2.45%    failed      0.00%
+  70  Nitrosopumilus_maritimus_SCM1            3.04%    passed      6.15%
+  71  Odin                                     0.83%    passed     13.63%
+  72  Plasmodium_falciparum                    0.87%    failed      0.00%
+  73  Pyrobaculum_aerophilum_IM2               0.95%    failed      0.00%
+  74  Pyrococcus_furiosus_DSM_3638             0.91%    failed      0.00%
+  75  Pyrolobus_fumarii_1A                     0.67%    failed      0.00%
+  76  Saccharomyces_cerevisiae                 2.61%    failed      0.00%
+  77  Sulfolobus_acidocaldarius_DSM            2.25%    failed      0.03%
+  78  Tetrahymena_thermophila                  0.24%    failed      0.00%
+  79  Thalassiosira_pseudonana_CCMP            2.84%    failed      0.00%
+  80  Thecamonas_trahens                       0.71%    failed      0.00%
+  81  Thermococcus_kodakarensis_KOD            1.15%    failed      0.00%
+  82  Thermofilum_pendens_Hrk_5                0.91%    failed      0.28%
+  83  Thermoplasma_acidophilum_DSM             0.95%    failed      0.06%
+  84  Thermoproteus_uzoniensis_768             1.98%    failed      0.00%
+  85  Thor45                                  22.17%    passed     37.94%
+  86  Thor83                                   1.11%    failed      0.48%
+  87  ThorAarhus                               6.56%    passed      7.03%
+  88  Trichomonas_vaginalis                    0.51%    failed      0.00%
+  89  Uncultured_Marine_Group_II_Eu          100.00%    passed       nan%
+  90  Vulcanisaeta_distributa_DSM_1            2.02%    failed      0.00%
+WARNING: 17 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                                   21.88%  72 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 25 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	AA	72	120	119	0	JTT+R3	arCOG00780
+2	AA	74	123	118	0	JTT+R3	arCOG00781
+3	AA	71	52	42	3	JTT+R3	arCOG00782
+4	AA	74	66	65	1	JTT+R3	arCOG00785
+5	AA	71	139	133	2	JTT+R3	arCOG01344
+6	AA	72	65	59	1	JTT+R3	arCOG01885
+7	AA	71	125	122	2	JTT+R3	arCOG01946
+8	AA	71	59	57	2	JTT+R3	arCOG01950
+9	AA	67	47	40	5	JTT+R3	arCOG04049
+10	AA	74	149	143	1	JTT+R3	arCOG04089
+11	AA	74	233	223	2	JTT+R3	arCOG04093
+12	AA	69	62	57	5	JTT+R3	arCOG04108
+13	AA	71	92	85	2	JTT+R3	arCOG04109
+14	AA	66	56	45	2	JTT+R3	arCOG04126
+15	AA	73	97	95	2	JTT+R3	arCOG04129
+16	AA	72	126	121	2	JTT+R3	arCOG04154
+17	AA	63	51	46	3	JTT+R3	arCOG04177
+18	AA	73	99	95	1	JTT+R3	arCOG04182
+19	AA	72	50	43	3	JTT+R3	arCOG04183
+20	AA	71	197	192	1	JTT+R3	arCOG04186
+21	AA	72	81	71	3	JTT+R3	arCOG04208
+22	AA	73	187	173	7	JTT+R3	arCOG04209
+23	AA	73	102	100	0	JTT+R3	arCOG04287
+24	AA	72	69	60	4	JTT+R3	arCOG04314
+25	AA	71	84	82	1	JTT+R3	arCOG04473
+Degree of missing data: 0.144
+Info: multi-threading strategy over partitions
+
+
+CHECKPOINT: Initial tree restored
+
+NOTE: 101 MB RAM (0 GB) is required!
+CHECKPOINT: Model parameters restored, LogL: -265138.340
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+CHECKPOINT: Candidate tree set restored, best LogL: -265138.340
+Finish initializing candidate tree set (20)
+Current best tree score: -265138.340 / CPU time: 0.000
+Number of iterations: 74
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265138.308
+Current log-likelihood at step 1: -265138.118
+Current log-likelihood at step 2: -265138.085
+Parameters optimization took 1 rounds (4.377 sec)
+
+UPDATE BEST LOG-LIKELIHOOD: -265138.085
+Iteration 80 / LogL: -265138.085 / Time: 0h:1m:2s (0h:0m:48s left)
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265137.773
+Current log-likelihood at step 1: -265137.130
+Current log-likelihood at step 2: -265137.087
+Parameters optimization took 1 rounds (5.788 sec)
+
+BETTER TREE FOUND at iteration 88: -265137.087
+Iteration 90 / LogL: -265139.845 / Time: 0h:2m:51s (0h:3m:9s left)
+Iteration 100 / LogL: -265138.667 / Time: 0h:4m:48s (0h:4m:16s left)
+Iteration 110 / LogL: -265142.677 / Time: 0h:6m:35s (0h:4m:42s left)
+Iteration 120 / LogL: -265153.870 / Time: 0h:8m:31s (0h:4m:52s left)
+Iteration 130 / LogL: -265142.614 / Time: 0h:10m:23s (0h:4m:40s left)
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265137.058
+Current log-likelihood at step 1: -265137.034
+Parameters optimization took 0 rounds (1.845 sec)
+
+UPDATE BEST LOG-LIKELIHOOD: -265137.034
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -265136.865
+Current log-likelihood at step 1: -265136.786
+Parameters optimization took 0 rounds (1.961 sec)
+
+UPDATE BEST LOG-LIKELIHOOD: -265136.786
+Iteration 140 / LogL: -265138.011 / Time: 0h:12m:18s (0h:4m:15s left)
+Iteration 150 / LogL: -265141.531 / Time: 0h:14m:13s (0h:3m:37s left)
+Iteration 160 / LogL: -265137.831 / Time: 0h:16m:6s (0h:2m:50s left)
+Iteration 170 / LogL: -265137.729 / Time: 0h:17m:44s (0h:1m:53s left)
+Iteration 180 / LogL: -265146.815 / Time: 0h:19m:17s (0h:0m:51s left)
+TREE SEARCH COMPLETED AFTER 189 ITERATIONS / Time: 0h:20m:56s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -265136.786
+Current log-likelihood at step 1: -265136.759
+Current log-likelihood at step 2: -265136.753
+Partition-specific rates:  1.070 1.159 0.803 1.151 1.037 1.007 1.045 0.938 0.738 1.016 1.168 0.930 0.832 0.722 1.004 0.924 0.828 1.522 0.939 1.239 0.931 0.786 0.686 0.475 1.083
+Parameters optimization took 1 rounds (3.417 sec)
+
+Partition information was printed to T1_ML.best_model.nex
+BEST SCORE FOUND : -265136.753
+Site log-likelihoods printed to T1_ML.sitelh
+Total tree length: 38.132
+
+Total number of iterations: 189
+CPU time used for tree search: 1222.191 sec (0h:20m:22s)
+Wall-clock time used for tree search: 1256.042 sec (0h:20m:56s)
+Total CPU time used: 1225.853 sec (0h:20m:25s)
+Total wall-clock time used: 1259.784 sec (0h:20m:59s)
+
+Analysis results written to: 
+  IQ-TREE report:                T1_ML.iqtree
+  Maximum-likelihood tree:       T1_ML.treefile
+  Likelihood distances:          T1_ML.mldist
+  Site log-likelihoods:          T1_ML.sitelh
+  Screen log file:               T1_ML.log
+
+Date and Time: Mon Dec  7 16:04:44 2020
