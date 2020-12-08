@@ -8,10 +8,8 @@
 # taxafreq: Show aa/nucleotide fequency per taxa. Optional. Is a boolean statement (Ture/False)
 
 import argparse
-import sys
 import math
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
