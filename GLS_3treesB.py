@@ -116,7 +116,7 @@ if (style1_sorted == False and style2_two_sides == False and style3_mode_site ==
     fig.update_layout(  
         title='Phylogenetic signal (difference in log-likelihood) per gene', title_x=0.5,
         xaxis_title="Gene",
-yaxis_title=u"\u0394"+"GLS",
+        yaxis_title=u"\u0394"+"GLS",
         annotations = [
         dict(x=1, y=1,
             text="Tree 1", 
@@ -184,7 +184,9 @@ if style3_mode_site == True:
     
     fig.update_layout(
         title='Phylogenetic signal (difference in log-likelihood) per site', title_x=0.5,
-         annotations = [
+         xaxis_title="Position",
+        yaxis_title=u"\u0394"+"SLS",
+        annotations = [
             dict(x=1, y=1,
                 text="Tree 1", 
                 font=dict(size=20, color='green'),
