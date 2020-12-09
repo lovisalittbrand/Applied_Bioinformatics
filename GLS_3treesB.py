@@ -218,7 +218,7 @@ if style3_mode_site == True:
         textposition="inside",        
         marker=dict(color=[f'rgb({np.random.randint(0,256)}, {np.random.randint(0,256)}, {np.random.randint(0,256)})' for _ in range(25)]),
             ),  
-        row=7, col=1)
+        row=8, col=1)
     fig.update_layout(uniformtext_minsize=10, uniformtext_mode = 'hide')
     fig.update_yaxes(fixedrange=True)
     fig.show()
