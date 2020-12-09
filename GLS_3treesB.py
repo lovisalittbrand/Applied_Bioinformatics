@@ -158,10 +158,11 @@ if style3_mode_site == True:
 
     # Create visulisation grid
     fig = make_subplots(
-      rows=9, cols=1,
+      rows=10, cols=1,
       shared_xaxes=True,
       vertical_spacing=0.03,
       specs=[[{"rowspan": 6}],
+            [None],
             [None],
             [None],
             [None],
