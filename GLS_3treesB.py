@@ -53,8 +53,8 @@ df_site_lk.head()
 #export the dataframe with genomic position and difference in site likelihood to .csv file
 out=df_site_lk.T
 out = pd.DataFrame(out).reset_index()
-out.columns = ['Genomic_position', 'Tree1', 'Tree2', 'Diff_site', 'Support']
-col_change = ['Tree1', 'Tree2', 'Diff_site']
+out.columns = ['Genomic_position', 'Tree1', 'Tree2', 'Tree3','Diff_site', 'Support']
+col_change = ['Tree1', 'Tree2', 'Tree3', 'Diff_site']
 out[col_change] = out[col_change].apply(pd.to_numeric, downcast='float').fillna(0)
 timestr2 = time.strftime("_%Y_%m_%d-%H_%M_%S")
 out.to_csv(file_likelihood+timestr2+'_sitelk.csv', float_format='%.5f', header = True, index=False) #rounds nr to 2 decimals
@@ -185,17 +185,17 @@ if style3_mode_site == True:
     fig.update_layout(
         title='Phylogenetic signal (difference in log-likelihood) per site', title_x=0.5,
          annotations = [
-            dict(x=1, y=1,
+            dict(x=0, y=1,
                 text="Tree 1", 
                 font=dict(size=20, color='green'),
                  xref="paper", yref="paper",
                 showarrow=False),
-            dict(x=1, y=0.95,
+            dict(x=0, y=0.95,
                 text="Tree 2",
                 font=dict(size=20, color='red'),
                  xref="paper", yref="paper",
                 showarrow=False),
-            dict(x=1, y=0.90,
+            dict(x=0, y=0.90,
                  text="Tree 3",
                  font=dict(size=20, color="blue"),
                  xref="paper", yref="paper", 
