@@ -172,7 +172,7 @@ if style3_mode_site == True:
             [{}]]
     )
     
-    clrs2  = ['green' if i == "Tree1" else 'red' if i == 'Tree2' else 'blue' for i in df_sort_GLS2['Support']] 
+    clrs2  = ['green' if i == "Tree1" else 'red' if i == 'Tree2' else 'blue' for i in df_site_lk.loc['Support']] 
     
     fig.add_trace(
         go.Bar(
