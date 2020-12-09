@@ -4,7 +4,6 @@
 
 where PLOT_STYLE can be any or all of the following: 
 -gs     - plots difference in log-likelihoods per gene, sorts them and shows them on one side of the x-axis (DEFAULT)
--gt     - plots difference in log-likelihoods per gene, sorts them and shows them on both sides of the x-axis 
 -ss     - plots difference in log-likelihoods per site
 '''
 
@@ -15,8 +14,8 @@ import re
 import argparse
 import numpy as np
 
-#file_likelihood = 'T1_and_T2_ML.sitelh'    # the likelihood file
-#nexus_partition = 'tetra.part'       # the partition file
+file_likelihood = 'T1_T2_T3.sitelh'    # the likelihood file
+nexus_partition = 'tetra.part'       # the partition file
 
 # Parser function that allows to have optional commands
 def parseArguments():
@@ -44,20 +43,19 @@ style3_mode_site=args.style3_plot_site
 
 ######################## CODE ########################
 
-# import log likelihood per site for 2 different topologies: T1 and T2 
+# import log likelihood per site for 3 different topologies: T1, T2 and T3 
 with open(file_likelihood) as log_likelihood:
     df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, skiprows=1, index_col=0, lineterminator='\n')
 
-# calculate the T1-T2 difference between the log likelihoods for each position
-df_site_lk.loc['Diff_site']=np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values)
-df_site_lk.loc['Support']= df_site_lk.loc[['Tree1','Tree2']].idxmax(axis=0)
+# calculate the intensity of the phylogenetic signal 
+df_site_lk.loc['Diff_site']=np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values) + np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree3'].values) + np.absolute(df_site_lk.loc['Tree2'].values - df_site_lk.loc['Tree3'].values)
+df_site_lk.loc['Support']= df_site_lk.loc[['Tree1','Tree2','Tree3']].idxmax(axis=0)
 df_site_lk.head()
-#df_site_lk.loc['Diff_site', df_site_lk.loc['Support'] =='Tree2'] *= -1
 
 #export the dataframe with genomic position and difference in site likelihood to .csv file
 out=df_site_lk.T
 out = pd.DataFrame(out).reset_index()
-out.columns = ['Genomic_position', 'Tree1', 'Tree2', 'Diff_site', 'Support']
+out.columns = ['Genomic_position', 'Tree1', 'Tree2', 'Tree3', 'Diff_site', 'Support']
 out.to_csv(r'genomePosition_siteLikelihood.csv', float_format='%.5f', header = True, index=False) #rounds nr to 2 decimals
 
 # import nexus partition file and extract gene name, its beginning, end and length (new parser)
@@ -82,32 +80,28 @@ df_genes.columns = ['gene_name', 'gene_begin', 'gene_end', 'gene_length']
 # calculate the log likelihoods differences per gene and add it as a column to the dataframe with gene data
 GLS_Tree1 = []  #gene likelihoods
 GLS_Tree2 = []
+GLS_Tree3 = []
 
 for k in range(0, len(df_genes)):
     GLS_Tree1.append(sum(df_site_lk.loc['Tree1'][int(df_genes['gene_begin'][k]): int(df_genes['gene_end'][k])+1]))
     GLS_Tree2.append(sum(df_site_lk.loc['Tree2'][int(df_genes['gene_begin'][k]): int(df_genes['gene_end'][k])+1]))
+    GLS_Tree3.append(sum(df_site_lk.loc['Tree3'][int(df_genes['gene_begin'][k]): int(df_genes['gene_end'][k])+1]))
 df_genes['Diff_gene_Tree1'] = GLS_Tree1
 df_genes['Diff_gene_Tree2'] = GLS_Tree2
+df_genes['Diff_gene_Tree3'] = GLS_Tree3
 
-df_genes['Diff_gene'] = np.absolute(df_genes['Diff_gene_Tree1'].values - df_genes['Diff_gene_Tree2'].values)
-df_genes['Support']= (df_genes[['Diff_gene_Tree1','Diff_gene_Tree2']].idxmax(axis=1)).str.split(pat='_', expand=True)[2]        #extract just tree name
+df_genes['Diff_gene'] = np.absolute(df_genes['Diff_gene_Tree1'].values - df_genes['Diff_gene_Tree2'].values) + np.absolute(df_genes['Diff_gene_Tree1'].values - df_genes['Diff_gene_Tree3'].values) + np.absolute(df_genes['Diff_gene_Tree2'].values - df_genes['Diff_gene_Tree3'].values)
+df_genes['Support']= (df_genes[['Diff_gene_Tree1','Diff_gene_Tree2','Diff_gene_Tree3']].idxmax(axis=1)).str.split(pat='_', expand=True)[2]        #extract just tree name
 #df_genes
 
-#########################
 # sorts the log likelihood per gene 
 df_sort_GLS2 = df_genes.iloc[(-df_genes['Diff_gene']).argsort()]
 #df_sort_GLS2.head()
 
-# sort the log likelihood per gene 
-df_genes.loc[df_genes['Support'] =='Tree2', 'Diff_gene'] *= -1
-df_sort_GLS = df_genes.sort_values(['Support', 'Diff_gene'], ascending=[False, True])
-#df_sort_GLS
-
-
 ######################## which graph gets printed ########################
 # visualize log-likelihood per gene, sorted and one side of the x-axis = "-gs", "--style1_plot_gene_sort"
 if (style1_sorted == False and style2_two_sides == False and style3_mode_site == False) or style1_sorted == True:
-    clrs  = ['green' if i == "Tree1" else 'red' for i in df_sort_GLS2['Support']] # set color 'green' if Tree1 is supported, else set color 'red'
+    clrs  = ['green' if i == "Tree1" else 'red' if i == 'Tree2' else 'blue' for i in df_sort_GLS2['Support']] # set color 'green' if Tree1 is supported, else set color 'red'
     
     fig = go.Figure(data=[go.Bar(
                 x=df_sort_GLS2['gene_name'], y=df_sort_GLS2['Diff_gene'],
@@ -118,20 +112,26 @@ if (style1_sorted == False and style2_two_sides == False and style3_mode_site ==
     fig.update_layout(  
         title='Phylogenetic signal (difference in log-likelihood) per gene', title_x=0.5,
         xaxis_title="Gene",
-        yaxis_title=u"\u0394"+"GLS",
-            annotations = [
-            dict(x=1, y=1,
-                text="Tree 1", 
-                font=dict(size=20, color="green"),
-                xref="paper", yref="paper", 
-                showarrow=False),
-            dict(x=1, y=0.95,
-                text="Tree 2",
-                font=dict(size=20, color="red"),
-                xref="paper", yref="paper", 
-                showarrow=False,
-                xanchor='auto'
-                )],
+yaxis_title=u"\u0394"+"GLS",
+        annotations = [
+        dict(x=1, y=1,
+            text="Tree 1", 
+            font=dict(size=20, color="green"),
+            xref="paper", yref="paper", 
+            showarrow=False),
+        dict(x=1, y=0.95,
+            text="Tree 2",
+            font=dict(size=20, color="red"),
+            xref="paper", yref="paper", 
+            showarrow=False,
+            xanchor='auto'
+            ),
+        dict(x=1, y=0.90,
+            text="Tree 3",
+            font=dict(size=20, color="blue"),
+            xref="paper", yref="paper", 
+            showarrow=False,
+            xanchor='auto')],
         shapes=[
             dict(
                 type= 'line',
@@ -148,68 +148,16 @@ if (style1_sorted == False and style2_two_sides == False and style3_mode_site ==
     fig.show()
 ################################################################################
 
-# visualize log-likelihood per gene, sorted and on both sides of the x-axis = "-gt", "--style2_plot_gene_two_sides"
-if style2_two_sides == True:
-    clrs  = ['green' if i == "Tree1" else 'red' for i in df_sort_GLS['Support']]# set color 'green' if Tree1 is supported, else set color 'red'
-
-    
-    fig = go.Figure(data=[go.Bar(
-                x=df_sort_GLS['gene_name'], y=df_sort_GLS['Diff_gene'],
-                marker=dict(color=clrs),
-                hovertemplate='Gene: %{x} <br> Signal: %{y:.3f} <extra></extra>'
-            )])
-    
-    fig.update_layout(
-        title='Phylogenetic signal (difference in log-likelihood) per gene', title_x=0.5,
-        xaxis_title="Gene",
-        yaxis_title=u"\u0394"+"GLS",
-        annotations = [
-            dict(x=0, y=1,
-                text="Tree 1", 
-                font=dict(size=20, color='green'),
-                xref="paper", yref="paper",
-                showarrow=False),
-            dict(x=0, y=0.95,
-                text="Tree 2",
-                font=dict(size=20, color='red'),
-                xref="paper", yref="paper",
-                showarrow=False)],
-        shapes=[
-            dict(
-                type= 'line',
-                yref= 'y', y0= 0.5, y1= 0.5,
-                xref= 'paper', x0= 0, x1= 1,
-                line=dict(
-                    color="gray",
-                    width=1,
-                    dash="dashdot")),
-            dict(
-                type= 'line',
-                yref= 'y', y0= -0.5, y1= -0.5,
-                xref= 'paper', x0= 0, x1= 1,
-                line=dict(
-                    color="black",
-                    width=1,
-                    dash="dashdot")
-            )],
-        plot_bgcolor='rgba(0,0,0,0)',
-        showlegend=False) # remove 'plot_bgcolor' if you want your background to be gray
-    fig.update_yaxes(fixedrange=True)
-    fig.show()  
-#######################################################
-
 # visualize log likelihood per site, no binning = "-ss", "--style3_plot_site"    
 if style3_mode_site == True:
-
     fig = go.Figure()
 
     # Create visulisation grid
     fig = make_subplots(
-      rows=10, cols=1,
+      rows=9, cols=1,
       shared_xaxes=True,
       vertical_spacing=0.03,
       specs=[[{"rowspan": 6}],
-            [None],
             [None],
             [None],
             [None],
@@ -220,13 +168,11 @@ if style3_mode_site == True:
             [{}]]
     )
     
-    clrs2  = ['green' if i == 'Tree1' else 'red' for i in df_site_lk.loc['Support']] # set color 'green' tree1 is supported, else set color 'red'
-
+    clrs2  = ['green' if i == "Tree1" else 'red' if i == 'Tree2' else 'blue' for i in df_sort_GLS2['Support']] 
     
     fig.add_trace(
         go.Bar(
-               x=[i  for j in range(len(df_genes)) for i in range(df_genes['gene_begin'][j], df_genes['gene_end'][j]+1)], 
-                y=[df_site_lk.loc['Diff_site'][i]  for j in range(len(df_genes)) for i in range(df_genes['gene_begin'][j], df_genes['gene_end'][j]+1)],
+                x=df_site_lk.loc['Diff_site'].index, y=df_site_lk.loc['Diff_site'],
                 marker=dict(color=clrs2),
                 hovertemplate='Position: %{x} <br> Signal: %{y:.3f} <extra></extra>'),
             # Position in graph grid
@@ -234,9 +180,7 @@ if style3_mode_site == True:
     
     fig.update_layout(
         title='Phylogenetic signal (difference in log-likelihood) per site', title_x=0.5,
-        xaxis_title="Position",
-        yaxis_title=u"\u0394"+"SLS",
-        annotations = [
+         annotations = [
             dict(x=0, y=1,
                 text="Tree 1", 
                 font=dict(size=20, color='green'),
@@ -246,8 +190,14 @@ if style3_mode_site == True:
                 text="Tree 2",
                 font=dict(size=20, color='red'),
                  xref="paper", yref="paper",
-                showarrow=False
-                )],
+                showarrow=False),
+            dict(x=0, y=0.90,
+                 text="Tree 3",
+                 font=dict(size=20, color="blue"),
+                 xref="paper", yref="paper", 
+                 showarrow=False,
+                 xanchor='auto')
+            ],
         plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False) # remove 'plot_bgcolor' if you want your background to be gray
     
@@ -260,11 +210,9 @@ if style3_mode_site == True:
         hovertemplate='Gene: %{customdata} <extra></extra>', 
         text=df_genes['gene_name'],  
         textposition="inside",        
-        marker=dict(color=[f'rgb({np.random.randint(0,256)}, {np.random.randint(0,256)}, {np.random.randint(0,256)})' for _ in range(len(df_genes))]),
+        marker=dict(color=[f'rgb({np.random.randint(0,256)}, {np.random.randint(0,256)}, {np.random.randint(0,256)})' for _ in range(25)]),
             ),  
-        row=8, col=1)
-    fig.update_layout(
-        xaxis2_title="Gene",
-        uniformtext_minsize=10, uniformtext_mode = 'hide')
+        row=7, col=1)
+    fig.update_layout(uniformtext_minsize=10, uniformtext_mode = 'hide')
     fig.update_yaxes(fixedrange=True)
     fig.show()
