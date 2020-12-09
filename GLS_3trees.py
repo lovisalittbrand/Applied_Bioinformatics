@@ -14,8 +14,6 @@ import re
 import argparse
 import numpy as np
 
-file_likelihood = 'T1_T2_T3.sitelh'    # the likelihood file
-nexus_partition = 'tetra.part'       # the partition file
 
 # Parser function that allows to have optional commands
 def parseArguments():
@@ -45,7 +43,7 @@ style3_mode_site=args.style3_plot_site
 
 # import log likelihood per site for 3 different topologies: T1, T2 and T3 
 with open(file_likelihood) as log_likelihood:
-    df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, skiprows=1, index_col=0, lineterminator='\n')
+    df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, index_col=0, lineterminator='\n', skiprows=1)
 
 # calculate the intensity of the phylogenetic signal 
 df_site_lk.loc['Diff_site']=np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values) + np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree3'].values) + np.absolute(df_site_lk.loc['Tree2'].values - df_site_lk.loc['Tree3'].values)

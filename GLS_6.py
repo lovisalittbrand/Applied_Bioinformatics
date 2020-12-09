@@ -15,9 +15,6 @@ import re
 import argparse
 import numpy as np
 
-#file_likelihood = 'T1_and_T2_ML.sitelh'    # the likelihood file
-#nexus_partition = 'tetra.part'       # the partition file
-
 # Parser function that allows to have optional commands
 def parseArguments():
     my_parser = argparse.ArgumentParser(description='Display log-likelihood differences obtained from 2 conflicting phylogenetic trees')
