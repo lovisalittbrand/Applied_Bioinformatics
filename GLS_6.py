@@ -46,8 +46,7 @@ style3_mode_site=args.style3_plot_site
 
 # import log likelihood per site for 2 different topologies: T1 and T2 
 with open(file_likelihood) as log_likelihood:
-    df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, index_col=0, lineterminator='\n'# , skiprows=1,
-                               )
+    df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, index_col=0, lineterminator='\n', skiprows=1)
 
 # calculate the T1-T2 difference between the log likelihoods for each position
 df_site_lk.loc['Diff_site']=np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values)
