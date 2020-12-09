@@ -222,4 +222,5 @@ if style3_mode_site == True:
         row=8, col=1)
     fig.update_layout(uniformtext_minsize=10, uniformtext_mode = 'hide')
     fig.update_yaxes(fixedrange=True)
+    fig.update_yaxes(showticklabels=False, row=8, col=1)
     fig.show()
