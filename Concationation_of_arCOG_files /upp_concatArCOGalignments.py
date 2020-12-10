@@ -5,15 +5,15 @@ Date modified:	2020-11-27
 Description:    This script can concatenate ArCOG alignments trimmed with TrimAl
                 given lists of unique taxa, ArCOGs, and mapping file. Mapping file
                 should look like this:
-Acidianus_hospitalis_W1 arCOG00412      Acidianus_hospitali_332796271
-Acidianus_hospitalis_W1 arCOG01001      Acidianus_hospitali_332796274
-Acidianus_hospitalis_W1 arCOG04302      Acidianus_hospitali_332796279
-Acidianus_hospitalis_W1 arCOG04050      Acidianus_hospitali_332796311
-Acidianus_hospitalis_W1 arCOG01704      Acidianus_hospitali_332796333
-DSAG    arCOG04242      scaffold_58934_7
-DSAG    arCOG04243      scaffold_58934_8
-DSAG    arCOG04245      scaffold_103623_56
-DSAG    arCOG04254      scaffold_102356_18
+arCOG00412  Acidianus_hospitalis_W1     Acidianus_hospitali_332796271   
+arCOG01001  Acidianus_hospitalis_W1     Acidianus_hospitali_332796274
+arCOG04302  Acidianus_hospitalis_W1     Acidianus_hospitali_332796279 
+arCOG04050  Acidianus_hospitalis_W1     Acidianus_hospitali_332796311
+arCOG01704  Acidianus_hospitalis_W1     Acidianus_hospitali_332796333
+arCOG04242  DSAG    scaffold_58934_7 
+arCOG04243  DSAG    scaffold_58934_8
+arCOG04245  DSAG    scaffold_103623_56
+arCOG04254  DSAG    scaffold_102356_18
 
 
 Usage:          upp_concatArCOGalignments.py <taxa list> <ArCOG list> <Map file> <suffix>
