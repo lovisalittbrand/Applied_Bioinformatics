@@ -1,6 +1,6 @@
 '''Run visualization script like this:
 
-    python3 GLS_5.py file_likelihoods.sitelh file_partition.nexus PLOT_STYLE
+    python3 signal_vis2trees.py file_likelihoods.sitelh file_partition.nexus PLOT_STYLE
 
 where PLOT_STYLE can be any or all of the following: 
 -gs     - plots difference in log-likelihoods per gene, sorts them and shows them on one side of the x-axis (DEFAULT)
