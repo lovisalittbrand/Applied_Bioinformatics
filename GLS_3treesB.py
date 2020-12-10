@@ -44,6 +44,8 @@ style3_mode_site=args.style3_plot_site
 # import log likelihood per site for 3 different topologies: T1, T2 and T3 
 with open(file_likelihood) as log_likelihood:
     df_site_lk = pd.read_table(log_likelihood, delim_whitespace=True, header=None, index_col=0, lineterminator='\n', skiprows=1)
+tree_names = list(df_site_lk.index)     # take row indexes
+df_site_lk.index = ['Tree1', 'Tree2','Tree3']   #rename rows
 
 # calculate the intensity of the phylogenetic signal 
 df_site_lk.loc['Diff_site']=np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree2'].values) + np.absolute(df_site_lk.loc['Tree1'].values - df_site_lk.loc['Tree3'].values) + np.absolute(df_site_lk.loc['Tree2'].values - df_site_lk.loc['Tree3'].values)
@@ -114,24 +116,24 @@ if (style1_sorted == False and style2_two_sides == False and style3_mode_site ==
             )])
     
     fig.update_layout(  
-        title='Phylogenetic signal (difference in log-likelihood) per gene', title_x=0.5,
+        title='Phylogenetic signal (difference in log-likelihood) per gene<br>('+ file_likelihood+')', title_x=0.5,
         xaxis_title="Gene",
         yaxis_title=u"\u0394"+"GLS",
         annotations = [
         dict(x=1, y=1,
-            text="Tree 1", 
+            text=tree_names[0], 
             font=dict(size=20, color="green"),
             xref="paper", yref="paper", 
             showarrow=False),
         dict(x=1, y=0.95,
-            text="Tree 2",
+            text=tree_names[1],
             font=dict(size=20, color="red"),
             xref="paper", yref="paper", 
             showarrow=False,
             xanchor='auto'
             ),
         dict(x=1, y=0.90,
-            text="Tree 3",
+            text=tree_names[2],
             font=dict(size=20, color="blue"),
             xref="paper", yref="paper", 
             showarrow=False,
@@ -158,20 +160,18 @@ if style3_mode_site == True:
 
     # Create visulisation grid
     fig = make_subplots(
-      rows=10, cols=1,
+      rows=8, cols=1,
       shared_xaxes=True,
       vertical_spacing=0.03,
       specs=[[{"rowspan": 6}],
-            [None],
-            [None],
-            [None],
-            [None],
-            [None],
-            [None],
-            [{"rowspan": 1}],
-            [None],
-            [{}]]
-    )
+        [None],
+        [None],
+        [None],
+        [None],
+        [None],
+        [None],
+        [{"rowspan": 1}],]
+      )
     
     clrs2  = ['green' if i == "Tree1" else 'red' if i == 'Tree2' else 'blue' for i in df_site_lk.loc['Support']] 
     
@@ -184,22 +184,22 @@ if style3_mode_site == True:
             row=1, col=1)
     
     fig.update_layout(
-        title='Phylogenetic signal (difference in log-likelihood) per site', title_x=0.5,
+        title='Phylogenetic signal (difference in log-likelihood) per site <br>('+ file_likelihood+')', title_x=0.5,
          xaxis_title="Position",
         yaxis_title=u"\u0394"+"SLS",
         annotations = [
             dict(x=1, y=1,
-                text="Tree 1", 
+                text=tree_names[0], 
                 font=dict(size=20, color='green'),
                  xref="paper", yref="paper",
                 showarrow=False),
             dict(x=1, y=0.95,
-                text="Tree 2",
+                text=tree_names[1],
                 font=dict(size=20, color='red'),
                  xref="paper", yref="paper",
                 showarrow=False),
             dict(x=1, y=0.90,
-                 text="Tree 3",
+                 text=tree_names[2],
                  font=dict(size=20, color="blue"),
                  xref="paper", yref="paper", 
                  showarrow=False,
