@@ -24,11 +24,11 @@
 
 #-------------------------------------------------------------------------------
 # DATA
-#-------------------------------------------------------------------------------
+#-------------------------------------------------o------------------------------
 
 #Path to required parameters
 cogs_file="data/25AERibosomalProteins.lines" 
-unique_taxa="data/taxa.list"
+unique_taxa="data/AERibosomalProteins.taxa"
 mapping_arcogs="data/AERibosomalProteins.maps"
 
 

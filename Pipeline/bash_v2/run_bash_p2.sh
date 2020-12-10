@@ -46,6 +46,7 @@ awk '{sub(/Site_Lh/,"Tree2")}1' "data/4_iqtree/T2_ML.sitelh" > "data/4_iqtree/T2
 
 
 touch "data/4_iqtree/combined.sitelh"
+echo "This is a file containing site likelihoods from 2 topologies" >> "data/4_iqtree/combined.sitelh"
 sed -n 2p "data/4_iqtree/T1_ML_mod.sitelh" >> "data/4_iqtree/combined.sitelh"
 sed -n 2p "data/4_iqtree/T2_ML_mod.sitelh" >> "data/4_iqtree/combined.sitelh"
 

@@ -3,7 +3,7 @@ IQ-TREE 2.0.3 built Apr 26 2020
 Partition file name: data/3_concatenation/partition.nexus
 Input file name: data/3_concatenation/concatenation.fasta
 Type of analysis: tree reconstruction
-Random seed number: 534255
+Random seed number: 638824
 
 REFERENCES
 ----------
@@ -26,34 +26,34 @@ https://doi.org/10.1093/sysbio/syw037
 SEQUENCE ALIGNMENT
 ------------------
 
-Input data: 84 taxa with 25 partitions and 2531 total sites (14.4442% missing data)
+Input data: 78 taxa with 25 partitions and 2531 total sites (4.46413% missing data)
 
   ID  Name        Type	Seq	Site	Unique	Infor	Invar	Const
-   1  arCOG00780  AA	72	120	120	119	0	0
-   2  arCOG00781  AA	74	123	123	118	0	0
-   3  arCOG00782  AA	71	52	52	42	3	3
-   4  arCOG00785  AA	74	66	66	65	1	1
-   5  arCOG01344  AA	71	139	139	133	2	2
-   6  arCOG01885  AA	72	65	65	59	1	1
-   7  arCOG01946  AA	71	125	124	122	2	2
-   8  arCOG01950  AA	71	59	59	57	2	2
-   9  arCOG04049  AA	67	47	44	40	5	5
-  10  arCOG04089  AA	74	149	149	143	1	1
-  11  arCOG04093  AA	74	233	233	223	2	2
-  12  arCOG04108  AA	69	62	59	57	5	5
-  13  arCOG04109  AA	71	92	90	85	2	2
-  14  arCOG04126  AA	66	56	56	45	2	2
-  15  arCOG04129  AA	73	97	97	95	2	2
-  16  arCOG04154  AA	72	126	126	121	2	2
-  17  arCOG04177  AA	63	51	51	46	3	3
-  18  arCOG04182  AA	73	99	99	95	1	1
-  19  arCOG04183  AA	72	50	49	43	3	3
-  20  arCOG04186  AA	71	197	197	192	1	0
-  21  arCOG04208  AA	72	81	80	71	3	3
-  22  arCOG04209  AA	73	187	187	173	7	6
-  23  arCOG04287  AA	73	102	102	100	0	0
-  24  arCOG04314  AA	72	69	68	60	4	4
-  25  arCOG04473  AA	71	84	84	82	1	1
+   1  arCOG00780  AA	75	120	120	119	0	0
+   2  arCOG00781  AA	77	123	123	119	0	0
+   3  arCOG00782  AA	73	52	52	42	3	3
+   4  arCOG00785  AA	77	66	66	65	1	1
+   5  arCOG01344  AA	73	139	139	133	2	2
+   6  arCOG01885  AA	75	65	65	59	1	1
+   7  arCOG01946  AA	74	125	124	122	2	2
+   8  arCOG01950  AA	73	59	59	57	2	2
+   9  arCOG04049  AA	69	47	44	40	5	5
+  10  arCOG04089  AA	77	149	149	143	1	1
+  11  arCOG04093  AA	77	233	233	223	2	2
+  12  arCOG04108  AA	72	62	59	57	5	5
+  13  arCOG04109  AA	73	92	90	85	2	2
+  14  arCOG04126  AA	68	56	56	45	2	2
+  15  arCOG04129  AA	76	97	97	95	2	2
+  16  arCOG04154  AA	75	126	126	121	1	1
+  17  arCOG04177  AA	64	51	51	46	3	3
+  18  arCOG04182  AA	75	99	99	95	1	1
+  19  arCOG04183  AA	75	50	49	43	3	3
+  20  arCOG04186  AA	74	197	197	192	1	0
+  21  arCOG04208  AA	75	81	80	71	3	3
+  22  arCOG04209  AA	76	187	187	174	7	6
+  23  arCOG04287  AA	76	102	102	100	0	0
+  24  arCOG04314  AA	74	69	68	60	4	4
+  25  arCOG04473  AA	72	84	84	82	1	1
 
 Column meanings:
   Unique: Number of unique site patterns
@@ -67,223 +67,211 @@ SUBSTITUTION PROCESS
 Edge-linked-proportional partition model with separate substitution models and separate rates across sites
 
   ID  Model           Speed  Parameters
-   1  JTT+R3         1.0701  JTT+R3{0.105412,0.194846,0.383716,0.602193,0.510872,1.46493}
-   2  JTT+R3         1.1582  JTT+R3{0.185189,0.180196,0.345277,0.735666,0.469534,1.51772}
-   3  JTT+R3         0.8028  JTT+R3{0.31617,0.114402,0.237174,0.742769,0.446655,1.76347}
-   4  JTT+R3         1.1506  JTT+R3{0.0995624,0.0984076,0.481624,0.667791,0.418814,1.59636}
-   5  JTT+R3         1.0363  JTT+R3{0.264798,0.239406,0.44616,0.860542,0.289043,1.91206}
-   6  JTT+R3         1.0074  JTT+R3{0.138322,0.0565011,0.300397,0.484256,0.561281,1.50854}
-   7  JTT+R3         1.0444  JTT+R3{0.196895,0.23777,0.424469,0.775816,0.378636,1.64769}
-   8  JTT+R3         0.9381  JTT+R3{0.312619,0.321765,0.374039,0.953453,0.313341,1.73224}
-   9  JTT+R3         0.7382  JTT+R3{0.260208,0.119296,0.406114,0.81134,0.333679,1.9164}
-  10  JTT+R3         1.0159  JTT+R3{0.187235,0.180253,0.377211,0.626615,0.435554,1.67576}
-  11  JTT+R3         1.1679  JTT+R3{0.187957,0.211426,0.420534,0.758476,0.391509,1.63801}
-  12  JTT+R3         0.9304  JTT+R3{0.229156,0.204317,0.465696,0.858438,0.305148,1.81357}
-  13  JTT+R3         0.8316  JTT+R3{0.191483,0.14314,0.319237,0.595437,0.48928,1.5993}
-  14  JTT+R3         0.7221  JTT+R3{0.219053,0.0761194,0.296102,0.596465,0.484845,1.66385}
-  15  JTT+R3         1.0033  JTT+R3{0.11109,0.114478,0.472497,0.638223,0.416413,1.64674}
-  16  JTT+R3         0.9242  JTT+R3{0.373221,0.282039,0.344508,0.964532,0.282271,1.99258}
-  17  JTT+R3         0.8276  JTT+R3{0.17012,0.121992,0.593953,0.873781,0.235927,1.95087}
-  18  JTT+R3         1.5219  JTT+R3{0.0887354,0.12741,0.382084,0.607015,0.529181,1.43007}
-  19  JTT+R3         0.9383  JTT+R3{0.235468,0.102609,0.341703,0.736817,0.422829,1.71243}
-  20  JTT+R3         1.2412  JTT+R3{0.252367,0.332784,0.408805,0.87539,0.338827,1.64731}
-  21  JTT+R3         0.9313  JTT+R3{0.236543,0.140553,0.384511,0.778087,0.378946,1.76165}
-  22  JTT+R3         0.7862  JTT+R3{0.195831,0.148131,0.401125,0.696886,0.403044,1.71558}
-  23  JTT+R3         0.6858  JTT+R3{0.228039,0.348954,0.455164,0.863921,0.316798,1.66415}
-  24  JTT+R3         0.4746  JTT+R3{0.306745,0.174199,0.550687,1.00791,0.142569,2.74619}
-  25  JTT+R3         1.0831  JTT+R3{0.0855458,0.177528,0.513728,0.689384,0.400726,1.57379}
+   1  JTT+R3         1.0578  JTT+R3{0.0948128,0.174784,0.393333,0.594825,0.511854,1.46421}
+   2  JTT+R3         1.1582  JTT+R3{0.212871,0.207216,0.447259,0.860863,0.33987,1.67964}
+   3  JTT+R3         0.8020  JTT+R3{0.319401,0.117249,0.252048,0.765131,0.428551,1.79605}
+   4  JTT+R3         1.1458  JTT+R3{0.0944426,0.0911237,0.497115,0.668896,0.408442,1.61314}
+   5  JTT+R3         1.0519  JTT+R3{0.255985,0.238065,0.4472,0.849251,0.296814,1.88425}
+   6  JTT+R3         1.0142  JTT+R3{0.213818,0.132086,0.33667,0.686236,0.449512,1.64784}
+   7  JTT+R3         1.0482  JTT+R3{0.228712,0.261675,0.411539,0.821794,0.359748,1.67326}
+   8  JTT+R3         0.9263  JTT+R3{0.313202,0.320197,0.371291,0.945408,0.315507,1.73908}
+   9  JTT+R3         0.7334  JTT+R3{0.264189,0.122094,0.408823,0.822683,0.326988,1.93099}
+  10  JTT+R3         1.0136  JTT+R3{0.258239,0.235438,0.33085,0.712672,0.410912,1.71184}
+  11  JTT+R3         1.1773  JTT+R3{0.204059,0.227679,0.470841,0.827388,0.3251,1.73476}
+  12  JTT+R3         0.9272  JTT+R3{0.227641,0.210866,0.464414,0.848196,0.307945,1.81229}
+  13  JTT+R3         0.8276  JTT+R3{0.194987,0.146901,0.319018,0.60899,0.485996,1.59894}
+  14  JTT+R3         0.7189  JTT+R3{0.223326,0.0758968,0.290825,0.605139,0.48585,1.66113}
+  15  JTT+R3         0.9961  JTT+R3{0.107508,0.111822,0.46537,0.625048,0.427122,1.63209}
+  16  JTT+R3         0.9183  JTT+R3{0.375192,0.282905,0.349332,0.984523,0.275475,1.9963}
+  17  JTT+R3         0.8208  JTT+R3{0.171778,0.121669,0.575535,0.867489,0.252687,1.89891}
+  18  JTT+R3         1.5104  JTT+R3{0.0890588,0.128004,0.352432,0.586459,0.558509,1.4}
+  19  JTT+R3         0.9557  JTT+R3{0.231586,0.106199,0.332005,0.731021,0.436409,1.67894}
+  20  JTT+R3         1.2356  JTT+R3{0.198119,0.288383,0.407694,0.789621,0.394187,1.57525}
+  21  JTT+R3         0.9355  JTT+R3{0.236149,0.137863,0.37755,0.768893,0.386301,1.7529}
+  22  JTT+R3         0.7818  JTT+R3{0.192732,0.144956,0.39738,0.685151,0.409888,1.70729}
+  23  JTT+R3         0.6980  JTT+R3{0.200656,0.333702,0.447356,0.817381,0.351988,1.61193}
+  24  JTT+R3         0.4833  JTT+R3{0.305521,0.171866,0.545196,1.00433,0.149283,2.67903}
+  25  JTT+R3         1.0873  JTT+R3{0.0910061,0.184043,0.535191,0.708754,0.373803,1.61564}
 
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Log-likelihood of the tree: -265136.1897 (s.e. 2350.1415)
+Log-likelihood of the tree: -275627.4820 (s.e. 2437.0273)
 Unconstrained log-likelihood (without tree): -11939.4635
-Number of free parameters (#branches + #model parameters): 289
-Akaike information criterion (AIC) score: 530850.3794
-Corrected Akaike information criterion (AICc) score: 530925.1764
-Bayesian information criterion (BIC) score: 532537.0903
+Number of free parameters (#branches + #model parameters): 277
+Akaike information criterion (AIC) score: 551808.9640
+Corrected Akaike information criterion (AICc) score: 551877.3226
+Bayesian information criterion (BIC) score: 553425.6384
 
-Total tree length (sum of branch lengths): 38.1256
-Sum of internal branch lengths: 10.7166 (28.1087% of tree length)
+Total tree length (sum of branch lengths): 37.4513
+Sum of internal branch lengths: 10.4274 (27.8426% of tree length)
 
-NOTE: Tree is UNROOTED although outgroup taxon '15' is drawn at root
+NOTE: Tree is UNROOTED although outgroup taxon 'AR1' is drawn at root
 
-+----------------------------15
++-----AR1
 |
-|                            +--------AR1
-|        +-------------------|
-|        |                   +---------AR19
-|     +--|
-|     |  |  +-----------------AR15
-|     |  +--|
-|     |     |  +--------------AR20
-|     |     +--|
-|     |        +---------------Nano_AAA011_G17
-|  +--|
-|  |  +-----------------------Nanoarchaeum_equitans_Kin4_M
-+--|
-|  |                   +-------------AR10
-|  |  +----------------|
-|  |  |                +-------------Diapher_AAA011_E11
-|  +--|
-|     +---------------------------Altiarch
-|
-|                  +--------Aciduliprofundum_boonei_T469
+|                                +--------AR10
+|                     +----------|
+|                     |          +--------Diapher_AAA011_E11
+|                  +--|
+|                  |  +------------------Altiarch
 |               +--|
-|               |  |          +-----------Ferroplasma_acidarmanus_fer1
-|               |  +----------|
-|               |             +---------Thermoplasma_acidophilum_DSM
-|           +---|
-|           |   |  +------------MBGD_SCGC_AB539N05
-|           |   +--|
-|           |      +-------------Methanomassiliicoccus_lu_B10
-|        +--|
-|        |  |          +----Archaeoglobus_fulgidus_DSM_43
-|        |  |  +-------|
-|        |  |  |       +----Ferroglobus_placidus_DSM_1064
-|        |  +--|
-|        |     |                  +------Haloarcula_marismortui_ATCC_4
-|        |     |  +---------------|
-|        |     |  |               +-----Haloferax_volcanii_DS2
-|        |     +--|
-|        |        |     +-------------Methanocella_paludicola_SANAE
-|        |        |  +--|
-|        |        |  |  |  +----------Methanosaeta_thermophila_PT
-|        |        |  |  +--|
-|        |        |  |     +------------Methanosarcina_acetivorans_C2
-|        |        +--|
-|        |           |          +----------Methanocorpusculum_labreanum
-|        |           |       +--|
-|        |           |       |  +------Methanoculleus_marisnigri_JR1
-|        |           +-------|
-|        |                   +------Methanoplanus_petrolearius_DS
-|     +--|
-|     |  |               +----Methanobacterium_AL_21
-|     |  |            +--|
-|     |  |            |  +---------Methanosphaera_stadtmanae_DSM
-|     |  |        +---|
-|     |  |        |   +---Methanothermobacter_thermauto
-|     |  |  +-----|
-|     |  |  |     +-----Methanothermus_fervidus_DSM_2
-|     |  +--|
-|     |     |     +-----Methanocaldococcus_jannaschii
-|     |     +-----|
-|     |           +----------Methanococcus_maripaludis_C6
-|  +--|
-|  |  |          +--Pyrococcus_furiosus_DSM_3638
-|  |  +----------|
-|  |             +--Thermococcus_kodakarensis_KOD
-+--|
-   |                       +------------Aeropyrum_pernix_K1
-   |                    +--|
-   |                    |  +-----------Desulfurococcus_kamchatkensis
-   |                 +--|
-   |                 |  |  +----------Ignicoccus_hospitalis_KIN4_I
-   |                 |  +--|
-   |                 |     +------Pyrolobus_fumarii_1A
-   |              +--|
-   |              |  |          +----------Metallosphaera_cuprina_Ar_4
-   |              |  +----------|
-   |              |             +--------Sulfolobus_acidocaldarius_DSM
-   |           +--|
-   |           |  |           +------------Caldivirga_maquilingensis_IC
-   |           |  |        +--|
-   |           |  |        |  +--------Vulcanisaeta_distributa_DSM_1
-   |           |  |  +-----|
-   |           |  |  |     |   +------Pyrobaculum_aerophilum_IM2
-   |           |  |  |     +---|
-   |           |  |  |         +-----Thermoproteus_uzoniensis_768
-   |           |  +--|
-   |           |     +--------------Thermofilum_pendens_Hrk_5
-   |        +--|
-   |        |  +----------------------Geo_AAA471_B05
-   |     +--|
-   |     |  |              +---------Ca_Korarchaeum_cryptofilum_OP
-   |     |  |        +-----|
-   |     |  |        |     +--------Kor2
-   |     |  |     +--|
-   |     |  |     |  +----------------Kor1
-   |     |  +-----|
-   |     |        +-------------------Kor3
-   |  +--|
-   |  |  |            +----------Aiga_0000106_J15
-   |  |  |    +-------|
-   |  |  |    |       +---------------Caldiarchaeum_subterraneum
-   |  |  +----|
-   |  |       |              +-----------Ca_Nitrososphaera_gargensis_G
-   |  |       +--------------|
-   |  |                      |         +-------Cenarchaeum_symbiosum_A
-   |  |                      +---------|
-   |  |                                +----Nitrosopumilus_maritimus_SCM1
-   +--|
-      |                                                         +-----Arabidopsis_thaliana
-      |                                                      +--|
-      |                                                      |  +-----Chlamydomonas_reinhardtii
-      |                                                   +--|
-      |                                                   |  |  +---------Thalassiosira_pseudonana_CCMP
-      |                                                   |  +--|
-      |                                                   |     +----------Dictyostelium_discoideum_Tthermophila
-      |                                                +--|
-      |                                                |  |     +--Homo_sapiens
-      |                                                |  |  +--|
-      |                                                |  |  |  +------Dictyostelium_discoideum_Aeropyrum
-      |                                                |  +--|
-      |                                                |     +---------Saccharomyces_cerevisiae
-      |                                             +--|
-      |                                             |  |     +--------Dictyostelium_discoideum_Tvaginalis
-      |                                             |  |  +--|
-      |                                             |  |  |  +--------Thecamonas_trahens
-      |                                             |  +--|
-      |                                             |     +---------Dictyostelium_discoideum_Bnatans
-      |                                          +--|
-      |                                          |  +--------Dictyostelium_discoideum_Tpseudonana
-      |                                       +--|
-      |                                       |  |  +------------Plasmodium_falciparum
-      |                                       |  +--|
-      |                                       |     +--------------Tetrahymena_thermophila
-      |                                    +--|
-      |                                    |  |      +-----------Leishmania_infantum
-      |                                    |  |  +---|
-      |                                    |  |  |   +-----------Dictyostelium_discoideum_Ttrahens
-      |                                    |  +--|
-      |                                    |     |  +----------Naegleria_gruberi
-      |                                    |     +--|
-      |                                    |        +-------Dictyostelium_discoideum_Thermofilum
-      |                                 +--|
-      |                                 |  +---------Dictyostelium_discoideum_Linfantum
-      |                             +---|
-      |                             |   |  +-----------Entamoeba_histolytica_HM_1_IM
-      |                             |   +--|
-      |                             |      +-------Dictyostelium_discoideum_Ehistolytica
-      |                          +--|
-      |                          |  +------------------Trichomonas_vaginalis
-      |     +--------------------|
-      |     |                    +---Dictyostelium_discoideum_Thor83
-      |  +--|
-      |  |  +--------------------AAG_PM3
-      +--|
-         |          +----------------Loki
-         |  +-------|
-         |  |       +----------------LokiBf
-         +--|
-            |     +---------------Odin
-            |  +--|
-            |  |  +-------------------MCG_SCGC_AB539E09
-            +--|
-               |                 +--Thor45
-               |              +--|
-               |              |  +--ThorAarhus
-               +--------------|
-                              +---Thor83
+|               |  |  +-------------------AR5
+|               |  +--|
+|               |     |                 +-----Aciduliprofundum_boonei_T469
+|               |     |              +--|
+|               |     |              |  |      +-------Ferroplasma_acidarmanus_fer1
+|               |     |              |  +------|
+|               |     |              |         +------Thermoplasma_acidophilum_DSM
+|               |     |           +--|
+|               |     |           |  |  +--------MBGD_SCGC_AB539N05
+|               |     |           |  +--|
+|               |     |           |     +---------Methanomassiliicoccus_lu_B10
+|               |     |        +--|
+|               |     |        |  |       +--Archaeoglobus_fulgidus_DSM_43
+|               |     |        |  |  +----|
+|               |     |        |  |  |    +--Ferroglobus_placidus_DSM_1064
+|               |     |        |  +--|
+|               |     |        |     |             +----Haloarcula_marismortui_ATCC_4
+|               |     |        |     |  +----------|
+|               |     |        |     |  |          +---Haloferax_volcanii_DS2
+|               |     |        |     +--|
+|               |     |        |        |     +--------Methanocella_paludicola_SANAE
+|               |     |        |        |  +--|
+|               |     |        |        |  |  |  +------Methanosaeta_thermophila_PT
+|               |     |        |        |  |  +--|
+|               |     |        |        |  |     +-------Methanosarcina_acetivorans_C2
+|               |     |        |        +--|
+|               |     |        |           |       +------Methanocorpusculum_labreanum
+|               |     |        |           |    +--|
+|               |     |        |           |    |  +----Methanoculleus_marisnigri_JR1
+|               |     |        |           +----|
+|               |     |        |                +----Methanoplanus_petrolearius_DS
+|               |     |     +--|
+|               |     |     |  |            +--Methanobacterium_AL_21
+|               |     |     |  |         +--|
+|               |     |     |  |         |  +------Methanosphaera_stadtmanae_DSM
+|               |     |     |  |      +--|
+|               |     |     |  |      |  +--Methanothermobacter_thermauto
+|               |     |     |  |  +---|
+|               |     |     |  |  |   +---Methanothermus_fervidus_DSM_2
+|               |     |     |  +--|
+|               |     |     |     |   +---Methanocaldococcus_jannaschii
+|               |     |     |     +---|
+|               |     |     |         +------Methanococcus_maripaludis_C6
+|               |     |  +--|
+|               |     |  |  |      +--Pyrococcus_furiosus_DSM_3638
+|               |     |  |  +------|
+|               |     |  |         +--Thermococcus_kodakarensis_KOD
+|               |     +--|
+|               |        |                    +--------Aeropyrum_pernix_K1
+|               |        |                 +--|
+|               |        |                 |  |  +------Ignicoccus_hospitalis_KIN4_I
+|               |        |                 |  +--|
+|               |        |                 |     +----Pyrolobus_fumarii_1A
+|               |        |              +--|
+|               |        |              |  +-------Desulfurococcus_kamchatkensis
+|               |        |           +--|
+|               |        |           |  |      +-------Metallosphaera_cuprina_Ar_4
+|               |        |           |  +------|
+|               |        |           |         +-----Sulfolobus_acidocaldarius_DSM
+|               |        |        +--|
+|               |        |        |  |            +-------Caldivirga_maquilingensis_IC
+|               |        |        |  |         +--|
+|               |        |        |  |         |  +-----Vulcanisaeta_distributa_DSM_1
+|               |        |        |  |     +---|
+|               |        |        |  |     |   |  +---Pyrobaculum_aerophilum_IM2
+|               |        |        |  |     |   +--|
+|               |        |        |  |     |      +---Thermoproteus_uzoniensis_768
+|               |        |        |  |  +--|
+|               |        |        |  |  |  +---------Thermofilum_pendens_Hrk_5
+|               |        |        |  +--|
+|               |        |        |     +--------------Geo_AAA471_B05
+|               |        |     +--|
+|               |        |     |  |        +------Aiga_0000106_J15
+|               |        |     |  |  +-----|
+|               |        |     |  |  |     +----------Caldiarchaeum_subterraneum
+|               |        |     |  +--|
+|               |        |     |     |         +-------Ca_Nitrososphaera_gargensis_G
+|               |        |     |     +---------|
+|               |        |     |               |      +----Cenarchaeum_symbiosum_A
+|               |        |     |               +------|
+|               |        |     |                      +---Nitrosopumilus_maritimus_SCM1
+|               |        |  +--|
+|               |        |  |  |          +------Ca_Korarchaeum_cryptofilum_OP
+|               |        |  |  |      +---|
+|               |        |  |  |      |   +-----Kor2
+|               |        |  |  |   +--|
+|               |        |  |  |   |  +----------Kor1
+|               |        |  |  +---|
+|               |        |  |      +-------------Kor3
+|               |        +--|
+|               |           |                                          +---Arabidopsis_thaliana
+|               |           |                                       +--|
+|               |           |                                       |  +---Chlamydomonas_reinhardtii
+|               |           |                                    +--|
+|               |           |                                    |  |  +------Bigelowiella_natans
+|               |           |                                    |  +--|
+|               |           |                                    |     +-------Thalassiosira_pseudonana_CCMP
+|               |           |                                 +--|
+|               |           |                                 |  |  +---Homo_sapiens
+|               |           |                                 |  +--|
+|               |           |                                 |     +------Saccharomyces_cerevisiae
+|               |           |                              +--|
+|               |           |                              |  |  +------Dictyostelium_discoideum
+|               |           |                              |  +--|
+|               |           |                              |     +------Thecamonas_trahens
+|               |           |                           +--|
+|               |           |                           |  |  +--------Plasmodium_falciparum
+|               |           |                           |  +--|
+|               |           |                           |     +---------Tetrahymena_thermophila
+|               |           |                        +--|
+|               |           |                        |  |  +----------Leishmania_infantum
+|               |           |                        |  +--|
+|               |           |                        |     +---------Naegleria_gruberi
+|               |           |                     +--|
+|               |           |                     |  +---------Entamoeba_histolytica_HM_1_IM
+|               |           |     +---------------|
+|               |           |     |               +------------Trichomonas_vaginalis
+|               |           |  +--|
+|               |           |  |  |     +-------------Heimdall2
+|               |           |  |  |  +--|
+|               |           |  |  |  |  +---------AAG_PM3
+|               |           |  |  +--|
+|               |           |  |     +--------------Heimdall3
+|               |           +--|
+|               |              |       +-----------Loki
+|               |              |  +----|
+|               |              |  |    +-----------LokiBf
+|               |              +--|
+|               |                 |     +----------Odin
+|               |                 |  +--|
+|               |                 |  |  +------------MCG_SCGC_AB539E09
+|               |                 +--|
+|               |                    |            +--Thor45
+|               |                    |         +--|
+|               |                    |         |  +--ThorAarhus
+|               |                    +---------|
+|               |                              +--Thor83
+|            +--|
+|            |  +---------------Nanoarchaeum_equitans_Kin4_M
++------------|
+|            |  +-----------AR15
+|            +--|
+|               |  +---------AR20
+|               +--|
+|                  +---------Nano_AAA011_G17
+|
++------AR19
 
 Tree in newick format:
 
-(15:0.8446392733,((((AR1:0.2813200184,AR19:0.3041112239):0.5778587154,(AR15:0.5345940652,(AR20:0.4281382660,Nano_AAA011_G17:0.4567144273):0.1052467430):0.0897645056):0.1009586206,Nanoarchaeum_equitans_Kin4_M:0.6974183919):0.0989663091,((AR10:0.4122447956,Diapher_AAA011_E11:0.4015882603):0.5049194323,Altiarch:0.8016366803):0.1061674316):0.0369540287,((((((Aciduliprofundum_boonei_T469:0.2748600996,(Ferroplasma_acidarmanus_fer1:0.3581403397,Thermoplasma_acidophilum_DSM:0.2935070973):0.3280948606):0.1024473080,(MBGD_SCGC_AB539N05:0.3873701888,Methanomassiliicoccus_lu_B10:0.4249079483):0.0746550563):0.1352877010,((Archaeoglobus_fulgidus_DSM_43:0.1473447981,Ferroglobus_placidus_DSM_1064:0.1506837037):0.2395089506,((Haloarcula_marismortui_ATCC_4:0.2101628821,Haloferax_volcanii_DS2:0.1829445443):0.4813891866,((Methanocella_paludicola_SANAE:0.4029148668,(Methanosaeta_thermophila_PT:0.3346234756,Methanosarcina_acetivorans_C2:0.3750500511):0.0622498086):0.0462809424,((Methanocorpusculum_labreanum:0.3274072254,Methanoculleus_marisnigri_JR1:0.2178778666):0.0553293732,Methanoplanus_petrolearius_DS:0.2276016397):0.2403233907):0.0547952419):0.0779325897):0.0919124356):0.0550804189,((((Methanobacterium_AL_21:0.1512216531,Methanosphaera_stadtmanae_DSM:0.3055841842):0.0817826846,Methanothermobacter_thermauto:0.1365641562):0.1258716208,Methanothermus_fervidus_DSM_2:0.1867516995):0.1862258538,(Methanocaldococcus_jannaschii:0.1880340980,Methanococcus_maripaludis_C6:0.3141300811):0.1965766391):0.0423613977):0.0489797415,(Pyrococcus_furiosus_DSM_3638:0.0855803737,Thermococcus_kodakarensis_KOD:0.0966579576):0.3178272322):0.0450904001,((((((((Aeropyrum_pernix_K1:0.3705852577,Desulfurococcus_kamchatkensis:0.3493818207):0.0489923193,(Ignicoccus_hospitalis_KIN4_I:0.3167474567,Pyrolobus_fumarii_1A:0.2151435140):0.0513547181):0.0932215638,(Metallosphaera_cuprina_Ar_4:0.3343691977,Sulfolobus_acidocaldarius_DSM:0.2576813148):0.3194436309):0.0850251910,(((Caldivirga_maquilingensis_IC:0.3721928652,Vulcanisaeta_distributa_DSM_1:0.2762920766):0.0757530016,(Pyrobaculum_aerophilum_IM2:0.2007235699,Thermoproteus_uzoniensis_768:0.1979580804):0.1410850798):0.1952086434,Thermofilum_pendens_Hrk_5:0.4276238688):0.1123317278):0.0678571323,Geo_AAA471_B05:0.6645504738):0.0605287759,(((Ca_Korarchaeum_cryptofilum_OP:0.3012229711,Kor2:0.2579167465):0.1977232319,Kor1:0.4841852815):0.0770193111,Kor3:0.5879357201):0.1801622654):0.0358283121,((Aiga_0000106_J15:0.3306364409,Caldiarchaeum_subterraneum:0.4743975207):0.2559988408,(Ca_Nitrososphaera_gargensis_G:0.3532124070,(Cenarchaeum_symbiosum_A:0.2293122555,Nitrosopumilus_maritimus_SCM1:0.1702306364):0.2984854849):0.4433553226):0.1427840761):0.0588348085,(((((((((((((Arabidopsis_thaliana:0.1790212814,Chlamydomonas_reinhardtii:0.1717375902):0.0838133515,(Thalassiosira_pseudonana_CCMP:0.2927150608,Dictyostelium_discoideum_Tthermophila:0.3171994005):0.0768878071):0.0266353576,((Homo_sapiens:0.1090421813,Dictyostelium_discoideum_Aeropyrum:0.2008775745):0.0996820333,Saccharomyces_cerevisiae:0.2933855999):0.0639107599):0.0311966874,((Dictyostelium_discoideum_Tvaginalis:0.2653859257,Thecamonas_trahens:0.2726394637):0.0283592891,Dictyostelium_discoideum_Bnatans:0.2959709205):0.0570305382):0.0249274605,Dictyostelium_discoideum_Tpseudonana:0.2739186362):0.0248332781,(Plasmodium_falciparum:0.3918041866,Tetrahymena_thermophila:0.4349241336):0.0584176847):0.0458325007,((Leishmania_infantum:0.3656911018,Dictyostelium_discoideum_Ttrahens:0.3615346044):0.1321469790,(Naegleria_gruberi:0.3385349012,Dictyostelium_discoideum_Thermofilum:0.2283935242):0.1053427175):0.0837693538):0.0242891374,Dictyostelium_discoideum_Linfantum:0.3109343508):0.0266619443,(Entamoeba_histolytica_HM_1_IM:0.3597730908,Dictyostelium_discoideum_Ehistolytica:0.2369527826):0.0722890793):0.1179529140,Trichomonas_vaginalis:0.5550875292):0.0771058438,Dictyostelium_discoideum_Thor83:0.1405149692):0.6063859862,AAG_PM3:0.6151192592):0.0844153741,((Loki:0.5061513877,LokiBf:0.5042792501):0.2396121078,((Odin:0.4662428984,MCG_SCGC_AB539E09:0.5710655686):0.0554318300,((Thor45:0.0545277840,ThorAarhus:0.0631987184):0.0788587197,Thor83:0.1177353623):0.4292749295):0.0593317021):0.0608494184):0.0471463086):0.0885034896):0.0538825667);
+(AR1:0.2803385997,(((((AR10:0.4128719331,Diapher_AAA011_E11:0.4002131752):0.5005167129,Altiarch:0.8068588567):0.1035369645,(AR5:0.8431651037,((((((Aciduliprofundum_boonei_T469:0.2746156308,(Ferroplasma_acidarmanus_fer1:0.3573915513,Thermoplasma_acidophilum_DSM:0.2937685686):0.3271520834):0.1025829869,(MBGD_SCGC_AB539N05:0.3880460407,Methanomassiliicoccus_lu_B10:0.4282156027):0.0735334639):0.1330016791,((Archaeoglobus_fulgidus_DSM_43:0.1473760531,Ferroglobus_placidus_DSM_1064:0.1506618392):0.2406337318,((Haloarcula_marismortui_ATCC_4:0.2107240029,Haloferax_volcanii_DS2:0.1824882111):0.4815454946,((Methanocella_paludicola_SANAE:0.4039444908,(Methanosaeta_thermophila_PT:0.3349065476,Methanosarcina_acetivorans_C2:0.3757474810):0.0621982671):0.0470595909,((Methanocorpusculum_labreanum:0.3272140362,Methanoculleus_marisnigri_JR1:0.2183536750):0.0554933940,Methanoplanus_petrolearius_DS:0.2278941320):0.2393842983):0.0551904930):0.0772917703):0.0923077541):0.0550820382,((((Methanobacterium_AL_21:0.1514079646,Methanosphaera_stadtmanae_DSM:0.3057220519):0.0814073083,Methanothermobacter_thermauto:0.1370234844):0.1258636126,Methanothermus_fervidus_DSM_2:0.1868147265):0.1857394898,(Methanocaldococcus_jannaschii:0.1892281539,Methanococcus_maripaludis_C6:0.3125121251):0.1979264028):0.0417425939):0.0494342673,(Pyrococcus_furiosus_DSM_3638:0.0854428040,Thermococcus_kodakarensis_KOD:0.0970112548):0.3172402260):0.0394700581,(((((((Aeropyrum_pernix_K1:0.3867024602,(Ignicoccus_hospitalis_KIN4_I:0.3196059901,Pyrolobus_fumarii_1A:0.2110078338):0.0496234909):0.0401678164,Desulfurococcus_kamchatkensis:0.3595909570):0.0842925026,(Metallosphaera_cuprina_Ar_4:0.3397255599,Sulfolobus_acidocaldarius_DSM:0.2533368546):0.3129401152):0.0991519846,((((Caldivirga_maquilingensis_IC:0.3709532039,Vulcanisaeta_distributa_DSM_1:0.2776561038):0.0750048835,(Pyrobaculum_aerophilum_IM2:0.2001991392,Thermoproteus_uzoniensis_768:0.1989724750):0.1419023289):0.1983466755,Thermofilum_pendens_Hrk_5:0.4222389697):0.0759261738,Geo_AAA471_B05:0.6684643512):0.0550258671):0.0836643410,((Aiga_0000106_J15:0.3294752946,Caldiarchaeum_subterraneum:0.4707280048):0.2573071897,(Ca_Nitrososphaera_gargensis_G:0.3501423183,(Cenarchaeum_symbiosum_A:0.2297208406,Nitrosopumilus_maritimus_SCM1:0.1700430981):0.3017462973):0.4458981643):0.1359937776):0.0408668745,(((Ca_Korarchaeum_cryptofilum_OP:0.2997779325,Kor2:0.2597074799):0.1970253660,Kor1:0.4854928501):0.0764303123,Kor3:0.5897456997):0.1869915885):0.0720533927,((((((((((Arabidopsis_thaliana:0.1810026814,Chlamydomonas_reinhardtii:0.1729851428):0.0861483757,(Bigelowiella_natans:0.3067899260,Thalassiosira_pseudonana_CCMP:0.3382432919):0.0469289809):0.0234509435,(Homo_sapiens:0.2064114547,Saccharomyces_cerevisiae:0.2975002831):0.0686772855):0.0323446016,(Dictyostelium_discoideum:0.2989448672,Thecamonas_trahens:0.3260119159):0.0510986349):0.0385782562,(Plasmodium_falciparum:0.3945817566,Tetrahymena_thermophila:0.4369869280):0.0634309286):0.0521079133,(Leishmania_infantum:0.4920516084,Naegleria_gruberi:0.4457903801):0.0808584781):0.0530138430,Entamoeba_histolytica_HM_1_IM:0.4223205544):0.1153905307,Trichomonas_vaginalis:0.5501689271):0.7048022168,((Heimdall2:0.6283925628,AAG_PM3:0.4500905752):0.1149857751,Heimdall3:0.6537181786):0.0924538450):0.0495327850,((Loki:0.5036537936,LokiBf:0.5060258716):0.2389102374,((Odin:0.4640491346,MCG_SCGC_AB539E09:0.5699921797):0.0582781986,((Thor45:0.0544717533,ThorAarhus:0.0634151503):0.0784390267,Thor83:0.1181606176):0.4315887020):0.0586727836):0.0560236119):0.0606701440):0.0841417848):0.0541041759):0.0390334555):0.1002262579,Nanoarchaeum_equitans_Kin4_M:0.6935380653):0.1029413601,(AR15:0.5354767268,(AR20:0.4290123353,Nano_AAA011_G17:0.4567057953):0.1040031341):0.0911127644):0.5797532483,AR19:0.3041508484);
 
 TIME STAMP
 ----------
 
-Date and time: Mon Dec  7 17:00:22 2020
-Total CPU time used: 2297.09 seconds (0h:38m:17s)
-Total wall-clock time used: 2800.83 seconds (0h:46m:40s)
+Date and time: Thu Dec 10 12:22:50 2020
+Total CPU time used: 1258.79 seconds (0h:20m:58s)
+Total wall-clock time used: 1300.2 seconds (0h:21m:40s)
 

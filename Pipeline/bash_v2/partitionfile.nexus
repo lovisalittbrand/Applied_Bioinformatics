@@ -1,5 +1,0 @@
-#nexus
-begin sets;
-	charset arCOG04067 = 1-288;
-	charset arCOG04070 = 289-482;
-end;
