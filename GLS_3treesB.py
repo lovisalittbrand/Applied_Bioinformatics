@@ -220,7 +220,8 @@ if style3_mode_site == True:
         marker=dict(color=[f'rgb({np.random.randint(0,256)}, {np.random.randint(0,256)}, {np.random.randint(0,256)})' for _ in range(25)]),
             ),  
         row=8, col=1)
-    fig.update_layout(uniformtext_minsize=10, uniformtext_mode = 'hide')
+    fig.update_layout( xaxis2_title="Gene",
+                      uniformtext_minsize=10, uniformtext_mode = 'hide')
     fig.update_yaxes(fixedrange=True)
     fig.update_yaxes(showticklabels=False, row=8, col=1)
     fig.show()
