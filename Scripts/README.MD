@@ -6,4 +6,4 @@ This folder contains the scripts of the project, used in the pipeline to obtain 
 * dna_color.txt - contains the coloring scheme of the nucleotides in the frequency plot. It can be modified according to the user's preference.
 * signal_vis2trees.py - visualize phylogenetic signal per site and per gene for two conflicting topologies.
 * signal_vis3trees.py - visualize phylogenetic signal per site and per gene for three conflicting topologies
-* site_remover.py - removes genes in order to investigate the effect of their absence on gene signal, support and tree topology.
+* site_remover.py - removes sites in order to investigate the effect of their absence on gene signal, support and tree topology.
