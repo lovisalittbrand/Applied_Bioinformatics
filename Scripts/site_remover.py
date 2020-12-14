@@ -1,7 +1,7 @@
 # A script that removes specified sites in a MSA. The sites that shall be removed should be written in a separate texfile as blankspace separated integers.
 # Example: python3 site_remover.py alignemnt_file sites_to_remove_file output_file -pf partition_file
 # alignment_file: the MSA in fasta format
-# sites_to_remove_file: file with integers on one line separated by blankspace
+# sites_to_remove_file: file with integers on each line representing sites to remove
 # output_file: Specify name fo output file
 # partition_file: Optional parameter that updates the nexus partition file according to which sites that were removed.
 

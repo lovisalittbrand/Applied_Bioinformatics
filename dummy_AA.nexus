@@ -1,5 +1,0 @@
-#nexus
-begin sets;
-	charset gene 1 = 1-150;
-	charset gene 2 = 151-382;
-end;

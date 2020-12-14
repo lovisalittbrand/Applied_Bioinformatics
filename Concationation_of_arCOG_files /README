@@ -1,2 +1,0 @@
-Run concatination:
-python3 scripts/upp_concatArCOGalignments.py -t our_unique_taxa.list -c subset -m mapping_rcog.maps -s _aln.fasta -f fasta_files
