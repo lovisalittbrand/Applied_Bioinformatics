@@ -1,5 +1,5 @@
 # Visualize Signals in Alignment
-This github contains all the files all data presented in the report Visualize Signals in Alignment
+This github contains all the files all data presented in the report Visualize Signals in Alignmen. This project was done by Mirela Balan, Erik Bürger and Lovisa Littbrand.
 
 ## Pipeline
 This folder contains the pipeline that can handle the arCOG data, it also contains the raw arCOG data and some results.
