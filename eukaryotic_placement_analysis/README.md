@@ -1,5 +1,5 @@
 # Eukaryotic placement analysis
-This folder conatins the data that were explianed in Eukaryotic placement analysis chaper in the report. This data was given tu the group by the client
+This folder conatins the data that were explianed in Eukaryotic placement analysis chaper in the report. This data was given to the group by the client
 
 ## BAE_EFG_versus_noEFG
 This file contains the site likelihoods for the two trees that arises when the EF-G gene is or is not included.
