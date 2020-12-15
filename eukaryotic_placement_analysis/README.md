@@ -10,5 +10,5 @@ This file contains the partition file for the the dataset of 49 arCOGs including
 ## Trees
 The trees folder contains the two resulting trees that arises when the EF-G gene is or is not included.
   - **UniMarkers_withEFG_iqtreeC60_EFGout.treefile:**  Contains the tree that arises when not including the EF-G gene  
-  - **UniMarkers_withEFG_iqtreeC60_EFGout.treefile:**  Contains the tree that arises when including the EF-G gene
+  - **UniMarkers_withEFG_iqtreeC60.treefile:**  Contains the tree that arises when including the EF-G gene
     
